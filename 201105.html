@@ -9,33 +9,77 @@
   </head>
   <body>
     <header>
-      <!-- 가운데 정렬용 -->
-      <div class="center-align">
-        <div class="header-top">
-          <span class="naver-start"><a href="#">네이버를 시작페이지로</a></span>
-          <span class="jr-hap"><a href="#">쥬니어네이버</a></span>
-          <span class="jr-hap"><a href="#">해피빈</a></span>
+      <div id="hd">
+        <div class="center-align">
+          <div class="header-top">
+            <span class="naver-start"
+              ><a href="#">네이버를 시작페이지로</a></span
+            >
+            <span class="jr-hap"><a href="#">쥬니어네이버</a></span>
+            <span class="jr-hap"><a href="#">해피빈</a></span>
+          </div>
+          <div class="logo">
+            <h1>
+              <a href="#" class="logo_naver">
+                <span class="sr-only">네이버</span>
+              </a>
+            </h1>
+          </div>
+          <form action="#" class="search">
+            <fieldset>
+              <legend class="sr-only">검색창</legend>
+              <input type="text" id="search-input" />
+              <span id="search-keyboard"></span>
+              <span id="search-history"></span>
+              <button type="submit" id="search-btn">
+                <span class="sr-only">검색</span>
+                <span class="search-img"></span>
+              </button>
+            </fieldset>
+          </form>
         </div>
-        <div class="logo">
-          <h1>
-            <a href="#" class="logo_naver">
-              <span class="sr-only">네이버</span>
-            </a>
-          </h1>
-        </div>
-        <form action="#" class="search">
-          <fieldset>
-            <legend class="sr-only">검색창</legend>
-            <input type="text" id="search-input" />
-            <span id="search-keyboard"></span>
-            <span id="search-history"></span>
-            <button type="submit" id="search-btn">
-              <span class="sr-only">검색</span>
-              <span class="search-img"></span>
-            </button>
-          </fieldset>
-        </form>
       </div>
     </header>
+    <nav>
+      <div id="nv">
+        <div class="center-align">
+          <div class="nav-group">
+            <ul class="nav-menu">
+              <li>
+                <a href="#" class="gp1"><i class="mail"></i>메일</a>
+              </li>
+              <li><a href="#" class="gp1">카페</a></li>
+              <li><a href="#" class="gp1">블로그</a></li>
+              <li><a href="#" class="gp1">지식in</a></li>
+              <li><a href="#" class="gp1">쇼핑</a></li>
+              <li><a href="#" class="gp1">Pay</a></li>
+              <li>
+                <a href="#" class="gp1"> <i class="tv"></i>TV</a>
+              </li>
+              <li><a href="#" class="gp2">사전</a></li>
+              <li><a href="#" class="gp2">뉴스</a></li>
+              <li><a href="#" class="gp2">증권</a></li>
+              <li><a href="#" class="gp2">부동산</a></li>
+              <li><a href="#" class="gp2">지도</a></li>
+              <li><a href="#" class="gp2">영화</a></li>
+              <li><a href="#" class="gp2">VIBE</a></li>
+              <li><a href="#" class="gp2">책</a></li>
+              <li><a href="#" class="gp2">웹툰</a></li>
+            </ul>
+            <div class="more">
+              <a href="#"
+                >더보기
+                <i class="more-icon"></i>
+              </a>
+            </div>
+            <div class="search-ranking">
+              <span class="rank-number">1</span>
+              <span class="rank-title">다음</span>
+              <i class="more-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   </body>
 </html>

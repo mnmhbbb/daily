@@ -22,14 +22,20 @@ a {
   width: 1130px;
   height: 100%;
   margin: 0 auto;
-  padding: 50px 30px;
+}
+
+/* header */
+
+.hd {
+  width: 1130px;
+  height: 160px;
 }
 
 .header-top {
   position: absolute;
   top: 12px;
   right: 27px;
-  padding: 10px;
+  padding-bottom: 10px;
   font-size: 10px;
   display: flex;
   align-items: center;
@@ -52,6 +58,7 @@ a {
   width: 26px;
   height: 26px;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .jr-hap {
@@ -61,6 +68,7 @@ a {
 }
 
 .logo_naver {
+  margin: 50px 0;
   display: inline-block;
   width: 222px;
   height: 52px;
@@ -80,7 +88,7 @@ fieldset {
   position: absolute;
   top: 50%;
   left: 275px;
-  width: 470px;
+  width: 480px;
   height: 55px;
   margin-top: -18px;
   display: flex;
@@ -146,4 +154,97 @@ fieldset {
   background-size: 440px 410px;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+/* nav */
+#nv {
+  border-top: 1px solid #e4e8eb;
+  border-bottom: 1px solid #e4e8eb;
+  padding: 8px 0;
+}
+
+.nav-group {
+  display: flex;
+  padding: 0;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.nav-menu {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu > li {
+  margin: 0 15px 0 0;
+  list-style: none;
+}
+
+.gp1 {
+  color: #03c75a;
+  display: inline-block;
+}
+
+.mail {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-position: -228px -386px;
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  vertical-align: top;
+  margin: 3px 8px 0 0;
+}
+
+.tv {
+  display: inline-block;
+  width: 12px;
+  height: 14px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-position: -256px -212px;
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  vertical-align: top;
+  margin: 9px 2px 0 0;
+}
+
+.gp2 {
+  color: #000;
+}
+
+.more {
+  display: block;
+  margin-left: 20px;
+}
+
+.more-icon {
+  display: inline-block;
+  background-image: url(./sp_main_1f05c0.png);
+  background-repeat: no-repeat;
+  background-position: -319px -258px;
+  background-size: 440px 410px;
+  width: 11px;
+  height: 7px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.search-ranking {
+  display: inline-block;
+  margin: 0;
+}
+
+.rank-number {
+  color: #03c75a;
+  margin: 15px;
+}
+
+.rank-title {
+  margin-right: 160px;
 }
