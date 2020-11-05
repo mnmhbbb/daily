@@ -3,14 +3,6 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: black;
-  padding: 10px;
-}
-
 i {
   color: white;
 }
@@ -18,6 +10,14 @@ i {
 a {
   text-decoration: none;
   color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px;
 }
 
 .navbar__logo {
@@ -60,7 +60,6 @@ a {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
   }
 
   .navbar__menu {

@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sr-only {
+  overflow: hidden;
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.center-align {
+  position: relative;
+  width: 1130px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 50px 30px;
+}
+
+.header-top {
+  position: absolute;
+  top: 12px;
+  right: 27px;
+  padding: 10px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.naver-start {
+  display: inline-block;
+  padding-top: 3px;
+}
+
+.naver-start::after {
+  margin: -3px 5px 0 3px;
+  content: "";
+  display: inline-block;
+  background-image: url(./sp_main_1f05c0.png);
+  background-repeat: no-repeat;
+  background-position: -382px -213px;
+  background-size: 440px 410px;
+  vertical-align: top;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.jr-hap {
+  display: inline-block;
+  margin-top: -7px;
+  margin-right: 5px;
+}
+
+.logo_naver {
+  display: inline-block;
+  width: 222px;
+  height: 52px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-position: 0 -158px;
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+}
+
+fieldset {
+  border: 0;
+  position: relative;
+}
+
+.search {
+  position: absolute;
+  top: 50%;
+  left: 275px;
+  width: 470px;
+  height: 55px;
+  margin-top: -18px;
+  display: flex;
+  border: 2px solid #19ce60;
+}
+
+#search-input {
+  width: 440px;
+  height: 24px;
+  display: inline-block;
+  padding: 20px 8px;
+  border: 0;
+  outline: none;
+  font-size: 20px;
+}
+
+#search-btn {
+  width: 55px;
+  height: 55px;
+  background-color: #19ce60;
+  border-radius: 0 2px 2px 0;
+  border: 0;
+  display: inline-block;
+  position: absolute;
+  right: -55px;
+  top: -2px;
+  cursor: pointer;
+}
+
+.search-img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-position: -180px -386px;
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+}
+
+#search-keyboard {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: block;
+  width: 20px;
+  height: 10px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-position: -420px -248px;
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+#search-history {
+  position: absolute;
+  top: 23px;
+  right: 10px;
+  display: block;
+  width: 10px;
+  height: 5px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-position: -404px -258px;
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
