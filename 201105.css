@@ -5,6 +5,7 @@
 
 a {
   text-decoration: none;
+  color: #000;
 }
 
 .sr-only {
@@ -220,7 +221,7 @@ fieldset {
 
 .more {
   display: block;
-  margin-left: 20px;
+  margin: 0 10px;
 }
 
 .more-icon {
@@ -235,18 +236,70 @@ fieldset {
   cursor: pointer;
 }
 
+.search-icon {
+  display: inline-block;
+  background-image: url(./sp_main_1f05c0.png);
+  background-repeat: no-repeat;
+  background-position: -319px -258px;
+  background-size: 440px 410px;
+  width: 11px;
+  height: 7px;
+  margin-left: 120px;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+
 .search-ranking {
+  position: relative;
   display: inline-block;
   margin: 0;
+  cursor: pointer;
 }
 
 .rank-number {
   color: #03c75a;
-  margin: 15px;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .rank-title {
-  margin-right: 160px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.search-charts {
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: -15px;
+  width: 290px;
+  background-color: #fff;
+  display: none;
+  cursor: pointer;
+}
+
+.search-charts ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-charts li {
+  padding: 5px 0;
+}
+
+.search-charts .rank-title {
+  margin-right: 10px;
+}
+
+.search-charts .rank-number {
+  margin-left: 20px;
+}
+
+.search-ranking:hover .search-charts {
+  display: inline-block;
 }
 
 /* main */
@@ -264,20 +317,26 @@ fieldset {
   width: 755px;
   height: 133px;
   margin-left: 0;
-  background-color: #e5e5e5;
+  background-image: url(https://ssl.pstatic.net/tveta/libs/1306/1306993/38045339f1a38da82c46_20201105115947010.jpg);
+  background-size: contain;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .login {
   display: inline-block;
   width: 350px;
   height: 135px;
-  margin: 0;
+  margin: -2px 0 10px 18px;
   background-color: #e5e5e5;
 }
 
-.second-news-weather {
+/* 2nd */
+
+#second-news-weather {
   display: flex;
+  height: 250px;
+  margin-bottom: 30px;
 }
 
 .news-group {
@@ -286,7 +345,7 @@ fieldset {
 
 .news-header {
   width: 755px;
-  background-color:#e5e5e5;
+  background-color: #e5e5e5;
   display: flex;
   padding: 10px 0;
   font-size: 13px;
@@ -297,27 +356,79 @@ fieldset {
   margin-left: 20px;
 }
 
-.com-icon{
-    display: inline-block;
-    width:6px;
-    height: 10px;
-    background-image: url(./sp_main_1f05c0.png);
-    background-size: 440px 410px;
-    background-repeat: no-repeat;
-    background-position: -262px -125px;
-    margin: 0 5px ;
-    cursor: pointer;
-
+.com-icon {
+  display: inline-block;
+  width: 6px;
+  height: 10px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  background-position: -262px -125px;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 .cate-issue {
   margin-right: 20px;
 }
 
-.cate-issue a:first-child{
-    color:#3565c9;
-    content: "";
-   
+.cate-issue a:first-child {
+  color: #3565c9;
+  content: "";
+}
+
+.news-list h3 {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #e5e5e5;
+}
+
+.news-list a {
+  color: #000;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.news-list h3::before {
+  content: "";
+  display: inline-block;
+  background-image: url(./sp_main_1f05c0.png);
+  background-repeat: no-repeat;
+  background-size: 440px 410px;
+  background-position: -228px -296px;
+  width: 27px;
+  height: 24px;
+}
+
+.news-list h3::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 10px;
+  background-image: url(./sp_main_1f05c0.png);
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  background-position: -262px -125px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.news-ul {
+  width: 755px;
+  margin-left: 0;
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.news-ul li {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 120px;
+  padding: 25px 0;
+  cursor: pointer;
 }
 
 .weather-group {
@@ -326,15 +437,139 @@ fieldset {
 }
 
 .weather {
-  background-color:#e5e5e5;
+  background-color: #e5e5e5;
   display: flex;
   padding: 10px 0;
   margin-bottom: 10px;
 }
 
 .second-ad {
-  background-color: #e5e5e5
+  background-image: url(https://ssl.pstatic.net/tveta/libs/1296/1296176/345f077cc26f654cb5b2_20201105102822522.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 350px;
   height: 250px;
   margin: 0;
+  cursor: pointer;
+}
+
+.notice {
+  border-top: 1px solid #e4e8eb;
+  border-bottom: 1px solid #e4e8eb;
+  padding: 20px 0;
+}
+
+.Creators-group {
+  display: flex;
+}
+
+.Developers-group {
+  display: flex;
+}
+
+.notice-margin {
+  margin: 10px;
+}
+
+.notice-margin:nth-child(1) {
+  margin: 10px 0;
+}
+
+/* 3rd */
+
+#third-category-article {
+  width: 755px;
+  margin: 0;
+}
+
+.theme-head-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-area {
+  margin-left: 0;
+  font-size: 14px;
+}
+
+.title-area span {
+  font-size: 12px;
+}
+
+.info-area {
+  margin-right: 0;
+}
+
+.info-area span {
+  margin-right: 10px;
+}
+
+.info-area span strong {
+  margin-right: 5px;
+}
+
+.info-area a::before {
+  content: "";
+  display: inline-block;
+  background-image: url(./sp_main_1f05c0.png);
+  background-repeat: no-repeat;
+  background-size: 440px 410px;
+  background-position: -319px -308px;
+  width: 11px;
+  height: 11px;
+  margin-right: 5px;
+}
+
+.theme-fix-wrap {
+  position: relative;
+}
+
+#theme-prev,
+#theme-next {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-image: url(./sp_main_1f05c0.png);
+  background-repeat: no-repeat;
+  background-size: 440px 410px;
+  border: none;
+  cursor: pointer;
+}
+
+#theme-prev {
+  background-position: -86px -342px;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+#theme-next {
+  background-position: -128px -342px;
+  position: absolute;
+  top: 5px;
+  right: -5px;
+}
+
+.theme-list {
+  width: 755px;
+  height: 48px;
+  /* white-space: nowrap; */
+  overflow: hidden;
+}
+
+.theme-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.theme-list li {
+  width: 94px;
+  height: 48px;
+  text-align: center;
+  border: 1px solid #e4e8eb;
+  display: block;
+  padding-top: 13px;
 }
