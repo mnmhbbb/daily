@@ -248,3 +248,93 @@ fieldset {
 .rank-title {
   margin-right: 160px;
 }
+
+/* main */
+
+#mn {
+  padding: 20px;
+}
+
+.first-ad-login {
+  display: flex;
+}
+
+.ad {
+  display: inline-block;
+  width: 755px;
+  height: 133px;
+  margin-left: 0;
+  background-color: #e5e5e5;
+  margin-bottom: 10px;
+}
+
+.login {
+  display: inline-block;
+  width: 350px;
+  height: 135px;
+  margin: 0;
+  background-color: #e5e5e5;
+}
+
+.second-news-weather {
+  display: flex;
+}
+
+.news-group {
+  margin-right: 25px;
+}
+
+.news-header {
+  width: 755px;
+  background-color:#e5e5e5;
+  display: flex;
+  padding: 10px 0;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.com-issue {
+  margin-left: 20px;
+}
+
+.com-icon{
+    display: inline-block;
+    width:6px;
+    height: 10px;
+    background-image: url(./sp_main_1f05c0.png);
+    background-size: 440px 410px;
+    background-repeat: no-repeat;
+    background-position: -262px -125px;
+    margin: 0 5px ;
+    cursor: pointer;
+
+}
+
+.cate-issue {
+  margin-right: 20px;
+}
+
+.cate-issue a:first-child{
+    color:#3565c9;
+    content: "";
+   
+}
+
+.weather-group {
+  width: 350px;
+  margin: 0;
+}
+
+.weather {
+  background-color:#e5e5e5;
+  display: flex;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.second-ad {
+  background-color: #e5e5e5
+  width: 350px;
+  height: 250px;
+  margin: 0;
+}
