@@ -28,7 +28,8 @@ li {
   color: greenyellow;
 }
 
-.nav-logo a {
+.nav-logo h1 {
+  display: inline-block;
   font-weight: 900;
 }
 
