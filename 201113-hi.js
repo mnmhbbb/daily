@@ -1,5 +1,5 @@
 const nameForm = document.querySelector('.js-input');
-const nameInput = document.querySelector('input');
+const nameInput = nameForm.querySelector('input');
 const greeting = document.querySelector('.js-hi')
 
 const USER_LS = 'userName';
