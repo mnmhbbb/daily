@@ -160,7 +160,6 @@ header .icons .fa-search {
   border-bottom: 1px solid var(--grey-light-color);
 }
 
-/*info*/
 .channel .metadata {
   display: flex;
   align-items: center;
