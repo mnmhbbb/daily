@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  padding: 20px;
+  background-color: #e5e5e5;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+input,
+input:focus {
+  outline: none;
+  border: none;
+  width: 120px;
+  height: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}

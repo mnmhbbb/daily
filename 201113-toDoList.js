@@ -1,6 +1,7 @@
 const toDoForm = document.querySelector(".js-toDoInput");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector(".js-toDoList");
+const doneList = document.querySelector(".js-doneList");
 
 const TODOS_LS = "toDos"; //로컬스토리지에 저장될 key
 
@@ -10,11 +11,19 @@ function deleteTodo(e) {
   const btn = e.target;
   const li = btn.parentNode;
   toDoList.removeChild(li);
-  const cleanToDos = toDos.filter(function (toDo) {
+  const cleanDone = toDos.filter(function (toDo) {
     return toDo.id !== parseInt(li.id);
   }); //toDos의 id들이 li의 id와 같지 않은 것(=제거할 li를 제거한 상태)***
-  toDos = cleanToDos;
-  saveToDos();
+  // toDos = cleanDone;
+  console.log(cleanDone);
+  // saveToDos();
+}
+
+function doneToDo(e) {
+  const donebtn = e.target;
+  const li = donebtn.parentNode;
+  toDoList.removeChild(li);
+  doneList.appendChild(li);
 }
 
 // 입력한 일 화면에 보이게 하기
@@ -22,9 +31,12 @@ function paintToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   delBtn.innerText = "❌";
+  const checkBtn = document.createElement("button");
+  checkBtn.innerText = "⭕";
   delBtn.addEventListener("click", deleteTodo); // X버튼 눌렀을 때 지워지게 할 이벤트리스너
   const span = document.createElement("span");
   span.innerText = text; //입력받은 글이 적힐 곳
+  li.appendChild(checkBtn);
   li.appendChild(span);
   li.appendChild(delBtn);
   toDoList.appendChild(li); //ul 밑에 li 넣기
