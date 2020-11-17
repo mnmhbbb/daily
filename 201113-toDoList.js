@@ -1,4 +1,4 @@
-const toDoForm = document.querySelector(".js-toDoInput");
+const toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector(".js-toDoList");
 const doneList = document.querySelector(".js-doneList");
@@ -11,14 +11,16 @@ function deleteTodo(e) {
   const btn = e.target;
   const li = btn.parentNode;
   toDoList.removeChild(li);
+
   const cleanDone = toDos.filter(function (toDo) {
     return toDo.id !== parseInt(li.id);
   }); //toDos의 id들이 li의 id와 같지 않은 것(=제거할 li를 제거한 상태)***
-  // toDos = cleanDone;
+  toDos = cleanDone;
   console.log(cleanDone);
-  // saveToDos();
+  saveToDos();
 }
 
+//done list...
 function doneToDo(e) {
   const donebtn = e.target;
   const li = donebtn.parentNode;

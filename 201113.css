@@ -10,13 +10,13 @@ body {
   height: 100vh;
 }
 
-.input > input {
+.js-form input {
   width: 140px;
   padding: 5px 10px;
   text-align: center;
 }
 
-.js-toDoInput > input {
+.js-toDoForm input {
   padding: 5px 10px;
   text-align: center;
   width: 300px;
@@ -44,7 +44,7 @@ button {
   vertical-align: center;
 }
 
-.input,
+.form,
 .greetings {
   display: none;
 }

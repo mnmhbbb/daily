@@ -1,28 +1,3 @@
-// //숫자야구 랜덤 문제 내기
-// let list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-// let number = [];
-// for (let i = 0; i < 4; i++) {
-//   let select = Math.floor(Math.random() * list.length);
-//   number[i] = list.splice(select, 1)[0];
-// }
-
-// //숫자야구 숫자 맞추기
-// let count = 1;
-// let strike = 0;
-// let ball = 0;
-
-// let input = document.querySelector("input");
-// let ment = document.querySelector('.ment');
-// let submit = input.value;
-// console.log(submit)
-
-// input.addEventListener('submit', function submitHandler(e){
-//   e.preventDefault();
-
-//   //inputvalue이 맞으면
-
-// })
-
 var list;
 var number;
 
@@ -58,14 +33,13 @@ function submitHandler(e) {
     count = 0;
   } else {
     // inputvalue(답) 틀리면
-    var inputArray = inputvalue.split("");
     var strike = 0;
     var ball = 0;
     count += 1;
 
     if (count > 10) {
       // 10번 넘게 틀린 경우
-      result.textContent = `10회 초과로 실패! 정답은 ${number}였습니다.`;
+      result.textContent = `10회 초과로 실패! 정답은 ${number} 였습니다.`;
       input.value = "";
       input.focus();
       question();
@@ -84,7 +58,7 @@ function submitHandler(e) {
           }
         }
       }
-      result.textContent = `${strike}스트라이크 ${ball}볼`;
+      result.textContent = `${count}회 : ${strike}스트라이크 ${ball}볼`;
       input.value = "";
       input.focus();
     }
