@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+button,
+button:focus,
+button:active {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+:root {
+  /* Color */
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /* Size */
+  --padding: 12px;
+  --avatar-size: 36px;
+
+  /* Font Size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+header .logo {
+  font-size: var(--font-large);
+}
+
+header .logo .fa-youtube {
+  color: var(--red-color);
+}
+
+header .icons .fa-search {
+  margin-right: var(--padding);
+}
+
+/* Viedo */
+.video {
+  text-align: center;
+  background-color: var(--black-color);
+  position: sticky;
+  top: 0;
+}
+
+.video video {
+  width: 100%;
+  max-width: 500px;
+}
+
+/*info and up next*/
+.infoAndUpNext {
+  display: flex;
+  flex-direction: column;
+}
+
+/*metadata*/
+.infoAndUpNext .info {
+  padding: var(--padding);
+}
+
+.info .hashtag {
+  display: flex;
+  color: var(--blue-color);
+  font-size: var(--font-small);
+}
+
+.info .hashtag li {
+  margin-right: var(--padding);
+}
+
+.info .videoTitle {
+  display: flex;
+  font-size: var(--font-medium);
+}
+
+.info .videoTitle.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.info .videoTitle .moreBtn {
+  height: 100%;
+}
+
+.info .views {
+  margin-top: calc(var(--padding) / 2);
+  font-size: var(--font-micro);
+  color: var(--grey-dark-color);
+}
+
+/*action*/
+.info .actions {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+}
+
+.info .actions li {
+  display: flex;
+  flex-direction: column;
+}
+
+.info .actions li span {
+  font-size: var(--font-small);
+}
+
+.info .actions .active {
+  color: var(--blue-color);
+}
+
+/*channel*/
+.info .channelData {
+  display: flex;
+}
+
+.info .channelData img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  margin-right: var(--padding);
+}
+
+.info .channelData .channelName {
+  display: flex;
+}
+
+/* min-width: 768px */
+@media screen and (min-width: 768px) {
+  .infoAndUpNext {
+    flex-direction: row;
+  }
+}
