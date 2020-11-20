@@ -1,7 +1,8 @@
+//전역변수로..
 var list;
 var number;
 
-function question() {
+function quiz() {
   list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   number = [];
   for (var i = 0; i < 4; i += 1) {
@@ -10,26 +11,26 @@ function question() {
   }
 }
 
-question();
+quiz();
 console.log(number);
 
 var result = document.querySelector("h2");
 var form = document.querySelector("form");
 var input = document.querySelector("input");
-input.type = "text";
 input.maxLength = 4;
 
 var count = 0;
+
 function submitHandler(e) {
   e.preventDefault();
   var inputvalue = input.value;
 
-  if (inputvalue === number.join("")) {
+  if (inputvalue.split("") === number) {
     // inputvalue(답) 맞으면
     result.textContent = "홈런!";
     input.value = "";
     input.focus();
-    question();
+    quiz();
     count = 0;
   } else {
     // inputvalue(답) 틀리면
@@ -42,7 +43,7 @@ function submitHandler(e) {
       result.textContent = `10회 초과로 실패! 정답은 ${number} 였습니다.`;
       input.value = "";
       input.focus();
-      question();
+      quiz();
       count = 0;
     } else {
       // 10번 미만으로 틀린 경우
