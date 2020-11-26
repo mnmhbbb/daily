@@ -5,34 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>scroll</title>
     <script src="./201125.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/fdea6ac0a7.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./201125.css" />
   </head>
   <body>
     <nav id="navbar">
       <div class="navbar__logo">
         <strong>logo</strong>
-        <span>scroll 연습</span>
       </div>
       <ul class="navbar__menu">
-        <li>no.1</li>
-        <li>no.2</li>
-        <li>no.3</li>
-        <li>contact</li>
+        <li data-link=".home">home</li>
+        <li data-link="#no1">no.1</li>
+        <li data-link="#no2">no.2</li>
+        <li data-link="#no3">no.3</li>
+        <li data-link="#contact">contact</li>
       </ul>
+      <button class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
+    <section class="home">
+      <h2>이 곳은 웹 페이지 스크롤 연습을 하는 곳</h2>
+      <ul>
+        <li>스크롤</li>
+        <li>scroll</li>
+        <li>window.scrollY</li>
+        <li>getBoundingClientRect();</li>
+        <li>scrollIntoView();</li>
+        <p data-link="#no3">go to no.3</p>
+      </ul>
+    </section>
     <section id="no1">
       <h1>no.1</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
+        veritatis dolore quis quidem ipsa doloribus provident ex aperiam eveniet
+        error sit officia necessitatibus culpa facilis temporibus quam repellat!
+        Quaerat tempore harum perspiciatis nobis quos tempora officiis fugiat
+        fugit consequatur laborum debitis natus laboriosam recusandae officia
+        aliquid distinctio, vel aut labore ipsum nesciunt error quam at ipsa.
+        Fugiat dolores non vero. Eius delectus ea ipsam possimus qui. Dolores
+        minima a dolor repellendus, sit modi inventore cumque, similique et
+        exercitationem quasi praesentium nostrum temporibus ab ipsa tempore
+        natus voluptate velit mollitia. Corrupti, dolorem eveniet debitis quas
+        consectetur voluptatibus fugit quidem dolorum sunt odio maxime. Debitis,
+        qui ex! Praesentium doloribus recusandae, sed ex ipsum minima facilis
+        voluptas cupiditate magni necessitatibus sequi mollitia officiis
+        aspernatur rem atque vero quasi aliquid. Deleniti cum debitis, vel nobis
+        doloribus ab molestiae dolores, consequatur, nostrum ut illum harum et?
+        Ab neque quae inventore, perferendis dolorem iure ipsum animi autem.
+        Architecto tempore accusantium reiciendis laborum alias cumque sequi
+        qui, culpa, iure dolores, quis aperiam labore mollitia nihil quas
+        aliquid eligendi. Temporibus, nemo quam! Ducimus eius, adipisci,
+        aspernatur officia magnam fugiat nesciunt vitae sed quae magni molestiae
+        et, quisquam non. Nostrum repellendus rerum iste officia. Numquam sequi,
+        iusto non quas maiores, atque enim explicabo quos dicta repellendus,
+        soluta odio. Magni suscipit aliquid illo, repellat dolorem dicta
+        expedita nemo aspernatur harum quo voluptate in doloribus ratione
+        distinctio nobis exercitationem quisquam. Quisquam nihil libero magnam
+        exercitationem commodi cupiditate placeat praesentium repellendus
+        necessitatibus vel odio corrupti distinctio excepturi, rem dolorem
+        reiciendis. Adipisci cumque earum itaque voluptates illum, officia
+        exercitationem voluptas! Dolores sit quaerat obcaecati magnam assumenda
+        magni iusto officia harum nostrum, at amet. Pariatur enim sapiente
+        explicabo, ut aspernatur quod! Commodi culpa fuga et facere vitae rem.
+        Architecto voluptates, cupiditate ipsa dolore, esse quia magni
+        necessitatibus incidunt harum rerum culpa consectetur eos, officia
+        excepturi veritatis facilis velit itaque cumque. Animi dolore voluptate
+        repudiandae, nostrum voluptas necessitatibus! Praesentium a pariatur
+        fuga doloremque reprehenderit. Ipsa mollitia nostrum veniam distinctio
+        commodi reiciendis nihil sit rem minima sint amet dicta optio ad quam,
+        est repellendus aspernatur nulla eius dolorem illo laboriosam,
+        voluptates similique saepe. Laboriosam libero facilis at error nostrum?
+        Nesciunt, velit. Facere sequi in aperiam unde ut, dolor fugit architecto
+        voluptate rem modi quibusdam molestiae praesentium nostrum eveniet quam
+        magni ipsa ea harum? Delectus quam nesciunt natus maiores, ut officiis
+        exercitationem modi, doloribus, minima blanditiis pariatur. Nam
+        accusantium non cum necessitatibus laboriosam voluptatibus, ad fuga.
+        Quibusdam quos, sunt unde odit reprehenderit totam praesentium aut velit
+        accusamus quis. Vel, nisi illum deleniti blanditiis provident distinctio
+        consequuntur excepturi dolor sed. Incidunt minus dolor nulla aliquam!
+        Praesentium provident voluptate qui numquam. Corporis sint quia
+        excepturi impedit. Dolorem quia nobis magnam. Alias, voluptatibus sequi
+        amet recusandae earum molestias laborum nisi dignissimos. Ex molestias
+        in quisquam maiores, aliquid veniam sunt corrupti, provident quod
+        aliquam eum placeat, a debitis saepe temporibus nemo beatae quaerat odio
+        fuga inventore atque itaque quos eos. Quis, consectetur. Dicta
+        temporibus adipisci rerum expedita suscipit, in perferendis, illo quod
+        autem maxime recusandae nulla neque, fuga provident quidem dolore?
+      </p>
       <img src="/img/1.jpg" alt="image" />
     </section>
-    <section class="no2">
+    <section id="no2">
       <h1>no.2</h1>
       <img src="/img/2.jpg" alt="image" />
     </section>
-    <section class="no3">
+    <section id="no3">
       <h1>no.3</h1>
       <img src="/img/3.jpg" alt="image" />
     </section>
-    <section class="contact">
+    <section id="contact">
       <div class="contact__content">
         <h3>contact</h3>
         <p>mnmhb64@naver.com</p>

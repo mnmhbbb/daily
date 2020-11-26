@@ -17,9 +17,10 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  cursor: default;
 }
 
-ul {
+.navbar__menu {
   list-style: none;
   padding-left: 0;
 }
@@ -27,10 +28,12 @@ ul {
 #navbar {
   display: flex;
   justify-content: space-between;
-  padding: 13px;
+  /* align-items: center; */
+  padding: 15px;
   position: fixed;
   width: 100%;
   background-color: transparent;
+  z-index: 1;
 }
 
 #navbar.navbar--dark {
@@ -38,7 +41,7 @@ ul {
 }
 
 .navbar__logo strong {
-  background-color: var(--color-orange);
+  background-color: var(--color-black);
   color: var(--color-white);
   padding: 5px;
   border-radius: 5px;
@@ -57,25 +60,61 @@ ul {
 }
 
 .navbar__menu li {
-  padding: 3px;
+  padding: 5px;
   margin-right: 20px;
+  border: 1px solid transparent;
 }
 
 .navbar__menu li:hover {
+  cursor: pointer;
   border: 1px solid var(--color-white);
-  border-radius: 3px;
+  border-radius: 7px;
   background-color: var(--color-blue);
 }
 
-section {
+.home {
+  padding: 20px;
+  background-color: var(--color-grey);
+  color: var(--color-white);
+}
+
+ul {
+  padding-left: 0;
+}
+
+.home p {
+  cursor: pointer;
+  line-height: 10px;
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px;
+  border: 1px solid var(--color-white);
+  background-color: var(--color-pink);
+}
+
+h2 {
+  text-align: center;
+  padding: 50px 0;
+}
+
+img {
   max-width: 1000px;
   margin: auto;
-  text-align: center;
-  background-color: var(--color-orange);
+  height: 500px;
 }
 
 h1 {
-  padding: 15px 0;
+  text-align: center;
+  background-color: var(--color-orange);
+  padding: 20px 0;
+}
+
+p {
+  margin: auto;
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  font-size: 15px;
 }
 
 img {
@@ -83,12 +122,51 @@ img {
   width: 100%;
 }
 
-.contact {
+#contact {
+  text-align: center;
   margin-top: 10px;
   padding: 20px;
   background-color: var(--color-light-grey);
 }
 
-.contact__content p {
+.contact__content {
   color: var(--color-white);
+}
+
+.navbar__toggleBtn {
+  border: none;
+  background-color: transparent;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+@media screen and (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+    background-color: var(--color-dark-pink);
+  }
+
+  .navbar__menu {
+    display: none;
+    padding-top: 10px;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  .navbar__toggleBtn {
+    display: block;
+  }
+
+  .open {
+    display: block;
+  }
+
+  .navbar__menu li {
+    width: 100%;
+  }
 }
