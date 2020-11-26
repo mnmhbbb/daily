@@ -25,14 +25,15 @@ menu.addEventListener("click", (e) => {
   }
   const scrollTo = document.querySelector(link);
   scrollTo.scrollIntoView({ behavior: "smooth" });
+  menu.classList.remove("open");
 
   //선택한 버튼만 활성화시키기
   if (target.classList.contains("navbar__menu")) {
     return;
   }
-  const active = document.querySelector(".active");
-  active.classList.remove("active");
-  target.classList.add("active");
+  const selected = document.querySelector(".selected");
+  selected.classList.remove("selected");
+  target.classList.add("selected");
 });
 
 //맨 위로 버튼
@@ -49,4 +50,26 @@ document.addEventListener("scroll", () => {
   } else {
     upBtn.classList.remove("visible");
   }
+});
+
+//앨범 필터링
+const years = document.querySelector(".play__years");
+const albumContainer = document.querySelector(".play__albums");
+const albums = document.querySelectorAll(".album");
+
+years.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+
+  albums.forEach((album) => {
+    if (filter === "all" || filter === album.dataset.type) {
+      album.classList.remove("invisible");
+    } else if (e.target.classList.contains("play__years")) {
+      return;
+    } else {
+      album.classList.add("invisible");
+    }
+  });
+  const active = document.querySelector(".active");
+  active.classList.remove("active");
+  e.target.classList.add("active");
 });

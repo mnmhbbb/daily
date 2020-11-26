@@ -19,16 +19,111 @@
       <ul class="navbar__menu">
         <li class="menu__item" data-link=".home">home</li>
         <li class="menu__item" data-link=".mail">mail</li>
-        <li class="menu__item" data-link=".new">new</li>
+        <li class="menu__item" data-link=".play">play</li>
         <li class="menu__item" data-link=".contact">contact</li>
       </ul>
       <button class="navbar__toggle">
         <i class="fas fa-bars"></i>
       </button>
     </nav>
-    <section class="home active">home</section>
+    <section class="home selected">home</section>
     <section class="mail">mail</section>
-    <section class="new">new</section>
+    <section class="play">
+      <h3>play</h3>
+      <div class="play__years">
+        <button class="years__btn active" data-filter="all">
+          all
+          <span>14</span>
+        </button>
+        <button class="years__btn" data-filter="1516">
+          2015-2016
+          <span>4</span>
+        </button>
+        <button class="years__btn" data-filter="1718">
+          2017-2018
+          <span>5</span>
+        </button>
+        <button class="years__btn" data-filter="2019">
+          2019
+          <span>2</span>
+        </button>
+        <button class="years__btn" data-filter="2020">
+          2020
+          <span>3</span>
+        </button>
+      </div>
+      <div class="play__albums">
+        <img
+          src="img/15-1.jpg"
+          alt="Season Of Glass"
+          class="album"
+          data-type="1516"
+        />
+        <img
+          src="img/15-2.jpg"
+          alt="Flower Bud"
+          class="album"
+          data-type="1516"
+        />
+        <img
+          src="img/16-1.jpg"
+          alt="SNOWFLAKE"
+          class="album"
+          data-type="1516"
+        />
+        <img src="img/16-2.jpg" alt="LOL" class="album" data-type="1516" />
+        <img
+          src="img/17-1.jpg"
+          alt="THE AWAKENING"
+          class="album"
+          data-type="1718"
+        />
+        <img src="img/17-2.jpg" alt="PARALLEL" class="album" data-type="1718" />
+        <img src="img/17-3.jpg" alt="RAINBOW" class="album" data-type="1718" />
+        <img
+          src="img/18-1.jpg"
+          alt="Time for the moon night"
+          class="album"
+          data-type="1718"
+        />
+        <img
+          src="img/18-2.jpg"
+          alt="Sunny Summer"
+          class="album"
+          data-type="1718"
+        />
+        <img
+          src="img/19-1.jpg"
+          alt="Time for us"
+          class="album"
+          data-type="2019"
+        />
+        <img
+          src="img/19-2.jpg"
+          alt="FEVER SEASON"
+          class="album"
+          data-type="2019"
+        />
+        <img
+          src="img/20-1.jpg"
+          alt="回:LABYRINTH"
+          class="album"
+          data-type="2020"
+        />
+        <img
+          src="img/20-2.jpg"
+          alt="回:Song of the Sirens"
+          class="album"
+          data-type="2020"
+        />
+        <img
+          src="img/20-3.jpg"
+          alt="回:Walpurgis Night"
+          class="album"
+          data-type="2020"
+        />
+      </div>
+    </section>
     <section class="contact">contact</section>
     <button class="upBtn">
       <i class="fas fa-arrow-up"></i>
