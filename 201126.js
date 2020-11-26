@@ -12,11 +12,12 @@ document.addEventListener("scroll", () => {
 
 const menu = document.querySelector(".navbar__menu");
 const toggleBtn = document.querySelector(".navbar__toggle");
-toggleBtn.addEventListener("click", () => {
+toggleBtn.addEventListener("click", (e) => {
   menu.classList.toggle("open");
 });
 
 menu.addEventListener("click", (e) => {
+  //선택한 메뉴로 스크롤
   const target = e.target;
   const link = target.dataset.link;
   const scrollTo = document.querySelector(link);
@@ -24,4 +25,12 @@ menu.addEventListener("click", (e) => {
     return;
   }
   scrollTo.scrollIntoView({ behavior: "smooth" });
+
+  //선택한 버튼만 활성화시키기
+  if (target.classList.contains("navbar__menu")) {
+    return;
+  }
+  const active = document.querySelector(".active");
+  active.classList.remove("active");
+  target.classList.add("active");
 });
