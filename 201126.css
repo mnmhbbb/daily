@@ -41,6 +41,10 @@ a {
   color: inherit;
 }
 
+button:focus {
+  outline: none;
+}
+
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -106,7 +110,6 @@ section {
 
 .home {
   max-width: 2000px;
-  width: 100%;
   background-color: var(--color-blue);
 }
 
@@ -124,9 +127,40 @@ section {
 
 .active {
   border: 1px solid var(--color-white);
+  background-color: var(--color-pink);
+}
+
+.upBtn:focus {
+  border: none;
+  outline: none;
+}
+
+.upBtn {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  color: var(--color-pink);
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  font-size: var(--font-medium);
+  background-color: var(--color-white);
+}
+
+.visible {
+  display: block;
 }
 
 @media screen and (max-width: 768px) {
+  :root {
+    --font-large: 30px;
+    --font-medium: 22px;
+    --font-regular: 16px;
+    --font-small: 10px;
+    --font-micro: 6px;
+  }
   .navbar__toggle {
     display: block;
   }
@@ -147,5 +181,11 @@ section {
 
   .navbar__menu.open {
     display: block;
+  }
+
+  .upBtn {
+    font-size: var(--font-regular);
+    bottom: 30px;
+    right: 30px;
   }
 }
