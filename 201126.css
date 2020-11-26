@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-pink: #fe918d;
+  --color-dark-pink: #ff6863;
+  --color-dark-grey: #4d4d4d;
+  --color-grey: #616161;
+  --color-light-grey: #7c7979;
+  --color-blue: #73aace;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  color: #e5e5e5;
+}
+
+.navbar__logo {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: var(--font-medium);
+  background-color: var(--color-grey);
+}
+
+.navbar__logo:hover {
+  background-color: var(--color-dark-white);
+}
+
+.navbar__menu {
+  display: flex;
+  cursor: pointer;
+}
+
+.menu__item {
+  font-size: var(--font-regular);
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.menu__item:hover {
+  background-color: var(--color-pink);
+}
+
+.navbar__toggle {
+  background-color: transparent;
+  border: none;
+  color: var(--color-white);
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: var(--font-regular);
+  cursor: pointer;
+}
+
+section {
+  max-width: 1000px;
+  padding: 200px 50px;
+  color: var(--color-white);
+  font-size: var(--font-large);
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.home {
+  background-color: var(--color-blue);
+}
+
+.mail {
+  background-color: var(--color-pink);
+}
+
+.new {
+  background-color: var(--color-orange);
+}
+
+.contact {
+  background-color: var(--color-dark-white);
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__toggle {
+    display: block;
+  }
+
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
