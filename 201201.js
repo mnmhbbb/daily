@@ -8,8 +8,6 @@ function updateTag() {
     `;
 }
 
-window.addEventListener("resize", () => {
-  updateTag();
-});
+window.addEventListener("resize", updateTag);
 
 updateTag();
