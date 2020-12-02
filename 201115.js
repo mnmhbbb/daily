@@ -24,8 +24,7 @@ var count = 0;
 function submitHandler(e) {
   e.preventDefault();
   var inputvalue = input.value;
-
-  if (inputvalue.split("") === number) {
+  if (inputvalue == number.join("")) {
     // inputvalue(답) 맞으면
     result.textContent = "홈런!";
     input.value = "";
@@ -41,9 +40,9 @@ function submitHandler(e) {
     if (count > 10) {
       // 10번 넘게 틀린 경우
       result.textContent = `10회 초과로 실패! 정답은 ${number} 였습니다.`;
+      quiz();
       input.value = "";
       input.focus();
-      quiz();
       count = 0;
     } else {
       // 10번 미만으로 틀린 경우

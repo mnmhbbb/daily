@@ -46,4 +46,4 @@ for (j = 0; j < lotto.length; j++) {
 setTimeout(function () {
   let bonusBall = document.querySelector(".bonus");
   colorBall(bonus, bonusBall);
-}, 3000);
+}, 1500);
