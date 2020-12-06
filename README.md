@@ -1,2 +1,1 @@
-# TIL
- Today I Learned
+## 그냥 매일 꾸준히 
