@@ -26,33 +26,25 @@ function onAdd() {
   input.focus();
 }
 
+let id = 0;
+
 //새 아이템 만드는 함수+삭제아이콘
 function createItem(text) {
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "items__row");
-
-  const item = document.createElement("div");
-  item.setAttribute("class", "item");
-
-  const name = document.createElement("span");
-  name.setAttribute("class", "item__name");
-  name.innerHTML = text;
-
-  const deleteBtn = document.createElement("button");
-  deleteBtn.setAttribute("class", "item__delete");
-  deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-  deleteBtn.addEventListener("click", () => {
-    items.removeChild(itemRow);
-  });
-
-  const itemDivider = document.createElement("div");
-  itemDivider.setAttribute("class", "item__divider");
-
-  itemRow.appendChild(item);
-  itemRow.appendChild(itemDivider);
-  item.appendChild(name);
-  item.appendChild(deleteBtn);
-
+  itemRow.setAttribute("data-id", id);
+  itemRow.innerHTML = `
+  <li class="items__row">
+    <div class="item">
+      <span class="item__name">${text}</span>
+      <button class="item__delete">
+        <i class="fas fa-trash-alt" data-id="${id}"></i>
+      </button>
+    </div>
+    <div class="item__divider"></div>
+  </li>
+  `;
+  id++;
   return itemRow;
 }
 
@@ -63,5 +55,13 @@ addBtn.addEventListener("click", () => {
 input.addEventListener("keypress", (e) => {
   if (e.key == "Enter") {
     onAdd();
+  }
+});
+
+items.addEventListener("click", (e) => {
+  const id = e.target.dataset.id;
+  if (id) {
+    const toBeDeleted = document.querySelector(`.items__row[data-id="${id}"]`);
+    toBeDeleted.remove();
   }
 });
