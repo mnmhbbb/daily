@@ -13,22 +13,27 @@ class Counter {
   }
 
   //클래스 안에서 함수 선언할 때는 function 작성 하지 않음
-  increase() {
+  increase(runIf5Times) {
     this.counter++;
     console.log(this.counter);
     if (this.counter % 5 === 0) {
-      console.log("yo!");
+      runIf5Times(this.counter);
     }
   }
 }
 
 const coolCounter = new Counter();
-coolCounter.increase(); //1
-coolCounter.increase(); //2
-coolCounter.increase(); //3
-coolCounter.increase(); //4
-coolCounter.increase(); //5 yo!
 
-// 이 코드의 문제점
-// Counter 클래스 자체에서 틀을 만들기 때문에, 이 클래스를 이용하는 사람이 원하는 값으로 출력할 수 없다.
-// 예를 들면 ' yo!'를 다른 문구나 다른 기능으로 바꾸고 싶을 때.
+function printSomething(num) {
+  console.log(`hello ${num}`);
+}
+
+coolCounter.increase(printSomething);
+coolCounter.increase(printSomething);
+coolCounter.increase(printSomething);
+coolCounter.increase(printSomething);
+coolCounter.increase(printSomething);
+
+// 그래서 increase 에 콜백함수를 전달.
+// 장점: 우리가 원하는 기능을 입력할 수 있다.
+// 단점: 매번 printSomething을 호출해야 하는 점이 비효율적
