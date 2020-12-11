@@ -8,20 +8,17 @@
 // 반드시 'new' 연산자를 붙여 실행함
 
 class Counter {
-  //콜백함수를 받아오는거임
-  //constructor도 함수니까
-  //runEveryFiveTimes라는 인자에서 받아온 값을
-  //this.callback이라는 변수에 할당함
   constructor(runEvery5Times) {
     this.counter = 0;
     this.callback = runEvery5Times;
   }
 
+  //콜백함수가 없을 경우까지 고려
   increase() {
     this.counter++;
     console.log(this.counter);
     if (this.counter % 5 === 0) {
-      this.callback(this.counter);
+      this.callback && this.callback(this.counter);
     }
   }
 }
@@ -30,9 +27,8 @@ function printSomething(num) {
   console.log(`hello ${num}`);
 }
 
-//그리고나서 생성자함수에 우리가 웜하는 콜백함수를 전달함
-//callback은 printSomething을 가리킴
-const coolCounter = new Counter(printSomething);
+//콜백함수가 없다면???
+const coolCounter = new Counter();
 
 coolCounter.increase();
 coolCounter.increase();
