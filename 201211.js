@@ -8,32 +8,34 @@
 // 반드시 'new' 연산자를 붙여 실행함
 
 class Counter {
-  constructor() {
-    this.counter = 0; //counter라는 변수에 0이 담겨있음
+  //콜백함수를 받아오는거임
+  //constructor도 함수니까
+  //runEveryFiveTimes라는 인자에서 받아온 값을
+  //this.callback이라는 변수에 할당함
+  constructor(runEvery5Times) {
+    this.counter = 0;
+    this.callback = runEvery5Times;
   }
 
-  //클래스 안에서 함수 선언할 때는 function 작성 하지 않음
-  increase(runIf5Times) {
+  increase() {
     this.counter++;
     console.log(this.counter);
     if (this.counter % 5 === 0) {
-      runIf5Times(this.counter);
+      this.callback(this.counter);
     }
   }
 }
-
-const coolCounter = new Counter();
 
 function printSomething(num) {
   console.log(`hello ${num}`);
 }
 
-coolCounter.increase(printSomething);
-coolCounter.increase(printSomething);
-coolCounter.increase(printSomething);
-coolCounter.increase(printSomething);
-coolCounter.increase(printSomething);
+//그리고나서 생성자함수에 우리가 웜하는 콜백함수를 전달함
+//callback은 printSomething을 가리킴
+const coolCounter = new Counter(printSomething);
 
-// 그래서 increase 에 콜백함수를 전달.
-// 장점: 우리가 원하는 기능을 입력할 수 있다.
-// 단점: 매번 printSomething을 호출해야 하는 점이 비효율적
+coolCounter.increase();
+coolCounter.increase();
+coolCounter.increase();
+coolCounter.increase();
+coolCounter.increase();
