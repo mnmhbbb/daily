@@ -34,7 +34,6 @@ function createItem(text) {
   itemRow.setAttribute("class", "items__row");
   itemRow.setAttribute("data-id", id);
   itemRow.innerHTML = `
-  <li class="items__row">
     <div class="item">
       <span class="item__name">${text}</span>
       <button class="item__delete">
@@ -42,7 +41,6 @@ function createItem(text) {
       </button>
     </div>
     <div class="item__divider"></div>
-  </li>
   `;
   id++;
   return itemRow;
