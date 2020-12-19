@@ -37,14 +37,15 @@ function onButtonClick(event, items) {
 
 function updateItems(items, key, value) {
   let list = document.querySelectorAll(".item");
-  console.log(list[0]);
-  list.forEach((item) => {
-    if (item.dataset[key] === value) {
-      list.classList.remove("invisible");
-    } else {
-      list.classList.add("invisible");
-    }
-  });
+  for (let i = 0; i < list.length; i++) {
+    items.forEach((item) => {
+      if (item[key] === value) {
+        list[i].classList.remove("invisible");
+      } else {
+        list[i].classList.add("invisible");
+      }
+    });
+  }
 }
 
 function setEventListeners(items) {
@@ -60,4 +61,4 @@ loadItems()
     displayItems(items);
     setEventListeners(items);
   })
-  .catch(console.log("error!"));
+  .catch(console.log);
