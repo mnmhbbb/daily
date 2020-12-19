@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Template ver.2</title>
+    <script src="./201219.js"></script>
+    <link rel="stylesheet" href="./201219.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./img/logo.png" alt="main logo" class="logo" />
+    </header>
+    <nav class="category">
+      <button class="category__btn">
+        <img
+          src="./img/blue_t.png"
+          alt="tshirt"
+          class="imgBtn"
+          data-key="type"
+          data-value="tshirt"
+        />
+      </button>
+      <button class="category__btn">
+        <img
+          src="./img/blue_p.png"
+          alt="pants"
+          class="imgBtn"
+          data-key="type"
+          data-value="pants"
+        />
+      </button>
+      <button class="category__btn">
+        <img
+          src="./img/blue_s.png"
+          alt="skirt"
+          class="imgBtn"
+          data-key="type"
+          data-value="skirt"
+        />
+      </button>
+      <button
+        class="category__btn colorBtn blue"
+        data-key="color"
+        data-value="blue"
+      >
+        Blue
+      </button>
+      <button
+        class="category__btn colorBtn yellow"
+        data-key="color"
+        data-value="yellow"
+      >
+        Yellow
+      </button>
+      <button
+        class="category__btn colorBtn pink"
+        data-key="color"
+        data-value="pink"
+      >
+        pink
+      </button>
+    </nav>
+    <ul class="items">
+      <li class="item">
+        <img src="./img/blue_t.png" alt="tshirt" class="item__thumbnail" />
+        <span class="item__description">female, large</span>
+      </li>
+    </ul>
+  </body>
+</html>
