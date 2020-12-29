@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e5e5e5;
+  height: 3548px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+}
+
+.invisible {
+  display: none;
+}
+
+.progress-back {
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+.progress-gauge {
+  height: 100%;
+  background-color: #41a541;
+}
+
+.first {
+  width: 100%;
+  height: 450px;
+  background-color: cadetblue;
+}
+
+.second {
+  width: 100%;
+  height: 500px;
+  background-color: #5f4b8b;
+}
+
+.third {
+  width: 100%;
+  height: 500px;
+  background-color: firebrick;
+}
+
+.fourth {
+  width: 100%;
+  height: 500px;
+  background-color: slategray;
+}
+
+.fifth {
+  width: 100%;
+  height: 500px;
+  background-color: tomato;
+}
