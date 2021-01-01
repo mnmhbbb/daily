@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //var 호이스팅
+      //var hi;
+      hi = "hello";
+      console.log(hi);
+      var hi = "hello";
+      //   c = "test";
+      //   let c;
+
+      //closure
+      function makeCounter() {
+        let num = 0;
+
+        //내부함수에서 외부함수의 변수 num에 접근
+        return function () {
+          return num++;
+        };
+      }
+
+      let counter = makeCounter();
+
+      console.log(counter()); // 0
+      console.log(counter()); // 1
+      console.log(counter()); // 2
+    </script>
+  </body>
+</html>
