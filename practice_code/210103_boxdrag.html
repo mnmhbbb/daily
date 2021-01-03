@@ -9,6 +9,10 @@
         width: 800px;
         height: 400px;
         border: 1px solid gray;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        cursor: auto;
       }
 
       .box {
@@ -46,14 +50,14 @@
           offset.y = e.offsetY;
         }
       });
-      container.addEventListener("mousemove", (e) => {
+      document.addEventListener("mousemove", (e) => {
         if (!dragging) {
           return;
         }
         current.style.left = e.x - offset.x + "px";
         current.style.top = e.y - offset.y + "px";
       });
-      container.addEventListener("mouseup", (e) => {
+      document.addEventListener("mouseup", (e) => {
         dragging = false;
       });
 
