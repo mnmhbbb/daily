@@ -30,19 +30,15 @@
 검색창에 글자 한자씩 타이핑 될 때마다 웹서버에 단어를 보내 추천 검색어 리스트를 보여줄 수 있는 등    
 웹 브라우저만으로도 다양한 표현이 가능해졌다.    
 비동기적으로 일부분만 업데이트 할 수 있는 AJAX로 인해, http 통신을 할 때 대전제였던 페이지 갱신이라는 제약은 무의미해졌다.   
-&nbsp;  
-&nbsp;  
-&nbsp;   
+&nbsp;    
 1. 차이1 : 전체를 다 변경해야 하는가? vs 부분만 선별적으로 변경할 수 있는가?  
   - 나이브 HTTP는 클라이언트쪽에서 Request를 보내고 Server쪽에서 Response를 받으면 이어졌던 연결이 끊기게 되어있습니다. 그래서 화면의 내용을 갱신하기 위해서는 다시   request를 하고 response를 하면서 페이지 전체를 갱신하게 됩니다.  
   - AJAX는 html 페이지 전체가 아닌 일부분만 갱신할수 있도록 XMLHttpRequest객체를 통해 서버에 request 합니다. XMLHttpRequest는 서버와의 연결을 잡아둡니다. Json이나 xml형태로 필요한 데이터만 주고 받으며 DOM을 갱신하기 때문에 그만큼의 자원과 시간을 아낄 수 있습니다.  
-&nbsp;
-&nbsp;
 &nbsp;  
 2. 차이2 : 누가 서버에 유저의 니즈를 요청하는가?
   - 나이브한 HTTP는 웹브라우저가 서버에 요청합니다.   
   - AJAX는 XMLHttpRequest 객체가 서버에 요청합니다.   
-
+&nbsp;  
 이러한 기능을 통해 웹 메신저를 만드려고 했으나,  
 ajax도 여전히 http로 서버와 통신하기 때문에 한계에 완전히 벗어나진 못했다.  
 요청없이는 서버가 먼저 통신을 시작할 수 있는 방법이 없기 때문이다.  
@@ -59,7 +55,7 @@ ajax도 여전히 http로 서버와 통신하기 때문에 한계에 완전히 �
 클라이언트의 경우,  
 웹소켓을 지원하는 브라우저라면 자바스크립트에서 생성자를 호출해 소켓을 만들어 바로 사용하면 된다.  
 서버의 경우라면 다수의 오픈 소스 모듈 중 선택해 구축할 수 있다.  
-
+&nbsp;  
 출처 :   
 "HTTP에서부터 WEBSOCKET까지"<https://medium.com/@chullino/http%EC%97%90%EC%84%9C%EB%B6%80%ED%84%B0-websocket%EA%B9%8C%EC%A7%80-94df91988788>   
 "Ajax 시작하기 - 웹 개발자 안내서 | MDN"<https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started>
