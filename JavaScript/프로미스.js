@@ -1,4 +1,4 @@
-// //콜백지옥의 예시
+//콜백지옥의 예시
 // const f1 = (callback) => {
 //   setTimeout(function () {
 //     console.log("1번 주문 완료");
@@ -21,7 +21,24 @@
 // };
 
 // console.log("콜백지옥 시작");
-// f1(() => f2(() => f3(() => console.log("끝"))));
+// f1(() => {
+//   f2(() => {
+//     f3(() => {
+//       console.log("끝");
+//     });
+//   });
+// });
+
+// 프로미스
+// 프로미스는 기본적으로 객체이며, new Promise로 생성하고 두 개의 콜백함수 인자를 전달받음.
+// const pr = new Promise((resolve, reject) => {
+//   //code
+// })
+
+//new Promise 생성자 함수가 반환하는 프로미스객체는 state, result를 프로퍼티로 갖는다.
+//초기엔 state: pending(대기), result: undefined였다가
+//성공하여 resolve가 호출되면 fulfilled 상태가 되고 resolve 함수로 전달된 값을 result로 받는다.
+//실패하여 reject가 호출되면 rejected 상태가 되고 reject 함수로 전달된 에러를 result로 받는다.
 
 //프로미스의 예시
 const f1 = () => {
