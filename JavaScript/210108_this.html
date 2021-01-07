@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //this 연습
+      const user = {
+        name: "Mike",
+        showName: function () {
+          console.log(`hello, ${this.name}`);
+        },
+      };
+
+      user.showName();
+      let fn = user.showName;
+      fn(); //hello,
+      //쉽게 생각해서 메서드는 .앞이 this임
+      //메서드에서는 자신을 호출한 객체에 this가 바인딩 되니까
+      //그래서 this를 명시해줘야 함
+
+      fn.call(user);
+      fn.apply(user);
+
+      //this값을 영구히 지정
+      let boundFn = fn.bind(user);
+      boundFn();
+
+      var value = 1;
+
+      var obj = {
+        value: 100,
+        foo: function () {
+          var that = this; // Workaround : this === obj
+
+          console.log("foo's this: ", this); // obj
+          console.log("foo's this.value: ", this.value); // 100
+          function bar() {
+            console.log("bar's this: ", this); // window
+            console.log("bar's this.value: ", this.value); // 1
+
+            console.log("bar's that: ", that); // obj
+            console.log("bar's that.value: ", that.value); // 100
+          }
+          bar();
+        },
+      };
+
+      obj.foo();
+    </script>
+  </body>
+</html>
