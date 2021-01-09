@@ -58,10 +58,33 @@ fn(); //hello,
 let boundFn = fn.bind(user);
 boundFn();
 ```
+### 2.2 화살표 함수에서의 this
+- 함수를 생성하고 전달하면서 함수의 컨텍스트를 잃을 수 있지만, 화살표 함수의 경우는 그렇지 않다.
+- 화살표 함수에는 `this`가 없다. 
+- 화살표 함수 안에서 `this`에 접근하면, 외부에서 값을 가져온다.
+- ```javascript
+  let team = {
+    title: "bebe",
+    members: ["yerin", "sinb", "umji"],
 
+    showUp() {
+      this.members.forEach((members) =>
+        console.log(`${this.title}'s ${members}`)
+      );
+    },
+  };
+
+  team.showUp(); 
+  // bebe's yerin
+  // bebe's sinb
+  // bebe's umji
+  ```
+  - `this.title` 은 `team.title`과 동일하다.
+  - 일반함수에서 다음과 같이 실행하였다면 에러가 발생한다. this에 할당된 값이 없기 때문.
 &nbsp;  
 &nbsp;  
 참조:  
 웹 프로그래밍 튜토리얼 <https://poiemaweb.com/js-this>  
 인사이드자바스크립트(송형주, 고현준 지음. 2014)  
-코딩앙마님 강좌 <https://youtu.be/KfuyXQLFNW4>
+코딩앙마님 강좌 <https://youtu.be/KfuyXQLFNW4>  
+모던 자바스크립트 <https://ko.javascript.info/arrow-functions>
