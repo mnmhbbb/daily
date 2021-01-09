@@ -13,6 +13,7 @@
 
 - 자바스크립트의 호출 상황에 따라 `this`는 다른 객체를 참조하므로 주의가 필요하다.(this 바인딩)
 - 함수 호출 시, this는 기본적으로 `전역객체`에 바인딩된다. 심지어 내부함수의 경우에도.
+  - 단, 엄격모드("use strict")에서 실행하면 this는 본래의 값을 유지하여 `undefined`가 할당됨
 - 생성자 함수에서 this는 사실 다음과 같이 동작한다.
   ```javascript
   function Person(name) {
@@ -49,7 +50,7 @@ fn.call(user);
 fn.apply(user);
 
 fn(); //hello,
-//쉽게 생각해서 메서드는 .앞이 this임
+//쉽게 생각해서 메서드에서 this는 . 점 앞의 객체를 참조함.
 //메서드에서는 자신을 호출한 객체에 this가 바인딩 되니까
 //그래서 this를 명시해줘야 함
 
@@ -61,6 +62,6 @@ boundFn();
 &nbsp;  
 &nbsp;  
 참조:  
-웹 프로그래밍 튜토리얼<https://poiemaweb.com/js-this>  
+웹 프로그래밍 튜토리얼 <https://poiemaweb.com/js-this>  
 인사이드자바스크립트(송형주, 고현준 지음. 2014)  
 코딩앙마님 강좌 <https://youtu.be/KfuyXQLFNW4>
