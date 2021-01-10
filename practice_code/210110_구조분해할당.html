@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구조 분해 할당</title>
+  </head>
+  <body>
+    <script>
+      //구조분해할당(비구조화할당)구문은 배열이나 객체 속성을 분해하고 추출해서 그 값을 변수에 담을 수 있게 하는 표현식.
+      //기본값 설정 c
+      const obj = { a: 1, b: 2 };
+
+      const { a, b, c = 3 } = obj;
+      console.log(a); //1
+      console.log(b); //2
+      console.log(c); //3
+
+      function print({ a, b, c = 3 }) {
+        console.log(a); //1
+        console.log(b); //2
+        console.log(c); //3
+      }
+
+      print(obj);
+
+      const members = ["mina", "sana", "tzuyu"];
+      const [member1, member2, member3] = members;
+      console.log(member1); //mina
+      console.log(member2); //sana
+      console.log(member3); //tzuyu
+
+      //배열 구조 분해 - 일부 반환값 무시
+      let [user1, , user2] = ["mina", "tom", "sana", "tony"];
+      console.log(user1); //mina
+      console.log(user2); //sana
+
+      //깊은 값 비구조화 할당
+      const deepobj = {
+        state: {
+          information: {
+            name: "yerin",
+            language: ["korean", "english", "japanese"],
+          },
+        },
+        value: 2,
+      };
+
+      const {
+        state: {
+          information: { name, language },
+        },
+        value,
+      } = deepobj;
+      const ex = {
+        name,
+        language,
+        value,
+      };
+      console.log(ex);
+    </script>
+  </body>
+</html>
