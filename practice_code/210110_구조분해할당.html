@@ -8,6 +8,49 @@
   <body>
     <script>
       //구조분해할당(비구조화할당)구문은 배열이나 객체 속성을 분해하고 추출해서 그 값을 변수에 담을 수 있게 하는 표현식.
+      //before
+      const crossroads = {
+        name: "Labyrinth",
+        title: "교차로",
+        release: "2월 3일",
+      };
+      const apple = {
+        name: "Song Of The Sirens",
+        title: "Apple",
+        release: "7월 13일",
+      };
+      const mago = {
+        name: "Walpurgis Night",
+        title: "MAGO",
+        release: "11월 9일",
+      };
+
+      // function print(album) {
+      //   const text = `${album.release}에 발매된 앨범 "${album.name}"의 타이틀 곡은 "${album.title}"이다.`;
+      //   console.log(text);
+      // }
+
+      // print(crossroads);
+      // print(apple);
+      // print(mago);
+
+      // //after1
+      // function print1(album) {
+      //   const { name, title, release } = album;
+      //   const text = `${release}에 발매된 앨범 "${name}"의 타이틀 곡은 "${title}"이다.`;
+      //   console.log(text);
+      // }
+
+      // print1(crossroads);
+
+      //after2
+      function print2({ name, title, release }) {
+        const text = `${release}에 발매된 앨범 "${name}"의 타이틀 곡은 "${title}"이다.`;
+        console.log(text);
+      }
+
+      print2(crossroads);
+
       //기본값 설정 c
       const obj = { a: 1, b: 2 };
 
@@ -52,6 +95,7 @@
         },
         value,
       } = deepobj;
+
       const ex = {
         name,
         language,
