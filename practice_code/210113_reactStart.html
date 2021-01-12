@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- 리액트가 동작하는 핵심적인 코드가 들어있음 -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 리액트 코드를 웹에다가 붙혀줌 -->
+    <!-- 실제 배포할 땐 development 부분을 production으로  -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const e = React.createElement; //태그를 만듦(JSX를 사용하는 경우 사용할 일은 거의 없음)
+
+      // 컴포넌트를 class로 만듦
+      // react 안에 들어있는 Component의 상속을 받음
+      class LikeButton extends React.Component {
+        // 개별 컴포넌트는 props라는 매개변수를 받아오고 render 함수를 통해 표시할 뷰 계층 구조를 반환함
+        // state는 상태. 바뀔 수 있는 부분. 이 부분은 react 확장 프로그램으로 상태를 확인할 수 있음
+        constructor(props) {
+          super(props);
+          this.state = {
+            liked: false,
+          };
+        }
+
+        // render 함수는 화면에서 보고자 하는 내용을 반환
+        render() {
+          return e(
+            "button",
+            {
+              onClick: () => {
+                this.setState({ liked: true });
+              },
+              type: "submit",
+            },
+            this.state.liked === true ? "Liked" : "Like"
+            // 상태가 바뀌면 화면이 저절로 바뀜!
+            // 리액트가 데이터와 화면을 일치시켜주는 것.
+          );
+          // e(a, b, c) a:tag / b: attribute / c: text
+          //<button type="submit">Like</button>
+        }
+      }
+    </script>
+    <script>
+      //위에서 어떻게 구현할지 설계해놓은 것을 이제 실제로 렌더링함
+      ReactDOM.render(e(LikeButton), document.querySelector("#root"));
+      //실행 결과: <div id="root"><button type="submit">Like</button></div>
+    </script>
+  </body>
+</html>
