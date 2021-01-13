@@ -3,7 +3,7 @@
 - 인강 들으면서 정리한 것
 - 공부한 내용을 다시 읽게 쉽게 정리한 것
 
-## 1. javascript  
+## 1. JavaScript  
   - [기본 데이터 타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/%EC%95%84%EC%A3%BC%20%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8%20%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%83%80%EC%9E%85.md)
   - [변수 호이스팅 & 클로저](https://github.com/mnmhbbb/daily/blob/main/JavaScript/%EB%B3%80%EC%88%98%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85%26%ED%81%B4%EB%A1%9C%EC%A0%80.md)
   - [배열 메서드 정리](https://github.com/mnmhbbb/daily/blob/main/JavaScript/%EB%B0%B0%EC%97%B4%20%EB%A9%94%EC%84%9C%EB%93%9C%20%EC%A0%95%EB%A6%AC.md)
@@ -16,7 +16,7 @@
     - [프로미스 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4.js)
     
 ## 1.1 React
-    - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
+  - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
     
 ## 2. 실습
   - [드롭다운메뉴](https://github.com/mnmhbbb/daily/blob/main/practice_code/javascript-101-master/form/dropdown-menu.md)
