@@ -15,11 +15,14 @@
   - [프로미스](https://github.com/mnmhbbb/daily/blob/main/JavaScript/%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4.md)
     - [프로미스 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4.js)
     
-  ## 2. 실습
+## 1.1 React
+    - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
+    
+## 2. 실습
   - [드롭다운메뉴](https://github.com/mnmhbbb/daily/blob/main/practice_code/javascript-101-master/form/dropdown-menu.md)
   - [상단바 스크롤게이지](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201229_scroll-gauge.md) 
   
-  ## 3. etc
+## 3. etc
   - [http & ajax & socket](https://github.com/mnmhbbb/daily/blob/main/etc/http%20%ED%86%B5%EC%8B%A0%EB%B6%80%ED%84%B0%20socket%20%ED%86%B5%EC%8B%A0%EA%B9%8C%EC%A7%80.md)
   - [localStorage](https://github.com/mnmhbbb/daily/blob/main/etc/localStorage.md)
   - [git - interactive rebase](https://github.com/mnmhbbb/daily/blob/main/etc/Git%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%9E%91%EC%9D%80%20%ED%8C%81.md)
