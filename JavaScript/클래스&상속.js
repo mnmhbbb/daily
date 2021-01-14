@@ -28,10 +28,6 @@ class Counter {
   }
 }
 
-function printSomething(num) {
-  console.log(`hello ${num}`);
-}
-
 //콜백함수가 없다면???
 const coolCounter = new Counter();
 
@@ -41,7 +37,7 @@ coolCounter.increase(); //3
 coolCounter.increase(); //4
 coolCounter.increase(); //5
 
-//다음 예시
+//다음 예시---------------------------------------------------------------------------
 //클래스와 생성자함수 비교
 class User {
   constructor(name, age) {
@@ -101,12 +97,15 @@ console.log(yerin);
 
 //참고로, 클래스 안의 메서드는 for ... in 문에서 제외되고 hasownproperty를 사용해야 한다.
 
-//extends 상속
+//extends 상속----------------------------------------------------------------------
 class Car {
   constructor(color) {
     this.color = color;
     this.wheels = 4;
   }
+
+  // wheels = 4;
+
   drive() {
     console.log("drive...");
   }
@@ -122,10 +121,14 @@ class Bmw extends Car {
   // constructor(...arg) {
   //   super(...arg);
   // } 이렇게 있는 것처럼 동작함
-  constructor(color) {
-    super(color);
-    this.navigation = 1;
-  }
+
+  // constructor(color) {
+  //   super(color);
+  //   this.navigation = 1;
+  // }
+
+  //this없이
+  navigation = 1;
 
   park() {
     console.log("PARK");
@@ -144,13 +147,19 @@ console.log(z4);
 //우선 객체 내부에서 찾고 없으면 프로토타입에 가서 찾는다.
 z4.drive();
 z4.stop();
+console.log(z4.navigation); //1
 
 //오버라이딩 overriding
 //기본적으로 자바스크립트에서는 같은 이름의 함수가 있을 때, 마지막에 선언된 함수가 최종적으로 덮어버림
+
 //1. 메서드 오버라이딩
 //부모의 메서드인 stop() 메서드를 계속 사용하면서 확장하고 싶다면, super()를 사용한다.
+
 //2. 생성자(constructor) 오버라이딩
 //기본적으로 class의 constructor는 빈객체를 만들고, this를 할당하는 작업을 하는데,
 //extends로 만들어진 객체는 이 작업을 건너뜀..
 //그래서 마찬가지로 super() 키워드를 사용하여 부모 클래스의 constructor를 실행해줘야 함
 //또한, 이 예시의 경우 color 인자를 받기 때문에 상속 받은 객체의 constructor에서도 동일하게 color 인자를 받아와야 함
+
+//추가로, constructor()를 생략하면 this.(멤버변수)를 this없이 작성해도 동일하게 동작함.
+//대신 인자를 받을 수 없는 듯..
