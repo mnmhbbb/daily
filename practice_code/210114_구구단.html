@@ -11,6 +11,7 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+      const { Component } = React;
       class GuGuDan extends React.Component {
         constructor(props) {
           super(props);
@@ -30,16 +31,6 @@
             parseInt(this.state.value) ===
             this.state.first * this.state.second
           ) {
-            //setState 객체
-            // this.setState({
-            //       result: `정답! ${this.state.value}`,
-            //       value: "",
-            //       first: Math.ceil(Math.random() * 9),
-            //       second: Math.ceil(Math.random() * 9),
-            //     });
-            //함수형 setState
-            //이전 state 값으로 새로운 state 만들 때, 객체가 아닌 함수형을 쓰자.
-            //왜? 이전 값을 매개변수로 접근할 수 있으니까.
             this.setState((prevState) => {
               return {
                 result: `${prevState.first} x ${prevState.second} = ${prevState.value} 정답!`,
