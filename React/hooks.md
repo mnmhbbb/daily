@@ -17,11 +17,13 @@ class GuGuDan extends React.Component {
 ```
 위 코드는 클래스 컴포넌트 코드이다.
 ```javascript
+const React = require("react");
+const { useState } = React;
 const GuGuDan = () => {
-        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
-        const [second, setSecond] = React.useState(Math.ceil(Math.random() * 9));
-        const [value, setValue] = React.useState("");
-        const [result, setResult] = React.useState("");
+        const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
+        const [value, setValue] = useState("");
+        const [result, setResult] = useState("");
  };
 ```
 위 코드는 배열의 구조분해할당을 활용한 훅스 방식
