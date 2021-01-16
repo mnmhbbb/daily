@@ -19,6 +19,7 @@
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
   - [구구단 게임 & state](https://github.com/mnmhbbb/daily/blob/main/React/gugudan.md) 
   - [훅스 기초](https://github.com/mnmhbbb/daily/blob/main/React/hooks.md)
+  - [웹팩과 바벨로 리액트 실행하기](https://github.com/mnmhbbb/daily/blob/main/React/webpack&babel.md)
     
 ## 2. 실습
   - [드롭다운메뉴](https://github.com/mnmhbbb/daily/blob/main/practice_code/javascript-101-master/form/dropdown-menu.md)
