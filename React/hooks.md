@@ -4,7 +4,8 @@
 - 지난 구구단 게임 예제에서 만든 컴포넌트를 훅스로 바꾸면서 습득해보자.
 ## 1. 비교
 ```javascript
-class GuGuDan extends React.Component {
+const { Component } = React
+class GuGuDan extends Component {
         constructor(props) {
           super(props);
           this.state = {
@@ -17,7 +18,6 @@ class GuGuDan extends React.Component {
 ```
 위 코드는 클래스 컴포넌트 코드이다.
 ```javascript
-const React = require("react");
 const { useState } = React;
 const GuGuDan = () => {
         const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
@@ -54,7 +54,7 @@ function Counter({initialCount}) {
   );
 }
 ```
-- ”+“와 ”-” 버튼은 함수 형식을 사용하고 있고, 이것은 갱신된 값이 갱신되기 이전의 값을 바탕으로 계산되기 때문. 
+- ”+“와 ”-” 버튼은 함수 형식을 사용하고 있고, 이는 갱신된 값이 갱신되기 이전의 값을 바탕으로 계산되기 때문. 
 - 업데이트 함수가 현재 상태와 정확히 동일한 값을 반환한다면 바로 뒤에 일어날 리렌더링은 완전히 건너뛰게 된다.
 - 주의)  
   "클래스 컴포넌트의 `setState` 메서드와는 다르게, `useState`는 갱신 객체(update objects)를 자동으로 합치지는 않습니다.   
