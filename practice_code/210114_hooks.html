@@ -15,13 +15,12 @@
       //const [state, setState] = useState(initialState);
       // setState(newState);
       const GuGuDan = () => {
-        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
-        const [second, setSecond] = React.useState(
-          Math.ceil(Math.random() * 9)
-        );
-        const [value, setValue] = React.useState("");
-        const [result, setResult] = React.useState("");
-        const inputRef = React.useRef(null);
+        const { useState, useRef } = React;
+        const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
+        const [value, setValue] = useState("");
+        const [result, setResult] = useState("");
+        const inputRef = useRef(null);
 
         const onChangeInput = (e) => {
           setValue(e.target.value);
