@@ -25,10 +25,11 @@
   - **package-lock.json**은 **package.json** 파일의 의존성 트리에 대한 정확한 정보를 가지고 있으므로 커밋할 때 꼭 같이 할 것.
 - `npm i -D webpack webpack-cli` 명령어로 웹팩을 설치한다.
   - `-D`는 개발(Development)용이라는 의미이다. pacakage.json에서 확인해보면 "devDependencies" 속성에 담겨있는 것을 확인할 수 있다.
-- `npm i -D @babel/core @babel/preset-env @babel/preset-react` 명령어로 바벨 설치
+- `npm i -D @babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties` 명령어로 바벨 설치
   - @babel/core: 바벨의 메인
   - @babel/preset-env: ES6이상의 최신 문법을 ES5로 변환해줌
   - @babel/preset-react: JSX를 JS로 변환해줌
+  - @babel/plugin-proposal-class-properties: `state = {}` 같은 class 최신 문법 쓰기위함
 - `npm i -D babel-loader`
   - babel-loader: 바벨과 웹팩을 연결해줌
 - 추가
@@ -37,7 +38,7 @@ npm i react-refresh @pmmmwh/react-refresh-webpack-plugin -D
 npm i -D webpack-dev-server
 ```   
 데브서버와 핫리로딩 기능을 위해 설치한다.  
-  - **웹팩 데브서버**는 webpack.config.js에 적어준대로 빌드 결과물을 돌린 다음 `publicPath`에 그 결과물을 메모리로 저장함. 그 후 index.html을 실행하면 저장한 결과물을 제공해줌.
+  - **웹팩 데브서버**는 webpack.config.js에 적어준 대로 빌드 결과물을 돌린 다음 `publicPath`에 그 결과물을 메모리로 저장함. 그 후 index.html을 실행하면 저장한 결과물을 제공해줌.
   - **핫리로딩**은 코드에 수정사항이 있을 때마다 수정 사항을 감지하고 변경된 결과물을 `publicPath`에 저장해줌. 수동으로 빌드할 필요가 없음.
 ### 2.2 setting
 - `webpack.config.js` 파일을 생성하여 다음과 같이 세팅한다.
@@ -82,6 +83,7 @@ module.exports = {
   devServer: {
     publicPath: "/dist/",
     hot: true,
+    writeToDisk: true, //app.js 파일을 실제로 생성해줌
   },
 }
 ```
@@ -122,6 +124,10 @@ module.exports = {
 &nbsp;
 - 추가로, **devtool**은 에러가 발생했을 때 번들링된 파일에서 어느 부분에서 에러가 났는지 쉽게 확인할 수 있는 도구를 의미한다.
 - **resolve**은 확장자를 생략해도 웹팩이 인식할 수 있게 해주는 속성.  
+- **devServer**은 위에서 언급한 대로, webpack.config.js에 적어준 대로 결과물을 돌리고 publicPath에 결과물을 저장하는데,   
+  `writeToDisk: true`을 입력하지 않았더니, dist 폴더에 app.js 파일이 생성되지 않았다.   
+  결국 빌드 당시에 터미널에 뜨는 `http://localhost:8080/` 링크를 통해 실행하는 방법밖에 없었는데, 검색 도중 알게 되었다. :blush:  
+&nbsp;  
 &nbsp;  
 --------------------------------
 ## 2.3 컴포넌트 작성
