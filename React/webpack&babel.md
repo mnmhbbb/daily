@@ -50,7 +50,7 @@ module.exports = {
   devtool: 'eval', //실무에선 hidden-source-map,
   resolve: {
     extensions: ['.jsx', '.js'],
-  }
+  },
   
   entry: {
     app: './client',
