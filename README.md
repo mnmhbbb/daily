@@ -22,7 +22,7 @@
   - [웹팩과 바벨로 리액트 실행하기](https://github.com/mnmhbbb/daily/blob/main/React/webpack&babel.md)
     
 ## 2. 실습
-  - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/naver_cloneCoding.md)
+  - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/201105_naver_cloneCoding.md)
   - [드롭다운메뉴](https://github.com/mnmhbbb/daily/blob/main/practice_code/javascript-101-master/form/dropdown-menu.md)
   - [상단바 스크롤게이지](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201229_scroll-gauge.md) 
   - [캐러셀 슬라이드](https://github.com/mnmhbbb/daily/blob/main/practice_code/210117_carousel.md)
