@@ -74,11 +74,25 @@ module.exports = {
   - `dist`: 빌드된 파일들을 생성하는 폴더
 - **Loaders**: 위 코드에서 `module` 속성을 의미하며, 가장 중요한 부분이다.
   - 웹팩은 js파일만 이해할 수 있기 때문에 변환이 필요한데, 그 작업을 여기서 실행한다.
-  - loaders는 다른 type의 파일들을 의존성 그래프에 추가할수있는 유효한 module 들로 변환시켜준다.
+  - loaders는 다른 type의 파일들을 의존성 그래프에 추가할 수 있는 유효한 module 들로 변환시켜준다.
   - loaders는 기본적으로 `rules`프로퍼티를 정의하고 `rules`은 `test`와 `use` 프로퍼티를 가지고 있다.
   - `test` 프로퍼티: 변환해야 하는 파일(대상파일)을 식별하는 역할(정규표현식을 사용했음. jsx 확장자만 변환하라는 의미)
   - `use` 프로퍼티: 어떤 로더를 사용하여 변환해야 하는지.
   - `options`: 로더에 대한 옵션으로, 아까 설치한 presets들을 적용한다.
+    - presets은 plugin들의 모임이라고 할 수 있으며, 브라우저 대응도 할 수 있다.
+    - 예를 들어  
+    ```javascript
+              presets: [
+            ["@babel/preset-env", {
+              targets: {
+                browsers: ['> 5% in KR', 'last 2 chrome versions'],
+              },
+              debug: true, //개발용
+            },
+          "@babel/preset-react",
+    ```  
+    - 최근 2 버전 크롬까지만 지원한다거나, 한국에서 점유율 5% 이상인 브라우저만 지원하겠다는 의미.
+    - 관련한 자세한 정보는 (https://github.com/browserslist/browserslist)에서 확인해볼 수 있다.
 - **Mode**: mode가 development면 개발용, production이면 배포용을 의미한다. 
   - production은 알아서 최적화가 적용된다.
   - development은 빠르게 빌드된다.
