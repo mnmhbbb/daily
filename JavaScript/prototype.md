@@ -10,7 +10,8 @@ ES6부터 클래스 개념이 나오긴 했지만, 여전히 자바스크립트�
 > 객체에 일일이 해당 프로퍼티를 넣지 않아도, 프로토타입객체에 프로퍼티를 담으면 모든 객체에서 **공유**할 수 있다는 장점.
 > 다시 말해, 같은 생성자함수를 통해 만들어진 객체끼리 프로토타입 객체를 공유한다. 
 > "모든 객체는 자신을 생성한 생성자 함수의 `prototype` 프로퍼티가 가리키는 객체를 자신의 프로토타입 객체로 취급한다"
-> ![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F9iGLv%2FbtqR6vUvMt7%2Ff0Op1cMGfGYR6BE4lK3uyk%2Fimg.png)
+> ![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F9iGLv%2FbtqR6vUvMt7%2Ff0Op1cMGfGYR6BE4lK3uyk%2Fimg.png)  
+> (출처: 생활코딩 - 프로토타입)
 &nbsp;   
 &nbsp;   
 ### 용어 정리  
