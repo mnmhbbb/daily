@@ -164,7 +164,7 @@ module.exports = {
 - `package.json`
   ```javascript
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack serve --env development"
   },
   ```
   위와 같이 설정한 후 `npm run dev` 명령어를 입력하면 웹팩이 실행된다.
