@@ -26,6 +26,7 @@ const GuGuDan = () => {
       inputRef.current.focus();
     }
   };
+
   return (
     <>
       <div>
