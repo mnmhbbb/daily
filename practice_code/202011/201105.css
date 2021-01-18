@@ -9,6 +9,10 @@ button:focus {
   box-shadow: none;
 }
 
+button {
+  background: transparent;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -57,7 +61,7 @@ a {
   margin: -3px 5px 0 3px;
   content: "";
   display: inline-block;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-repeat: no-repeat;
   background-position: -382px -213px;
   background-size: 440px 410px;
@@ -79,7 +83,7 @@ a {
   display: inline-block;
   width: 222px;
   height: 52px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-position: 0 -158px;
   background-size: 440px 410px;
   background-repeat: no-repeat;
@@ -106,10 +110,11 @@ fieldset {
   width: 440px;
   height: 24px;
   display: inline-block;
-  padding: 20px 8px;
+  padding: 20px 1px;
   border: 0;
   outline: none;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 900;
 }
 
 #search-btn {
@@ -126,10 +131,10 @@ fieldset {
 }
 
 .search-img {
-  display: block;
+  display: inline-block;
   width: 22px;
   height: 22px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-position: -180px -386px;
   background-size: 440px 410px;
   background-repeat: no-repeat;
@@ -142,7 +147,7 @@ fieldset {
   display: block;
   width: 20px;
   height: 10px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-position: -420px -248px;
   background-size: 440px 410px;
   background-repeat: no-repeat;
@@ -156,7 +161,7 @@ fieldset {
   display: block;
   width: 10px;
   height: 5px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-position: -404px -258px;
   background-size: 440px 410px;
   background-repeat: no-repeat;
@@ -199,7 +204,7 @@ fieldset {
   display: inline-block;
   width: 21px;
   height: 21px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-position: -228px -386px;
   background-size: 440px 410px;
   background-repeat: no-repeat;
@@ -212,7 +217,7 @@ fieldset {
   display: inline-block;
   width: 12px;
   height: 14px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-position: -256px -212px;
   background-size: 440px 410px;
   background-repeat: no-repeat;
@@ -227,12 +232,12 @@ fieldset {
 
 .more {
   display: block;
-  margin: 0 10px;
+  margin: 0px;
 }
 
 .more-icon {
   display: inline-block;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-repeat: no-repeat;
   background-position: -319px -258px;
   background-size: 440px 410px;
@@ -244,7 +249,7 @@ fieldset {
 
 .search-icon {
   display: inline-block;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-repeat: no-repeat;
   background-position: -319px -258px;
   background-size: 440px 410px;
@@ -366,7 +371,7 @@ fieldset {
   display: inline-block;
   width: 6px;
   height: 10px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-size: 440px 410px;
   background-repeat: no-repeat;
   background-position: -262px -125px;
@@ -398,7 +403,7 @@ fieldset {
 .news-list h3::before {
   content: "";
   display: inline-block;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-repeat: no-repeat;
   background-size: 440px 410px;
   background-position: -228px -296px;
@@ -411,7 +416,7 @@ fieldset {
   display: inline-block;
   width: 6px;
   height: 10px;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-size: 440px 410px;
   background-repeat: no-repeat;
   background-position: -262px -125px;
@@ -445,7 +450,7 @@ fieldset {
 .weather {
   background-color: #e5e5e5;
   display: flex;
-  padding: 10px 0;
+  padding: 10px 0 10px 10px;
   margin-bottom: 10px;
 }
 
@@ -518,7 +523,7 @@ fieldset {
 .info-area a::before {
   content: "";
   display: inline-block;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-repeat: no-repeat;
   background-size: 440px 410px;
   background-position: -319px -308px;
@@ -536,7 +541,7 @@ fieldset {
   width: 40px;
   height: 40px;
   display: inline-block;
-  background-image: url(./sp_main_1f05c0.png);
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
   background-repeat: no-repeat;
   background-size: 440px 410px;
   border: none;
@@ -560,7 +565,7 @@ fieldset {
 .theme-list {
   width: 755px;
   height: 48px;
-  /* white-space: nowrap; */
+  white-space: nowrap;
   overflow: hidden;
 }
 
