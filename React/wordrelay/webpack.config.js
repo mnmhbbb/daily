@@ -39,5 +39,6 @@ module.exports = {
   devServer: {
     publicPath: "/dist/",
     hot: true,
+    writeToDisk: true,
   },
 };
