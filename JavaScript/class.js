@@ -18,17 +18,15 @@ class Counter {
 
   //클래스 안에서 함수 선언할 때는 function을 작성하지 않는다.
   //클래스 안에서 선언한 메서드는 클래스의 프로토타입에 저장됨!!!
-  //다음의 코드는 &&논리연산자를 이용하여, 콜백함수가 없을 경우까지 고려하여 만든 코드
   increase() {
     this.counter++;
-    console.log(this.counter);
+    console.log(`hi ${this.counter}`);
     if (this.counter % 5 === 0) {
       this.callback && this.callback(this.counter);
     }
   }
 }
 
-//콜백함수가 없다면???
 const coolCounter = new Counter();
 
 coolCounter.increase(); //1
