@@ -18,15 +18,20 @@ class GuGuDan extends Component {
 ```
 위 코드는 클래스 컴포넌트 코드이다.
 ```javascript
-const { useState } = React;
+const { useState, useRef } = React;
 const GuGuDan = () => {
         const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
         const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
         const [value, setValue] = useState("");
         const [result, setResult] = useState("");
+        const inputRef = useState(null);
  };
 ```
-위 코드는 배열의 구조분해할당을 활용한 훅스 방식
+위 코드는 배열의 구조분해할당을 활용한 **훅스** 방식  
+  - 훅스에서는 ref에 접근할 때 `current`를 반드시 붙여줘야 함. 예를 들어,
+  ```javascript
+  inputRef.current.focus();
+  ```
 
 ## 2. useState
 ```javascript
@@ -34,10 +39,26 @@ const [state, setState] = useState(initialState);
 setState(newState);
 ```
 - 상태 유지 값 `state`, 그 값을 갱신하는 함수 `setState`  
- (클래스에서는 setState() 함수 안에 객체를 반환하기도 했음)
 - 최초로 렌더링을 하는 동안, 반환된 state는 첫 번째 전달된 인자(initialState)의 값과 같음(즉, 초기값)
 - setState 함수는 state를 갱신할 때마다 사용. 새 state 값을 받아 컴포넌트 리렌더링을 큐에 등록함
 - 다음 렌더링 시에 useState를 통해 반환받은 첫 번째 값은 항상 갱신된 최신 state가 됨
+- ```javascript
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    if (parseInt(value) === first * second) {
+      setResult(value + " 정답!");
+      setValue("");
+      setFirst(Math.ceil(Math.random() * 9));
+      setSecond(Math.ceil(Math.random() * 9));
+      inputRef.current.focus();
+    } else {
+      setResult("땡! 다시 입력하세요");
+      setValue("");
+      inputRef.current.focus();
+    }
+  };
+  ```  
+  클래스에서는 객체로 묶어서 리턴했다면, 훅스에서는 함수를 각각 작성.
 
 ## 3. 함수적 갱신
 - 이전 시간에 배운 '이전 값을 기반으로 다음 값을 만드는 경우' 함수 형식을 이용.
