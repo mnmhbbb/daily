@@ -69,6 +69,19 @@ foo();
 - 따라서 결론:  
   재할당이 필요한 경우를 제외하면 const를 사용하자.  
   (의도치 않게 값이 변경해서 발생할 수 있는 재할당을 방지해주므로.)  
+### 관련 예시
+```javascript
+function sayHi() {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+sayHi(); 
+//undefined (선언하기 전에 출력했지만 호이스팅되었으므로 undefined)
+//ReferenceError (아직 선언되지 않았으므로)
+```
 &nbsp;
 &nbsp;
 ## 2. 클로저
