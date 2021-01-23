@@ -82,6 +82,17 @@ sayHi();
 //undefined (선언하기 전에 출력했지만 호이스팅되었으므로 undefined)
 //ReferenceError (아직 선언되지 않았으므로)
 ```
+```javascript
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+```
+각각 출력되는 값은 `3 3 3` 과 `0 1 2`이다.  
+출처:(https://github.com/lydiahallie/javascript-questions)
 &nbsp;
 &nbsp;
 ## 2. 클로저
