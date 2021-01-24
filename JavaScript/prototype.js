@@ -70,7 +70,7 @@
   console.log(bmw); //{color: "red", navigation: 1}
   console.log(bmw.wheels); //4
 
-  //상속을 할 수도 있음
+  //상속을 더 할 수도 있음
   const x5 = {
     color: "white",
     name: "x5",
@@ -83,42 +83,138 @@
   //이런 과정을 프로토타입 체인이라고 함
 
   //-------------------------------------
+  //관련
   for (p in x5) {
     console.log(p);
-  }
+  } // color name navigation wheels drive
 
-  //다음과 같이 key, value 관련 메서드에서 상속된 프로퍼티는 반환되지 않음
+  //다음과 같이 key, value 관련 객체 내장 메서드를 실행할 때, 상속된 프로퍼티는 안나옴
   console.log(Object.keys(x5)); //["color", "name"]
   console.log(Object.values(x5)); //["white", "x5"]
+
+  //hasOwnProperty도 본인이 갖고 있는 프로퍼티만 가져와줌
+  for (a in x5) {
+    if (x5.hasOwnProperty(a)) {
+      console.log("o", a);
+    } else {
+      console.log("x", a);
+    }
+  }
+  // o color
+  // o name
+  // x navigation
+  // x wheels
+  // x color
 }
 
-// const Bmw = function (color) {
-//   this.color = color;
-// };
+// 생성자함수
+{
+  const Bmw = function (color) {
+    this.color = color;
+    this.wheels = 4;
+    this.drive = function () {
+      console.log("drive..");
+    };
+  };
 
-// //생성자로 만들어진 모든 객체에 일일이 __proto__를 줄 필요없이
-// //해당 생성자로 만들어진 모든 객체는 다음 속성들을 공유하게 됨
-// Bmw.prototype.wheels = 4;
-// Bmw.prototype.drive = function () {
-//   console.log("drive...");
-// };
+  const x5 = new Bmw("red");
+  const z4 = new Bmw("blue");
+}
+// 매개변수로 넣어주는 컬러를 제외한 wheels, drive는 동일하니까
 
-// //car가 Bmw의 프로토타입이 되고,
-// //Bmw는 car의 상속을 받음
-// //x5도 마찬가지로 Bmw의 상속을 받음
-// Bmw.__proto__ = car;
-// x5.__proto__ = Bmw;
+{
+  const car = {
+    wheels: 4,
+    drive: function () {
+      console.log("drive..");
+    },
+  };
 
-// const x5 = new Bmw("white");
-// const z4 = new Bmw("blue");
+  const Bmw = function (color) {
+    this.color = color;
+    this.wheels = 4;
+    this.drive = function () {
+      console.log("drive..");
+    };
+  };
 
-// console.log(x5.color); //white
-// console.log(x5.wheels); //4
-// console.log(z4.color); //blue
-// console.log(z4.wheels); //4
+  const x5 = new Bmw("red");
+  const z4 = new Bmw("blue");
 
-// //생성자함수로 만들어진 객체를 생성자의 인스턴스라고 부른다.
-// //이를 확인하려면 instanceof 를 사용하면 된다.
-// console.log(z4 instanceof Bmw); //true
-// //또한 인스턴스의 constructor 프로퍼티를 이용하여 생성자를 확인할 수도 있다.
-// console.log(z4.constructor === Bmw); //true
+  x5.__proto__ = car;
+  z4.__proto__ = car;
+
+  console.log(x5); //Bmw {color: "red", wheels: 4, drive: ƒ}
+  console.log(z4); //Bmw {color: "blue", wheels: 4, drive: ƒ}
+  console.log(z4.wheels); //4
+}
+//이 방법 말고,
+
+{
+  const Bmw = function (color) {
+    this.color = color;
+    this.wheels = 4;
+    this.drive = function () {
+      console.log("drive..");
+    };
+  };
+
+  const x5 = new Bmw("red");
+  const z4 = new Bmw("blue");
+
+  //생성자로 만들어진 모든 객체에 일일이 __proto__를 줄 필요없이
+  //해당 생성자로 만들어진 모든 객체는 다음 속성들을 공유하게 됨
+  Bmw.prototype.wheels = 4;
+  Bmw.prototype.drive = function () {
+    console.log("drive...");
+  };
+
+  console.log(x5); //Bmw {color: "red", wheels: 4, drive: ƒ}
+  console.log(z4); //Bmw {color: "blue", wheels: 4, drive: ƒ}
+  console.log(z4.wheels); //4
+
+  //이렇게 생성자함수로 만들어진 객체를 생성자의 인스턴스라고 부른다.
+  //또한 인스턴스의 constructor 프로퍼티를 이용하여 생성자를 확인할 수도 있다.
+  console.log(z4 instanceof Bmw); //true
+  console.log(z4.constructor === Bmw); //true
+}
+
+//위 코드를 더 깔끔하게 하기 위해서, 프로토타입을 하나로 묶게 되면
+{
+  const Bmw = function (color) {
+    this.color = color;
+  };
+
+  Bmw.prototype = {
+    //constructor가 사라지기 때문에 명시를 꼭 해줘야 한다.
+    constructor: Bmw,
+    wheels: 4,
+    drive() {
+      console.log("drive..");
+    },
+  };
+
+  const x5 = new Bmw("red");
+  const z4 = new Bmw("blue");
+
+  console.log(z4.wheels); //4
+  console.log(z4.constructor === Bmw); //true
+}
+
+// 그런데, c5.color = "black"; 이런 식으로 누구나 쉽게 색깔을 바꿔버릴 수 있음..
+//이 코드의 속성값을 변경할 수 없게 하려면, 클로저를 이용한다.
+
+{
+  const Bmw = function (color) {
+    const c = color;
+    this.getColor = function () {
+      console.log(c);
+    };
+  };
+
+  const x5 = new Bmw("red");
+  console.log(x5.getColor());
+
+  //초기 세팅되어있던 값을 얻을 수는 있으나 바꿀 수는 없다.
+  //getColor 함수는 생성될 당시의 컨텍스트를 기억하는 것.
+}

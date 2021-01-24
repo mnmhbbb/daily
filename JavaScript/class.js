@@ -6,36 +6,8 @@
 // MDN : constructor 메서드는 class 내에서 객체를 생성하고 초기화하기 위한 특별한 메서드입니다.
 // 클래스는 constructor라는 이름을 가진 특별한 메서드를 하나씩만 가질 수 있습니다.
 
-// 비교) 생성자 함수 (constructor)
-// 생성자 함수는 함수 이름의 첫 글자는 대문자로 시작해서 구분함
-// 반드시 'new' 연산자를 붙여 실행함
+//클래스 안에서 선언한 메서드는 클래스의 프로토타입에 저장됨!!!
 
-class Counter {
-  constructor(runEvery5Times) {
-    this.counter = 0;
-    this.callback = runEvery5Times;
-  }
-
-  //클래스 안에서 함수 선언할 때는 function을 작성하지 않는다.
-  //클래스 안에서 선언한 메서드는 클래스의 프로토타입에 저장됨!!!
-  increase() {
-    this.counter++;
-    console.log(`hi ${this.counter}`);
-    if (this.counter % 5 === 0) {
-      this.callback && this.callback(this.counter);
-    }
-  }
-}
-
-const coolCounter = new Counter();
-
-coolCounter.increase(); //1
-coolCounter.increase(); //2
-coolCounter.increase(); //3
-coolCounter.increase(); //4
-coolCounter.increase(); //5
-
-//다음 예시---------------------------------------------------------------------------
 //클래스와 생성자함수 비교
 class User {
   constructor(name, age) {
