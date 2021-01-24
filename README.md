@@ -14,7 +14,7 @@
   - [클래스 & 상속, 오버라이딩](https://github.com/mnmhbbb/daily/blob/main/JavaScript/class.js)
   - [프로미스](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.md)
     - [프로미스 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.js)
-  - [논리연산자 응용](https://github.com/mnmhbbb/daily/tree/main/JavaScript)
+  - [논리연산자 응용](https://github.com/mnmhbbb/daily/tree/main/JavaScript/and_or.md)
     
 ## 1.1 React
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
