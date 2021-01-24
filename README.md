@@ -7,7 +7,7 @@
   - [기본 데이터 타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/datatype.md)
   - [변수 호이스팅 & 클로저](https://github.com/mnmhbbb/daily/blob/main/JavaScript/hoisting%26closure.md)
   - [배열 메서드 정리](https://github.com/mnmhbbb/daily/blob/main/JavaScript/arrays_method.md)
-  - [함수 호출 시 arguments & this](https://github.com/mnmhbbb/daily/blob/main/JavaScript/arguments%26this.md)
+  - [arguments & rest parameter](https://github.com/mnmhbbb/daily/blob/main/JavaScript/arguments%26this.md)
   - [구조 분해 할당](https://github.com/mnmhbbb/daily/blob/main/JavaScript/destructuring_assignment.md)
   - [프로토타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/prototype.md)
     - [프로토타입 체이닝 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/prototype.js)
