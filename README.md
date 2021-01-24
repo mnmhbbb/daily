@@ -5,6 +5,7 @@
 
 ## 1. JavaScript  
   - [기본 데이터 타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/datatype.md)
+  - [객체](https://github.com/mnmhbbb/daily/blob/main/JavaScript/obj.js)
   - [변수 호이스팅 & 클로저](https://github.com/mnmhbbb/daily/blob/main/JavaScript/hoisting%26closure.md)
   - [배열 메서드 정리](https://github.com/mnmhbbb/daily/blob/main/JavaScript/arrays_method.md)
   - [arguments & rest parameter](https://github.com/mnmhbbb/daily/blob/main/JavaScript/arguments%26....md)
@@ -15,6 +16,11 @@
   - [프로미스](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.md)
     - [프로미스 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.js)
   - [논리연산자 응용](https://github.com/mnmhbbb/daily/tree/main/JavaScript/and_or.md)
+  - [함수](https://github.com/mnmhbbb/daily/blob/main/JavaScript/function.js)
+  - [계산된 프로퍼티](https://github.com/mnmhbbb/daily/blob/main/JavaScript/computedProperty.js)
+  - [this](https://github.com/mnmhbbb/daily/blob/main/JavaScript/this.js)
+  - [렉시컬 스코프](https://github.com/mnmhbbb/daily/blob/main/JavaScript/lexicalScope.js)
+  - [call, apply, bind](https://github.com/mnmhbbb/daily/blob/main/JavaScript/apply%2Ccall%2Cbind.js)
     
 ## 1.1 React
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
