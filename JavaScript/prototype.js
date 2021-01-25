@@ -80,7 +80,7 @@
   console.log(x5.name); //name
   console.log(x5.color); //white
   console.log(x5.navigation); //1
-  //이런 과정을 프로토타입 체인이라고 함
+  //이렇게 연쇄하여 프로퍼티를 찾는 과정을 프로토타입 체인이라고 함
 
   //-------------------------------------
   //관련
