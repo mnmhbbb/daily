@@ -21,7 +21,7 @@
     - [프로미스 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.js)
   - [논리연산자 응용](https://github.com/mnmhbbb/daily/tree/main/JavaScript/and_or.md)
   - [계산된 프로퍼티](https://github.com/mnmhbbb/daily/blob/main/JavaScript/computedProperty.js)
-  - [this](https://github.com/mnmhbbb/daily/blob/main/JavaScript/this.js)
+  - [this, 화살표 함수의 this](https://github.com/mnmhbbb/daily/blob/main/JavaScript/this.js)
   - [렉시컬 스코프](https://github.com/mnmhbbb/daily/blob/main/JavaScript/lexicalScope.js)
   - [call, apply, bind](https://github.com/mnmhbbb/daily/blob/main/JavaScript/apply%2Ccall%2Cbind.js)
     
