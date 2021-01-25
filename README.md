@@ -12,6 +12,7 @@
   - [arguments & rest parameter](https://github.com/mnmhbbb/daily/blob/main/JavaScript/arguments%26....md)
   - [구조 분해 할당](https://github.com/mnmhbbb/daily/blob/main/JavaScript/destructuring_assignment.md)
   - [프로토타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/prototype.md)
+  - [상속과 프로토타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/prototype.js)
   - [생성자 함수](https://github.com/mnmhbbb/daily/blob/main/JavaScript/constructorFunction.js)
   - [클래스](https://github.com/mnmhbbb/daily/blob/main/JavaScript/class.js)
   - [클래스 상속 extends](https://github.com/mnmhbbb/daily/blob/main/JavaScript/extends.js)
