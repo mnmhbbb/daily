@@ -49,6 +49,27 @@
   // this=boy
 }
 
+//또다른 객체 메서드 관련 예시
+{
+  let group = {
+    title: "1모둠",
+    students: ["보라", "호진", "지민"],
+
+    showList() {
+      this.students.forEach((student) =>
+        console.log(this.title + ": " + student)
+      );
+    },
+  };
+
+  group.showList();
+  // 1모둠: 보라
+  // 1모둠: 호진
+  // 1모둠: 지민
+}
+// 이 경우는 객체 메서드를 일반 함수로 작성하고, 그 안에 화살표 함수를 사용했으므로
+// this.title은 showList가 가리키는 대상인 group.title을 의미하게 됨
+
 // 주의
 // 화살표함수로 정의된 메서드를 prototype에 할당하는 경우도 문제가 생기므로 반드시 일반함수를 할당하자.
 {
