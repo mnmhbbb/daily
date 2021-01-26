@@ -75,18 +75,21 @@
           //클릭했으니까, setInterval 제거
           clearInterval(interValId);
           clickable = false;
+
           const myChoice =
             e.target.textContent === "바위"
               ? "rock"
               : e.target.textContent === "가위"
               ? "scissors"
               : "paper";
+
+          //객체 접근 활용
           const myScore = scoreTable[myChoice];
           const computerScore = scoreTable[computerChoice];
+
           //내 선택 - 컴 선택 = 결과값으로 승패여부 조사
           const diff = myScore - computerScore;
           let message = "";
-
           if ([2, -1].includes(diff)) {
             me += 1;
             message = "승리";
@@ -104,7 +107,8 @@
             score.textContent = `컴퓨터의 승리 ${me} : ${com}`;
           } else {
             score.textContent = `${message} ${me} : ${com}`;
-            //1초 뒤 경기재개
+
+            //2초 뒤 경기재개
             setTimeout(() => {
               clickable = true;
               interValId = setInterval(changeComputerHand, 50);
@@ -112,7 +116,7 @@
           }
         }
       };
-
+      //이벤트위임
       rsp.addEventListener("click", clickBtn);
     </script>
   </body>
