@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응속도</title>
+    <style>
+      #screen {
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        user-select: none;
+        margin-bottom: 10px;
+      }
+      #screen.waiting {
+        background-color: brown;
+        color: white;
+      }
+      #screen.ready {
+        background-color: red;
+        color: white;
+      }
+      #screen.now {
+        background-color: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="screen" class="waiting">클릭해서 시작하세요</div>
+    <div class="records">기록:</div>
+    <script>
+      var text = document.querySelector(".records");
+      var screen = document.querySelector("#screen");
+      var start;
+      var end;
+      //x초 뒤에 실행되게 하기
+      var randomTime;
+      var records;
+      screen.addEventListener("click", function () {
+        //1. 현재 대기상태인지 파악
+        if (screen.classList.contains("waiting")) {
+          screen.classList.remove("waiting");
+          screen.classList.add("ready");
+          screen.textContent = "초록색이 되는 순간 클릭하세요!";
+          //랜덤한 시간 뒤에 초록색이 뜨도록
+          randomTime = setTimeout(function () {
+            start = new Date();
+            screen.click(); //랜덤시간 후에 스크린을 클릭하도록
+          }, Math.floor(Math.random() * 1000) + 2000);
+        } // 2. 준비 상태
+        else if (screen.classList.contains("ready")) {
+          if (!start) {
+            //부정시작
+            clearTimeout(randomTime);
+            screen.classList.remove("ready");
+            screen.classList.add("waiting");
+            screen.textContent = "아직입니다. 다시 클릭해서 시작하세요.";
+          } else {
+            screen.classList.remove("ready");
+            screen.classList.add("now");
+            screen.textContent = "클릭하세요!";
+          }
+        } // 3. 클릭된 상태
+        else if (screen.classList.contains("now")) {
+          end = new Date();
+          console.log(end - start + "ms");
+          records = end - start;
+          console.log(records);
+          alert(`반응속도: ${records}ms`);
+          text.append(" " + records + "ms");
+          start = null;
+          end = null;
+          screen.classList.remove("now");
+          screen.classList.add("waiting");
+          screen.textContent = "클릭해서 시작하세요";
+        }
+      });
+    </script>
+  </body>
+</html>
