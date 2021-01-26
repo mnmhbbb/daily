@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보</title>
+    <style>
+      #computer {
+        width: 142px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="computer"></div>
+    <div class="rsp">
+      <button id="rock" class="btn">바위</button>
+      <button id="scissors" class="btn">가위</button>
+      <button id="paper" class="btn">보</button>
+    </div>
+    <div id="score"></div>
+    <script>
+      const computer = document.querySelector("#computer");
+      const score = document.querySelector("#score");
+      const rsp = document.querySelector(".rsp");
+      const rock = document.querySelector("#rock");
+      const scissors = document.querySelector("#scissors");
+      const paper = document.querySelector("#paper");
+      const IMG_URL = "https://en.pimg.jp/023/182/267/1/23182267.jpg";
+      computer.style.background = `url(${IMG_URL}) 0 0`;
+
+      const rspX = {
+        rock: "0",
+        scissors: "-142px",
+        paper: "-284px",
+      };
+
+      //컴퓨터
+      let computerChoice = "rock";
+      const changeComputerHand = () => {
+        if (computerChoice === "rock") {
+          computerChoice = "scissors";
+        } else if (computerChoice === "scissors") {
+          computerChoice = "paper";
+        } else if (computerChoice === "paper") {
+          computerChoice = "rock";
+        }
+        computer.style.background = `url(${IMG_URL}) ${rspX[computerChoice]} 0`;
+      };
+
+      //컴퓨터의 현란한 손
+      let interValId = setInterval(changeComputerHand, 50);
+
+      //객체['키'] 접근법 활용
+      console.log(rspX["rock"]);
+
+      // 가위: 1, 바위: 0, 보: -1
+      // 나\컴퓨터  가위   바위    보
+      //   가위      0     1      2
+      //   바위     -1     0      1
+      //   보       -2    -1      0
+      const scoreTable = {
+        rock: 0,
+        scissors: 1,
+        paper: -1,
+      };
+
+      //초기값
+      let clickable = true;
+      let com = 0;
+      let me = 0;
+
+      const clickBtn = (e) => {
+        if (clickable) {
+          //클릭했으니까, setInterval 제거
+          clearInterval(interValId);
+          clickable = false;
+          const myChoice =
+            e.target.textContent === "바위"
+              ? "rock"
+              : e.target.textContent === "가위"
+              ? "scissors"
+              : "paper";
+          const myScore = scoreTable[myChoice];
+          const computerScore = scoreTable[computerChoice];
+          //내 선택 - 컴 선택 = 결과값으로 승패여부 조사
+          const diff = myScore - computerScore;
+          let message = "";
+
+          if ([2, -1].includes(diff)) {
+            me += 1;
+            message = "승리";
+          } else if ([1, -2].includes(diff)) {
+            com += 1;
+            message = "패배";
+          } else {
+            message = "무승부";
+          }
+
+          // 3선승
+          if (me === 3) {
+            score.textContent = `나의 승리 ${me} : ${com}`;
+          } else if (com === 3) {
+            score.textContent = `컴퓨터의 승리 ${me} : ${com}`;
+          } else {
+            score.textContent = `${message} ${me} : ${com}`;
+            //1초 뒤 경기재개
+            setTimeout(() => {
+              clickable = true;
+              interValId = setInterval(changeComputerHand, 50);
+            }, 2000);
+          }
+        }
+      };
+
+      rsp.addEventListener("click", clickBtn);
+    </script>
+  </body>
+</html>

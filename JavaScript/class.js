@@ -48,6 +48,9 @@
 // constructor 메서드는 class 내에서 객체를 생성하고 초기화하기 위한 특별한 메서드
 // 클래스는 constructor를 하나씩만 가질 수 있다.
 
+// constructor 메서드를 생략해도 constructor(){}를 포함한 것처럼 빈객체를 생성하고
+// 인스턴스를 생성해서 프로퍼티를 동적으로 추가해야 한다.
+
 // 클래스 안에서 선언한 메서드는 클래스의 프로토타입에 저장됨
 
 // 그래서 생성자함수(constructor function)인 cfUser는 객체 내부에 showName이 있고
