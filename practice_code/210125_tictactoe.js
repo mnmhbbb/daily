@@ -8,7 +8,6 @@ var turn = "X";
 
 // 결과체크
 function check(rowIndex, columnIndex) {
-  // 3칸을 채웠는가?
   var filled = false;
 
   // 가로줄 체크
@@ -79,14 +78,14 @@ var clickHandler = function (e) {
   var rowIndex = rows.indexOf(e.target.parentNode);
   var columnIndex = columns[rowIndex].indexOf(e.target);
 
-  //칸이 비었는지 확인
+  // 1. 칸이 비었는가?
   if (columns[rowIndex][columnIndex].textContent !== "") {
     alert("칸이 이미 채워져있습니다.");
   } else {
     // 선택한 칸 채워주고,
     columns[rowIndex][columnIndex].textContent = turn;
 
-    // 컴퓨터가 선택할 수 있는 후보칸
+    // 컴퓨터가 선택할 수 있는 후보칸 생성
     var candidate = [];
 
     // 우선 전체 칸을 넣고
@@ -106,7 +105,7 @@ var clickHandler = function (e) {
     // 다 찼는지 결과체크
     var filled = check(rowIndex, columnIndex);
 
-    //3칸이 찼는가?
+    // 2. 3칸이 찼는가?
     if (filled) {
       init();
     } else if (candidate.length === 0) {
