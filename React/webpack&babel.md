@@ -82,8 +82,9 @@ module.exports = {
   
   devServer: {
     publicPath: "/dist/",
+    overlay: true,
     hot: true,
-    writeToDisk: true, //app.js 파일을 실제로 생성해줌
+    writeToDisk: true, //app.js 파일을 실제로 생성해줌 (메모리 뿐만 아니라 직접 파일로 만들 것인지에 대한 옵션)
   },
 }
 ```
@@ -127,8 +128,11 @@ module.exports = {
 - **devServer**은 위에서 언급한 대로, webpack.config.js에 적어준 대로 결과물을 돌리고 publicPath에 결과물을 저장하는데,   
   `writeToDisk: true`을 입력하지 않았더니, dist 폴더에 app.js 파일이 생성되지 않았다.   
   결국 빌드 당시에 터미널에 뜨는 `http://localhost:8080/` 링크를 통해 실행하는 방법밖에 없었는데, 검색 도중 알게 되었다. :blush:  
+- 추가로 알게 된 기능
+  - `overlay` : 에러 발생 시 브라우저에 내용을 띄울지 설정
+  - `hot` : 모듈의 변화만 자동으로 로드하는 `HMR(Hot Module Replacement)` 기능 활성화 설정  
 &nbsp;  
-&nbsp;  
+&nbsp;    
 --------------------------------
 ## 2.3 컴포넌트 작성
 - 위 코드에서 `entry`에 `./client`로 시작한 이유는, 기본적으로 `client.jsx`에서 리액트를 렌더할 계획이기 때문이다.
