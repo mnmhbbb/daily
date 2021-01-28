@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Componentm, createRef } from "react";
 // const React = require("react");
 // const { Component } = React;
 import Try from "./Try";
@@ -21,6 +21,8 @@ class NumberBaseBall extends Component {
     answer: getNumber(),
     tries: [],
   };
+
+  inputRef = createRef();
 
   onSubmitForm = (e) => {
     //구조분해할당
@@ -54,6 +56,7 @@ class NumberBaseBall extends Component {
           answer: getNumber(),
           tries: [],
         });
+        this.inputRef.current.focus();
       } else {
         for (let i = 0; i < 4; i++) {
           if (answerArray[i] === answer[i]) {
@@ -74,6 +77,7 @@ class NumberBaseBall extends Component {
             value: "",
           };
         });
+        this.inputRef.current.focus();
       }
     }
   };
@@ -90,7 +94,12 @@ class NumberBaseBall extends Component {
       <>
         <h1>{result}</h1>
         <form onSubmit={this.onSubmitForm}>
-          <input maxLength={4} value={value} onChange={this.onChangeInput} />
+          <input
+            ref={this.inputRef}
+            maxLength={4}
+            value={value}
+            onChange={this.onChangeInput}
+          />
         </form>
         <div>시도: {tries.length}</div>
         <ul>
