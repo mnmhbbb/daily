@@ -1,5 +1,12 @@
 // 객체 Object
 
+{
+  const obj = { key: value };
+}
+
+// key: 문자열만 가능. 따옴표 없어도 됨. 띄어쓰기 있을 땐 필요함.
+// value: 문자열, 숫자, 객체 ... 모두 가능. 함수일 경우 메서드라고 함.
+
 // in 프로퍼티의 존재 여부를 확인할 때
 {
   function isAdult(user) {
