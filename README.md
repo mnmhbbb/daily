@@ -21,6 +21,7 @@
     - [프로미스 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.js)
   - [논리연산자 응용](https://github.com/mnmhbbb/daily/tree/main/JavaScript/and_or.md)
   - [계산된 프로퍼티](https://github.com/mnmhbbb/daily/blob/main/JavaScript/computedProperty.js)
+  - [화살표함수](
   - [this, 화살표 함수의 this](https://github.com/mnmhbbb/daily/blob/main/JavaScript/this.js)
   - [렉시컬 스코프](https://github.com/mnmhbbb/daily/blob/main/JavaScript/lexicalScope.js)
   - [call, apply, bind](https://github.com/mnmhbbb/daily/blob/main/JavaScript/apply%2Ccall%2Cbind.js)
@@ -32,6 +33,10 @@
   - [구구단 게임 & state](https://github.com/mnmhbbb/daily/blob/main/React/gugudan.md) 
   - [훅스 기초](https://github.com/mnmhbbb/daily/blob/main/React/hooks.md)
   - [웹팩과 바벨로 리액트 실행하기](https://github.com/mnmhbbb/daily/blob/main/React/webpack&babel.md)
+  - [컴포넌트 분리 & props](https://github.com/mnmhbbb/daily/blob/main/React/props.md)
+  - [push를 사용하지 말자(불변성)](https://github.com/mnmhbbb/daily/edit/main/React/push.md)
+  - [클래스와 훅스 비교](https://github.com/mnmhbbb/daily/blob/main/React/class%2Chooks.md)
+  - [리액트 개발 툴](https://github.com/mnmhbbb/daily/blob/main/React/reactdevelopertools.md)
     
 ## 2. 실습
   - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/201105_naver_cloneCoding.md)
