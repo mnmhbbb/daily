@@ -12,7 +12,7 @@ import React, {Component} from 'react';
 
 class WordRelay extends Component {
   state = {
-    word: '제로초',
+    word: '시작단어',
     value: '',
     result: '',
   };
