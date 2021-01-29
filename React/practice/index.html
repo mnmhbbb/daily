@@ -4,6 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>리액트 공부</title>
+    <style>
+      #screen {
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        user-select: none;
+        margin-bottom: 10px;
+      }
+      #screen.waiting {
+        background-color: brown;
+        color: white;
+      }
+      #screen.ready {
+        background-color: red;
+        color: white;
+      }
+      #screen.now {
+        background-color: green;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
