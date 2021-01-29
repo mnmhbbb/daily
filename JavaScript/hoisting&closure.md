@@ -80,7 +80,7 @@ function sayHi() {
 
 sayHi(); 
 //undefined (선언하기 전에 출력했지만 호이스팅되었으므로 undefined)
-//ReferenceError (아직 선언되지 않았으므로)
+//ReferenceError (아직 초기화되지 않았으므로)
 ```
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -92,9 +92,9 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 각각 출력되는 값은 `3 3 3` 과 `0 1 2`이다.  
-출처:(https://github.com/lydiahallie/javascript-questions)
+출처:(https://github.com/lydiahallie/javascript-questions)  
 &nbsp;
-&nbsp;
+&nbsp;  
 ## 2. 클로저
 - 자바스크립트는 기본적으로 어휘적 환경(Lexical Environment)을 갖는다.  
 - 다음 예시를 통해 하나씩 습득해보기
