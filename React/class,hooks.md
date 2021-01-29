@@ -10,14 +10,42 @@
 //class
 import React, {Component} from 'react';
 
-class App extends Component {
+class WordRelay extends Component {
+  state = {
+    word: '제로초',
+    value: '',
+    result: '',
+  };
+
+  onSubmitForm = (e) => {
+     //code...
+  };
+
+  onChangeInput = (e) => {
+    this.setState({ value: e.target.value });
+  };
+
+  input;
+
+  onRefInput = (c) => {
+    this.input = c;
+  };
+
   render() {
-    const name = 'react';
-    return <div className="react">{name}</div>
+    return (
+      <>
+        <div>{this.state.word}</div>
+        <form onSubmit={this.onSubmitForm}>
+          <input ref={this.onRefInput} value={this.state.value} onChange={this.onChangeInput} />
+          <button>클릭</button>
+        </form>
+        <div>{this.state.result}</div>
+      </>
+    );
   }
 }
 
-export default App;
+export default Test;
 ```  
 &nbsp;  
 #### 1.2 훅스
@@ -27,14 +55,35 @@ export default App;
 ```javascript
 //hooks
 import React from 'react';
-import './App.css';
+import './Test.css';
 
-function App() {
-  const name = 'react';
-  return <div className = "react">{name}</div>
-}
+const WordRelay = () => {
+  const [word, setWord] = useState('시작단어');
+  const [value, setValue] = useState('');
+  const [result, setResult] = useState('');
+  const inputEl = React.useRef(null);
 
-export default App;  
+  const onSubmitForm = (e) => {
+     //code...
+  };
+
+  return (
+    <>
+      <div>{word}</div>
+      <form onSubmit={onSubmitForm}>
+        <input
+          ref={inputEl}
+          value={value}
+          onChange={(e) => setValue(e.currentTarget.value)}
+        />
+        <button>클릭</button>
+      </form>
+      <div>{result}</div>
+    </>
+  );
+};
+
+export default Test;  
 ```  
 &nbsp;    
 ### 2. 렌더링
