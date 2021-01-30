@@ -1,6 +1,6 @@
 # 배열 메서드를 정리해보자
 
-### 201218 (이쯤에서 한 번 짚고 넘어갈 필요가 있다...)
+### 201218
 
 여러 실습을 하면서 사용하는 법을 배웠던 배열 메서드에 대한 (애매한)개념을 제대로 정리해야겠다고 생각했다. 사용할 때마다 **매번** MDN 찾아보는 일을 조금이라도 줄여볼 수 있지 않을까? MDN과 모던자바스크립트 등의 사이트를 보고 이해하면서 다시 한 번 내 방식대로 정리해보자.
 
@@ -68,6 +68,8 @@
   let newArr = arr.map((item) => {
     return item * 2;
   }); //[2, 4, 6]
+  
+  //Arr.map((요소, 인덱스, 배열) => {return 요소})
   ```
 
   #### 3. `reduce()` 또한 모든 요소에 대해 콜백함수를 실행하지만, 누적된 단 1개의 결과값을 반환한다. 배열을 계속 순회하며 인덱스 데이터를 줄여나감.
@@ -77,10 +79,31 @@
   let sumArr = arr.reduce((prev, curr) => {
     return prev + curr;
   });
-  console.log(sunArr); //15
+  console.log(sumArr); //15
+  
+  //Arr.reduce((누적값, 현재값, 인덱스, 요소) => {return 결과}, 초기값 )
   ```
-
-  왼쪽부터 차례로 1과 2를 더한 후 리턴된 값 3이 prev가 됨. 다음 3과 3을 더한 후 리턴된 6을 4와 더하는 방식이다.
+  왼쪽부터 차례로 1과 2를 더한 후 리턴된 값 3이 prev가 됨. 다음 3과 3을 더한 후 리턴된 6을 4와 더하는 방식이다.  
+  아래는 조금 더 활용한 예시 코드이다.
+  
+  ```javascript
+  oneTwoThree = [1, 2, 3];
+  result = oneTwoThree.reduce((acc, cur) => {
+    acc.push(cur % 2 ? '홀수' : '짝수');
+    return acc;
+  }, []);
+  result; // ['홀수', '짝수', '홀수']
+  ```
+  reduce를 막연히 누적하는 메서드, 덧셈, 이렇게만 생각했는데, map 메서드와 같은 동작을 하기도 한다.
+  ```javascript
+  oneTwoThree = [1, 2, 3];
+  result = oneTwoThree.reduce((acc, cur) => {
+  cur % 2 && acc.push(cur);
+  return acc;
+  }, []);
+  result; // [1, 3]
+  ```
+  심지어 filter 메서드 역할도 수행한다. 이 밖에도 sort, every, some, find 등의 메서드와 같은 동작을 수행한다고 하므로 다양하게 활용할 수 있다.
 
   #### 4. `reduceRight()`는 반대로 오른쪽부터 줄여나감.
 
@@ -122,3 +145,6 @@
   
   - 순서와 관련된 또다른 메서드: `reverse()`  
     : 배열의 순서를 반대로 뒤집는다.
+
+##### 참조
+(https://www.zerocho.com/category/JavaScript/post/5acafb05f24445001b8d796d)
