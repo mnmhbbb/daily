@@ -37,6 +37,7 @@
   - [push를 사용하지 말자(불변성)](https://github.com/mnmhbbb/daily/edit/main/React/push.md)
   - [클래스와 훅스 비교](https://github.com/mnmhbbb/daily/blob/main/React/class%2Chooks.md)
   - [리액트 개발 툴](https://github.com/mnmhbbb/daily/blob/main/React/reactdevelopertools.md)
+  - [조건문 & useRef](https://github.com/mnmhbbb/daily/blob/main/React/0130-if.md)
     
 ## 2. 실습
   - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/201105_naver_cloneCoding.md)
