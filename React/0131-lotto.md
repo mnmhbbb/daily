@@ -221,8 +221,9 @@ export default Lotto;
 ### 3. hooks로 전환하기(useEffect, useMemo, useCallback)
 클래스-훅스 라이프사이클 부분이 1대1로 대응하지 않아서 `useEffect`로 전환하기가 조금 까다롭다.  
 - 지난 시간에 배운 내용을 복습하면, `useEffect`의 두번째 인자인 배열에 넣은 요소에 따라서 `useEffect`가 실행된다고 했음.
-- 또한, return 이전의 코드는 `componentDidMount`+`componentDidUpdate`역할을, return 이후는 `componentWillUnmount`역할을 함.
-- 두 번째 인자인 배열에 넣은 값이 바뀔 때 useEffect가 실행된다.
+- 또한, return 이전의 코드는 `componentDidMount`+`componentDidUpdate`역할을,   
+  return 이후는 `componentWillUnmount`역할을 함.
+- 두 번째 인자인 배열에 넣은 값이 바뀔 때 `useEffect`가 실행된다.
 - 두 번째 인자에 빈값을 주면: `componentDidMount`와 동일. 한 번만 실행됐다가 멈춤
 - 두 번째 인자에 값을 주면: 일단 기본적으로 `componentDidMount`를 실행하고, 두 번째 인자에 넣은 값의 상태에 따라 `componentDidUpdate`까지 실행함.
 - 여기서 조건이란 `componentDidUpdate`에 넣었던 조건을 의미함
@@ -275,7 +276,7 @@ const Lotto = () => {
   - 두 번째 인자 배열에 아무 값도 넣지 않으면, 계속 기억만 하고 업데이트가 되지 않는다.
   - 따라서 적절히 값을 입력해야 원하는 대로 업데이트 할 수 있음.
   - 예를 들어, `onClickRedo` 함수를 `useCallback`으로 감싼다면 '한 번 더'를 클릭했을 때 다음 새로운 숫자를 불러오지 못한다.
-  - 따라서 `useCallback` 안에서 쓰이는 state를 두 번째 인자에 넣어야 한다.
+  - 따라서 `useCallback` 안에서 쓰이는 `state`를 두 번째 인자에 넣어야 한다.
   ```javascript
     // init
   const onClickRedo = useCallback(() => {
@@ -297,13 +298,13 @@ const Lotto = () => {
 - 만일 `useCallback`이 없으면 매번 새로운 함수가 생성됨.
 - 자식 컴포넌트에 props로 매번 새로운 함수가 전달되면 자식 입장에서는 부모로부터 오는 props가 바뀌었네? 계속 함수가 바뀌니까 새로운 props를 주는 걸로 인식해서 매번 리렌더링을 해버림.
 - 이런 쓸데없는 리레더링을 막기 위해, useCallback을 꼭 사용해야, 아 부모로부터 오는 함수가 매번 같구나.. 라고 인식함.
-#### 3.4 use**
+#### 3.4 use-
 - 지금까지 공부한 내용을 간단히 정리하면, `use` 시리즈들은 두 번째 인자가 컨트롤한다는 것을 알 수 있다.
 - `useMemo`는 두 번째 인자가 바뀌기 전까진 함수의 리턴값을 기억하고
 - `useCallback`은 두 번째 인자가 바뀌기 전까진 그 함수 자체를 기억하고
 - `useEffect`는 두 번째 인자가 바뀔 때 실행된다.
-  - 정확히는 무조건 DidMount가 실행되고, 두번째인자가 바뀔 때 DidUpdate처럼 실행됨
-  - `useEffect( ()=>{}, [] )` 이렇게 빈배열이면 DidMount만.
+  - 정확히는 무조건 처음 한 번은 DidMount가 실행되고, 두 번째 인자가 바뀔 때 DidUpdate 역할을 함
+  - `useEffect( ()=>{}, [] )` 이렇게 빈배열이면 DidMount만!
 - 전시간에도 말했지만 useEffect 여러번 써도 되니까 내가 컨트롤하고 싶은대로 만들면 됨
 #### 3.4.1 Tip
 만약에 DidMount는 안하고 DidUpdate만 실행시키고싶다면?
