@@ -34,7 +34,7 @@
   - [훅스 기초](https://github.com/mnmhbbb/daily/blob/main/React/hooks.md)
   - [웹팩과 바벨로 리액트 실행하기](https://github.com/mnmhbbb/daily/blob/main/React/webpack&babel.md)
   - [컴포넌트 분리 & props](https://github.com/mnmhbbb/daily/blob/main/React/props.md)
-  - [push를 사용하지 말자(불변성)](https://github.com/mnmhbbb/daily/edit/main/React/push.md)
+  - [push를 사용하지 말자(불변성)](https://github.com/mnmhbbb/daily/blob/main/React/push.md)
   - [클래스와 훅스 비교](https://github.com/mnmhbbb/daily/blob/main/React/class%2Chooks.md)
   - [리액트 개발 툴](https://github.com/mnmhbbb/daily/blob/main/React/reactdevelopertools.md)
   - [조건문 & useRef](https://github.com/mnmhbbb/daily/blob/main/React/0130-if.md)
