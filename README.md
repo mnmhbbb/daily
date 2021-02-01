@@ -28,7 +28,7 @@
   - [웹게임 틱택토 만들기](https://github.com/mnmhbbb/daily/blob/main/practice_code/210125_tictactoe.md)
   - [다양한 웹게임](https://github.com/mnmhbbb/daily/blob/main/practice_code/210126_webgame.md)
     
-## 1.1 React
+## 1.1 React (w. zerocho)
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
   - [구구단 게임 & state](https://github.com/mnmhbbb/daily/blob/main/React/gugudan.md) 
   - [훅스 기초](https://github.com/mnmhbbb/daily/blob/main/React/hooks.md)
@@ -39,6 +39,7 @@
   - [리액트 개발 툴](https://github.com/mnmhbbb/daily/blob/main/React/reactdevelopertools.md)
   - [조건문 & useRef](https://github.com/mnmhbbb/daily/blob/main/React/0130-if.md)
   - [라이프사이클](https://github.com/mnmhbbb/daily/blob/main/React/0130-rsp.md)
+  - [라이프사이클2](https://github.com/mnmhbbb/daily/blob/main/React/0131-lotto.md)
     
 ## 2. 실습
   - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/201105_naver_cloneCoding.md)
