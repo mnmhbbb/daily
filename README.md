@@ -40,7 +40,7 @@
   - [조건문 & useRef](https://github.com/mnmhbbb/daily/blob/main/React/0130-if.md)
   - [라이프사이클(component-)](https://github.com/mnmhbbb/daily/blob/main/React/0130-rsp.md)
   - [라이프사이클2(use-)](https://github.com/mnmhbbb/daily/blob/main/React/0131-lotto.md)
-  - [틱택토 & useReducer]()
+  - [틱택토 & useReducer](https://github.com/mnmhbbb/daily/blob/main/React/0201-tictactoe.md)
     
 ## 2. 실습
   - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/201105_naver_cloneCoding.md)
