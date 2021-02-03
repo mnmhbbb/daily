@@ -152,7 +152,7 @@ export default GameMatcher
 - 위에서 언급한 `path`에서 입력한 `:` 에 현재 페이지 정보가 들어있음.
 ### 2.3 location
 - 실제 주소에 대한 정보들을 담고 있다.
-- `pathname: "game/number-baseball"이나 `search: ""`, `hash: ""` 이런 기능을 담고 있다.
+- `pathname: "game/number-baseball"이나 `search: ""` 이런 기능을 담고 있다.
 - 위 기능들을 활용하여   
   `if (this.props.match.params.name === 'number-baseball') {return <NumberBaseball />`
   `:name`에 대한 정보가 `match.params.name`에 들어있다는 개념을 활용하여 분기처리했다.
