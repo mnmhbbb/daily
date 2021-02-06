@@ -45,7 +45,7 @@
   - [React Router](https://github.com/mnmhbbb/daily/blob/main/React/0203-reactrouter.md)
   
 ## 1.2 react-node-bird
-  -[Next.js 시작](https://github.com/mnmhbbb/daily/tree/main/React)
+  - [Next.js 시작](https://github.com/mnmhbbb/daily/tree/main/React)
     
 ## 2. 실습
   - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/201105_naver_cloneCoding.md)
