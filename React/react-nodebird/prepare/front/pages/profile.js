@@ -5,14 +5,14 @@ import FollowList from "../components/FollowList";
 
 const Profile = () => {
   const followerList = [
-    { nickname: "제로초" },
-    { nickname: "바보" },
-    { nickname: "노드버드오피셜" },
+    { nickname: "알계1" },
+    { nickname: "알계2" },
+    { nickname: "알계3" },
   ];
   const followingList = [
-    { nickname: "제로초" },
-    { nickname: "바보" },
-    { nickname: "노드버드오피셜" },
+    { nickname: "여자친구" },
+    { nickname: "트와이스" },
+    { nickname: "원더걸스" },
   ];
 
   return (
