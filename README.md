@@ -28,7 +28,7 @@
   - [웹게임 틱택토 만들기](https://github.com/mnmhbbb/daily/blob/main/practice_code/210125_tictactoe.md)
   - [다양한 웹게임](https://github.com/mnmhbbb/daily/blob/main/practice_code/210126_webgame.md)
     
-## 1.1 React (w. zerocho 웹게임 강좌)
+## 1.1 React (w. zerocho 웹게임 강의)
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
   - [구구단 게임 & state](https://github.com/mnmhbbb/daily/blob/main/React/gugudan.md) 
   - [훅스 기초](https://github.com/mnmhbbb/daily/blob/main/React/hooks.md)
@@ -44,7 +44,7 @@
   - [Context API](https://github.com/mnmhbbb/daily/blob/main/React/0202-contextAPI.md)
   - [React Router](https://github.com/mnmhbbb/daily/blob/main/React/0203-reactrouter.md)
   
-## 1.2 react-node-bird
+## 1.2 Next.js (w. react-node-bird 강의)
   - [Next.js 시작](https://github.com/mnmhbbb/daily/blob/main/React/0205-next.md)
   - [기본 정리(Link, Head, _app.js, eslint 등)](https://github.com/mnmhbbb/daily/blob/main/React/0206-next.md)
     
