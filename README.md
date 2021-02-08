@@ -46,7 +46,7 @@
   
 ## 1.2 react-node-bird
   - [Next.js 시작](https://github.com/mnmhbbb/daily/blob/main/React/0205-next.md)
-  - [기본 정리(link, head, eslint 등)](https://github.com/mnmhbbb/daily/blob/main/React/0206-next.md)
+  - [기본 정리(Link, Head, _app.js, eslint 등)](https://github.com/mnmhbbb/daily/blob/main/React/0206-next.md)
     
 ## 2. 실습
   - [네이버 메인 페이지 html & css로 클론 코딩](https://github.com/mnmhbbb/daily/blob/main/practice_code/202011/201105_naver_cloneCoding.md)
