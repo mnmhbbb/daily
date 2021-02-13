@@ -36,7 +36,6 @@ const PostCard = ({ post }) => {
 
   const onToggleLike = useCallback(() => {
     setLiked((prev) => !prev);
-    console.log(id, post.UserId);
   }, []);
 
   const onRemovePost = useCallback(() => {
@@ -66,7 +65,7 @@ const PostCard = ({ post }) => {
             key="ellipsis"
             content={
               <Button.Group>
-                {id && post.UserId === id ? (
+                {id && post.User.id === id ? (
                   <>
                     <Button>수정</Button>
                     <Button
@@ -130,7 +129,6 @@ PostCard.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number,
     User: PropTypes.object,
-    UserId: PropTypes.number,
     content: PropTypes.string,
     createdAt: PropTypes.object,
     Comments: PropTypes.arrayOf(PropTypes.any),

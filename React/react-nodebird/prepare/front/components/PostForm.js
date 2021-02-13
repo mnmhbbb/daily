@@ -26,9 +26,6 @@ const PostForm = () => {
     dispatch({
       type: ADD_POST_REQUEST,
       data: text,
-      // data: {
-      //   text,
-      // },
     });
   }, [text]);
 
@@ -57,7 +54,7 @@ const PostForm = () => {
           htmlType="submit"
           loading={addPostLoading}
         >
-          등록
+          트윗
         </Button>
       </div>
       <div>

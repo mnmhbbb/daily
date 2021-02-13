@@ -1,5 +1,5 @@
-import { all, delay, fork, put, takeLatest } from 'redux-saga/effects';
-import axios from 'axios';
+import { all, delay, fork, put, takeLatest } from "redux-saga/effects";
+import axios from "axios";
 
 import {
   FOLLOW_FAILURE,
@@ -17,15 +17,14 @@ import {
   UNFOLLOW_FAILURE,
   UNFOLLOW_REQUEST,
   UNFOLLOW_SUCCESS,
-} from '../reducers/user';
+} from "../reducers/user";
 
 function logInAPI(data) {
-  return axios.post('/api/login', data);
+  return axios.post("/api/login", data);
 }
 
 function* logIn(action) {
   try {
-    console.log('saga logIn');
     // const result = yield call(logInAPI);
     yield delay(1000);
     yield put({
@@ -42,7 +41,7 @@ function* logIn(action) {
 }
 
 function logOutAPI() {
-  return axios.post('/api/logout');
+  return axios.post("/api/logout");
 }
 
 function* logOut() {
@@ -62,7 +61,7 @@ function* logOut() {
 }
 
 function signUpAPI() {
-  return axios.post('/api/signUp');
+  return axios.post("/api/signUp");
 }
 
 function* signUp() {
@@ -82,7 +81,7 @@ function* signUp() {
 }
 
 function followAPI() {
-  return axios.post('/api/follow');
+  return axios.post("/api/follow");
 }
 
 function* follow(action) {
@@ -103,7 +102,7 @@ function* follow(action) {
 }
 
 function unfollowAPI() {
-  return axios.post('/api/unfollow');
+  return axios.post("/api/unfollow");
 }
 
 function* unfollow(action) {

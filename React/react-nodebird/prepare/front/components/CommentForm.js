@@ -41,7 +41,7 @@ const CommentForm = ({ post }) => {
           htmlType="submit"
           loading={addCommentLoading}
         >
-          등록
+          트윗
         </Button>
       </Form.Item>
     </Form>
