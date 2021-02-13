@@ -1,12 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Link from "next/link";
-import { Input, Menu, Row, Col } from "antd";
-import "antd/dist/antd.css";
-import styled from "styled-components";
-import UserProfile from "../components/UserProfile";
-import LoginForm from "../components/LoginForm";
+import PropTypes from "prop-types";
+import { Col, Input, Menu, Row } from "antd";
 import { useSelector } from "react-redux";
+
+import LoginForm from "./LoginForm";
+import UserProfile from "./UserProfile";
 import { createGlobalStyle } from "styled-components";
 
 const Global = createGlobalStyle`
@@ -24,51 +23,40 @@ const Global = createGlobalStyle`
   }
 `;
 
-const SearchInput = styled(Input.Search)`
-  vertical-align: middle;
-`;
-
 const AppLayout = ({ children }) => {
-  // const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  const { isLoggedIn } = useSelector((state) => state.user);
-
+  const { me } = useSelector((state) => state.user);
   return (
     <div>
       <Global />
       <Menu mode="horizontal">
-        <Menu.Item>
+        <Menu.Item key="home">
           <Link href="/">
             <a>노드버드</a>
           </Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="profile">
           <Link href="/profile">
             <a>프로필</a>
           </Link>
         </Menu.Item>
-        <Menu.Item>
-          <SearchInput enterButton />
-        </Menu.Item>
-        <Menu.Item>
-          <Link href="/signup">
-            <a>회원가입</a>
-          </Link>
+        <Menu.Item key="mail">
+          <Input.Search enterButton style={{ verticalAlign: "middle" }} />
         </Menu.Item>
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? <UserProfile /> : <LoginForm />}
+          {me ? <UserProfile /> : <LoginForm />}
         </Col>
         <Col xs={24} md={12}>
           {children}
         </Col>
         <Col xs={24} md={6}>
           <a
-            href="https://github.com/mnmhbbb/daily"
+            href="https://github.com/mnmhbbb"
             target="_blank"
             rel="noreferrer noopener"
           >
-            test by mnmhbbb
+            test
           </a>
         </Col>
       </Row>
