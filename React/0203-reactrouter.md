@@ -47,14 +47,14 @@ const Games = () => {
 export default Games;
 ```
 - `Link`와 `Route`를 매칭했다.
-- Route 부분은 바뀔 화면이 나오는 부분이며
-- 그 외 부분은 공통 레이아웃이다. 따라서 다른 화면으로 바뀌어도 그대로 유지.
+- Route 부분은 바뀔 화면이 나오는 부분이며  
+  그 외 부분은 공통 레이아웃이다. 따라서 다른 화면으로 바뀌어도 그대로 유지.
 ### 1.1 BrowserRouter
 - 예를 들어 숫자야구 링크를 클릭하면 주소창이 `localhost:8080/number-baseball`이 되는데,
 - 여기서 새로고침을 하면 `Cannot GET /number-baseball`이라는 에러가 발생한다.
 - 그 이유는, 해당 페이지가 가상 페이지이기 때문이다.
-- `localhost:8080/number-baseball`은 실제 서버에 연결된 페이지가 아니므로,
-- 새로고침을 한 순간 서버에 요청이 가는데 서버는 이 주소를 모른다!
+- `localhost:8080/number-baseball`은 실제 서버에 연결된 페이지가 아니므로,  
+  새로고침을 한 순간 서버에 요청이 가는데 서버는 이 주소를 모른다!
 - 프론트단에서만 이 주소가 유효하기 때문에 서버쪽에 알려서 세팅을 해야 한다.
 - 같은 이유로 검색엔진에 걸리지도 못한다.
 #### 1.1.1 tip
@@ -124,7 +124,7 @@ export default GameMatcher
 ```
 - 이 부분을 이해하기 전에 알아야 할 개념들이 있다.
 - `GameMatcher` 컴포넌트에서 `console.log(this.props)`를 찍어보면, `history`, `location`, `match`가 들어있다.
-- 이는 `<Route <Route path="/game:name" component={GameMatcher} >`에서   
+- 이는 `<Route path="/game:name" component={GameMatcher} >`에서   
   '라우트 컴포넌트'가 현재 연결되어있는 `GameMatcher` 컴포넌트한테 그 셋을 넣어주는거임.
   - 만약 연결이 되지 않은 컴포넌트에서 이 세 기능을 쓰고 싶다면 `withRouter`를 사용한다.
   - 하이오더컴포넌트 방식으로 withRouter로 감싸준다.
@@ -152,7 +152,7 @@ export default GameMatcher
 - 위에서 언급한 `path`에서 입력한 `:` 에 현재 페이지 정보가 들어있음.
 ### 2.3 location
 - 실제 주소에 대한 정보들을 담고 있다.
-- `pathname: "game/number-baseball"이나 `search: ""` 이런 기능을 담고 있다.
+- `pathname: "game/number-baseball"`이나 `search: ""` 이런 기능을 담고 있다.
 - 위 기능들을 활용하여   
   `if (this.props.match.params.name === 'number-baseball') {return <NumberBaseball />`
   `:name`에 대한 정보가 `match.params.name`에 들어있다는 개념을 활용하여 분기처리했다.
@@ -171,3 +171,55 @@ class GameMatcher extends Component {
     let urlSearchParams = new URLSearchParams(this.props.location.search.slice(1));
     console.log(urlSearchParams.get('hello')); //react
 ```
+### 4. props 넘기기
+- props를 넘기는 방법에는 다음 2가지 방법이 있다.
+```javascript
+const Games = () => {
+  return (
+     ...
+     // 1
+     <Route path="/game:name" component={() => <GameMatcher props="abc" />} />
+     <Route path="/game:name" component={() => <GameMatcher props={props.abc} />} />
+     
+     // 2
+     <Route path="/game:name" render={(props) => <GameMatcher props={props.abc} />} />
+   )
+ }
+```
+- 위와 같이 1)컴포넌트를 쓰거나 2)`render`를 사용해서 props 전달하기
+- 이 props 안에는 history, match, location이 들어있다.
+### 4.1 Switch
+- Switch를 사용하면 첫 번째로 일치하는 것만 렌더링 된다.
+```javascript
+import { Switch } from 'react-router-dom';
+const Games = () => {
+  return (
+     ...
+     <Switch>
+       <Route path="/game:name" render={(props) => <GameMatcher props={...props} />} />
+       <Route path="/game/number-baseball" render={(props) => <GameMatcher props={...props} />} />
+     </Switch>
+   )
+ }
+```
+- 위 경우는 1)동적 라우팅, 2)주소가 고정되어 있는 코드 둘이 있는데, 만일 Switch를 사용하지 않으면 둘다 렌더링이 된다.
+- Switch가 동시에 여러 페이지가 뜨는 문제를 방지해준다.
+
+### 4.2 exact
+- exact는 해당 주소와 완벽하게 일치할 때만 렌더된다.
+```javascript
+import { Switch } from 'react-router-dom';
+const Games = () => {
+  return (
+     ...
+     <Switch>
+       <Route exact path="/" render={(props) => <GameMatcher props={...props} />} />
+       <Route path="/game/:name" render={(props) => <GameMatcher props={...props} />} />
+     </Switch>
+   )
+ }
+```
+- 위 코드의 경우, `/`만 입력했어도 어쨌든 `/`를 포함하니까 일치한다고 생각하고 동작해서 결국 둘다 렌더된다.
+- 상위주소와 하위주소가 있는데, 상위주소도 일치한다고 인식하는 것이다.
+- 이런 경우에는 Switch를 사용해도 해결되지 않는다.
+- 따라서 exact를 입력하여 주소가 완벽히 일치할 때만 동작하도록 한다.
