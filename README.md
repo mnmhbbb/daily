@@ -25,8 +25,8 @@
   - [this, 화살표 함수의 this](https://github.com/mnmhbbb/daily/blob/main/JavaScript/this.js)
   - [렉시컬 스코프](https://github.com/mnmhbbb/daily/blob/main/JavaScript/lexicalScope.js)
   - [call, apply, bind](https://github.com/mnmhbbb/daily/blob/main/JavaScript/apply%2Ccall%2Cbind.js)
-  - [웹게임 틱택토 만들기](https://github.com/mnmhbbb/daily/blob/main/practice_code/210125_tictactoe.md)
-  - [다양한 웹게임](https://github.com/mnmhbbb/daily/blob/main/practice_code/210126_webgame.md)
+  - [웹게임 틱택토 만들기](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210125_tictactoe.md)
+  - [다양한 웹게임](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210126_webgame.md)
     
 ## 1.1 React (w. zerocho 웹게임 강의)
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
