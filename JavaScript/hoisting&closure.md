@@ -104,20 +104,20 @@ function makeAdder(x) {
       return x + y;
     };
   }
-const add3 = makeAdder(3);
-console.log(add3(2)); //5
+const add = makeAdder(3);
+console.log(add(2)); //5
 ```
 #### 1. 최초의 상황(아직 0줄을 읽은 상태)
 - 전역 Lexical 환경(전역 컨택스트)
   - makeAdder : function
-  - add3: 아직 초기화X
-#### 2. `const add3 = makeAdder(3);` 부분을 읽음
+  - add: 아직 초기화X
+#### 2. `const add = makeAdder(3);` 부분을 읽음
 - makeAdder Lexical 환경
   - x : 3
 - 전역 Lexical 환경  
-  add3은 이제 makeAdder 함수가 리턴하는 값을 받는 함수가 됨
-  - add3 : function
-#### 3. `console.log(add3(2));` 부분을 읽음  
+  add은 이제 makeAdder 함수가 리턴하는 값을 받는 함수가 됨
+  - add : function
+#### 3. `console.log(add(2));` 부분을 읽음  
   add3을 실행하면 makeAdder의 리턴 부분 익명함수가 실행됨.  
   이때 받은 y값이 들어가게 됨
   - 익명함수 Lexical 환경
