@@ -118,7 +118,7 @@ console.log(add(2)); //5
   add은 이제 makeAdder 함수가 리턴하는 값을 받는 함수가 됨
   - add : function
 #### 3. `console.log(add(2));` 부분을 읽음  
-  add3을 실행하면 makeAdder의 리턴 부분 익명함수가 실행됨.  
+  add을 실행하면 makeAdder의 리턴 부분 익명함수가 실행됨.  
   이때 받은 y값이 들어가게 됨
   - 익명함수 Lexical 환경
     - y : 2
