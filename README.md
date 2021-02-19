@@ -63,5 +63,6 @@
   - [페이지 로드에 대한](https://github.com/mnmhbbb/daily/blob/main/etc/load.md)
   - [mysql 비밀번호 변경](https://github.com/mnmhbbb/daily/blob/main/etc/mysql-password.md)
   - [git 줄바꿈 관련 에러](https://github.com/mnmhbbb/daily/blob/main/etc/git-crlf.md)
+  - [git ignore](https://github.com/mnmhbbb/daily/blob/main/etc/git-ignore.md)
 
     
