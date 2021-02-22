@@ -55,11 +55,16 @@
   - [드롭다운메뉴](https://github.com/mnmhbbb/daily/blob/main/practice_code/javascript-101-master/form/dropdown-menu.md)
   - [상단바 스크롤게이지](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201229_scroll-gauge.md) 
   - [캐러셀 슬라이드](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210117_carousel.md)
+
+## 3. js 100제
+  - [Q.10](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q10.md)
+  - [Q.16](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q16.md)
+  - [Q.26](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q26.md)
   
-## 3. etc
+## 4. etc
   - [http & ajax & socket](https://github.com/mnmhbbb/daily/blob/main/etc/http%26ajax%26socket.md)
   - [localStorage](https://github.com/mnmhbbb/daily/blob/main/etc/localStorage.md)
-  - [git - interactive rebase](https://github.com/mnmhbbb/daily/blob/main/etc/Git_interactive_rebase.md)
+  - [git interactive rebase](https://github.com/mnmhbbb/daily/blob/main/etc/Git_interactive_rebase.md)
   - [페이지 로드에 대한](https://github.com/mnmhbbb/daily/blob/main/etc/load.md)
   - [mysql 비밀번호 변경](https://github.com/mnmhbbb/daily/blob/main/etc/mysql-password.md)
   - [git 줄바꿈 관련 에러](https://github.com/mnmhbbb/daily/blob/main/etc/git-crlf.md)
