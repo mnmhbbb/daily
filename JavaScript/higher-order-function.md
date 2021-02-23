@@ -64,7 +64,42 @@ onClickBtn = (choice) => { }
 onClickBtn = (choice) => () => { }
 <button id="rock" className="btn" onClick={this.onClickBtn("바위")}>
 ```
+### 예시4
+- 함수 add는 다른 함수를 리턴하는 고차함수
+- add는 인자 1개를 받아서 익명함수를 리턴함
+- 리턴되는 익명함수도 인자를 1개 받아서 add와 더한 값을 리턴함
+```javascript
+function add(add) {
+  return function (num) {
+    return num + add;
+  };
+}
+```
+```javascript
+const add = (add) => {
+  return (num) => num + add;
+};
 
+const test = add(2)  // add(2)는 함수이므로 ()로 호출을 해야 한다.
+const test2 = add(2)(3);
+console.log(test2);   // 5
+```
+### 예시5
+```javascript
+function double(num) {
+  return num * 2;
+}
+
+function doubleAdd(add, func) {
+  const doubled = func(add);
+  return function (num) {
+    return num + doubled;
+  };
+}
+
+let test = doubleAdd(5, double)(3);
+console.log(test); //13
+```
 
 ##### 참조
 [배열 고차함수](https://poiemaweb.com/js-array-higher-order-function)
