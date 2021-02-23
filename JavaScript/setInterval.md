@@ -14,7 +14,7 @@ function startInterval(seconds, callback) {
   
 startInterval(1, timer);
 ```
-- 위와 같이 `setInterval`을 콜백으로 받아서 바로 실행시키는 함수 `startInterval`을 호출한다.
+- 위와 같이 콜백함수를 받아서 바로 실행시키는 함수 `startInterval`을 호출한다.
 - 그러면 바로 timer 함수를 호출하고 return과 함께 setInterval을 시작하면서 이 함수는 종료된다.
 - 이렇게 되면 원하는 대로 함수를 실행한 후 1초 지연되고 다시 실행하는 동작을 할 수 있게 된다.
 
