@@ -27,6 +27,7 @@
   - [call, apply, bind](https://github.com/mnmhbbb/daily/blob/main/JavaScript/apply%2Ccall%2Cbind.js)
   - [웹게임 틱택토 만들기](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210125_tictactoe.md)
   - [다양한 웹게임](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210126_webgame.md)
+  - [고차함수](https://github.com/mnmhbbb/daily/blob/main/JavaScript/higher-order-function.md)
     
 ## 1.1 React (w. zerocho 웹게임 강의)
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
@@ -60,6 +61,13 @@
   - [Q.10](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q10.md)
   - [Q.16](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q16.md)
   - [Q.26](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q26.md)
+  - [Q.27](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q27.md)
+  - [Q.35](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q35.md)
+  - [Q.36](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q36.md)
+  - [Q.37](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q37.md)
+  - [Q.38](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q38.md)
+  - [Q.39](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q39.md)
+  - [Q.40](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q40.md)
   
 ## 4. etc
   - [http & ajax & socket](https://github.com/mnmhbbb/daily/blob/main/etc/http%26ajax%26socket.md)
