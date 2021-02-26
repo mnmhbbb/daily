@@ -3,9 +3,9 @@
 - 인강 들으면서 정리한 것
 - 공부한 내용을 다시 읽게 쉽게 정리한 것
 
-## 1. HTML & CSS
+## 0. HTML & CSS
 
-## 2. JavaScript  
+## 1. JavaScript  
   - [기본 데이터 타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/datatype.md)
   - [객체](https://github.com/mnmhbbb/daily/blob/main/JavaScript/obj.js)
   - [함수](https://github.com/mnmhbbb/daily/blob/main/JavaScript/function.js)
