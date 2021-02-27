@@ -30,22 +30,7 @@ function onButtonClick(event, items) {
   if (key == null || value == null) {
     return;
   }
-  //   displayItems(items.filter((item) => item[key] === value));
-
-  updateItems(items, key, value);
-}
-
-function updateItems(items, key, value) {
-  let list = document.querySelectorAll(".item");
-  for (let i = 0; i < list.length; i++) {
-    items.forEach((item) => {
-      if (item.dataset[key] === value) {
-        list[i].classList.remove("invisible");
-      } else {
-        list[i].classList.add("invisible");
-      }
-    });
-  }
+  displayItems(items.filter((item) => item[key] === value));
 }
 
 function setEventListeners(items) {
