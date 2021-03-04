@@ -31,6 +31,7 @@
   - [다양한 웹게임](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210126_webgame.md)
   - [고차함수](https://github.com/mnmhbbb/daily/blob/main/JavaScript/higher-order-function.md)
   - [setInterval 즉시 실행하기](https://github.com/mnmhbbb/daily/blob/main/JavaScript/setInterval.md)
+  - [removeChild](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201208_removeChild.md)
     
 ## 1.1 React (w. zerocho 웹게임 강의)
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
