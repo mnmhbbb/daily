@@ -61,19 +61,8 @@
   - [상단바 스크롤게이지](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201229_scroll-gauge.md) 
   - [캐러셀 슬라이드](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210117_carousel.md)
 
-## 3. js 100제
-  - [Q.10](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q10.md)
-  - [Q.16](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q16.md)
-  - [Q.26](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q26.md)
-  - [Q.27](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q27.md)
-  - [Q.35](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q35.md)
-  - [Q.36](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q36.md)
-  - [Q.37](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q37.md)
-  - [Q.38](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q38.md)
-  - [Q.39](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q39.md)
-  - [Q.40](https://github.com/mnmhbbb/daily/blob/main/js100%EC%A0%9C/q40.md)
   
-## 4. etc
+## 5. etc
   - [http & ajax & socket](https://github.com/mnmhbbb/daily/blob/main/etc/http%26ajax%26socket.md)
   - [localStorage](https://github.com/mnmhbbb/daily/blob/main/etc/localStorage.md)
   - [git interactive rebase](https://github.com/mnmhbbb/daily/blob/main/etc/Git_interactive_rebase.md)
