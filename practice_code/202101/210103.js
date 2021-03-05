@@ -14,3 +14,12 @@ btn.addEventListener("click", () => {
   modal.style.visibility = "hidden";
   body.style.backgroundColor = "white";
 });
+
+body.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    return;
+  } else if (e.target === body) {
+    modal.style.visibility = "hidden";
+    body.style.backgroundColor = "white";
+  }
+});
