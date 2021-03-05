@@ -62,7 +62,7 @@
   - [캐러셀 슬라이드](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210117_carousel.md)
 
   
-## 5. etc
+## 3. etc
   - [http & ajax & socket](https://github.com/mnmhbbb/daily/blob/main/etc/http%26ajax%26socket.md)
   - [localStorage](https://github.com/mnmhbbb/daily/blob/main/etc/localStorage.md)
   - [git interactive rebase](https://github.com/mnmhbbb/daily/blob/main/etc/Git_interactive_rebase.md)
