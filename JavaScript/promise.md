@@ -42,12 +42,13 @@ f1(() => {
 //3번 주문 완료
 //끝
 ```
-(정말 지옥같은 코드)
 - 위와 같이 연속적으로 콜백함수를 사용하여 가독성이 떨어지는 코드를 보완하기 위해 프로미스를 사용한다.  
 &nbsp;
 &nbsp;
 ## 1.2 프로미스
-- 프로미스는 기본적으로 객체이며, `new Promise`로 생성하고, 두 개의 콜백함수를 인자로 받는다.
+- 프로미스: 자바스크립트 비동기 처리를 위한 객체
+- Promise 생성자 함수를 통해 인스턴스화한다
+- 비동기 작업을 수행할 콜백 함수를 인자로 전달받고, 이 콜백함수는 `resolve`, `reject` 함수를 인자로 전달 받음.
 ```javascript
 const pr = new Promise((resolve, reject) => {
   //code
@@ -57,7 +58,8 @@ const pr = new Promise((resolve, reject) => {
 - 초기엔 `state: pending`, `result: undefined` 상태이다.
 - 성공하여 `resolve`가 호출되면 `state: fulfilled` 상태가 되고, `resolve`함수로 전달된 값을 `result`로 받는다.
 - 실패하여 `reject`가 호출되면 `state: rejected` 상태가 되고, `reject`함수로 전될된 에러를 `result`로 받는다.
-- 다음은 프로미스의 예시이다.
+- 프로미스는 `.then`이라는 후속 처리 메서드를 통해 비동기 처리 결과를 전달 받는다.
+- 다음은 프로미스 체이닝의 예시이다.
 ```javascript
 const f1 = () => {
   return new Promise((res, rej) => {
@@ -104,10 +106,11 @@ f1()
 &nbsp;
 &nbsp;
 ## 1.3 프로미스 메서드
-### 1.3.1 `Promise.all`
+### 1.3.1 Promise.all
 - 순차적으로 진행하는 것이 아니라, 동시에 실행하면 3초면 끝낼 수 있게 해준다.  
   (예시 코드에서 가장 오래 걸리는 시간이 3초)
-- 하나라도 실패하면 곧바로 에러로 연결된다.
+- 즉, 전달받은 모든 프로미스를 병렬로 처리한다.
+- 따라서 하나라도 실패하면 곧바로 에러로 연결된다.
 ```javascript
 console.time("시간");
 Promise.all([f1(), f2(), f3()]).then((res) => {
@@ -118,9 +121,10 @@ Promise.all([f1(), f2(), f3()]).then((res) => {
 - `console.time`을 이용하면 소요되는 시간을 체크할 수 있는데,  
   위 코드로 실행할 경우 `시간: 3004.0791015625ms`의 결과가 나온다.
 &nbsp;
-### 1.3.2 `Promise.race`
+### 1.3.2 Promise.race
 - 가장 빨리 수행된 결과를 보여준다.
-- 하나라도 수행되면 거기서 중단한다.
+- 즉, 가장 먼저 처리된 프로미스가 resolve한 처리 결과를 resolve하는 새로운 프로미스를 반환한다.
+- 따라서 하나라도 수행되면 거기서 중단한다.
 ```javascript
 console.time("시간");
 Promise.race([f1(), f2(), f3()]).then((res) => {
@@ -129,4 +133,11 @@ Promise.race([f1(), f2(), f3()]).then((res) => {
 });
 ```
 - 위 코드로 실행할 경우 `시간: 1002.58203125ms`의 결과가 나온다.
-- 이러한 프로미스 체이닝을 더 간결하게 만들어주는 것이 `async`, `await`이다.
+### 1.3.2 Promise.allSettled
+- 최근에 추가된 문법이다.
+- 하나라도 실패하면 곧바로 전체가 에러로 연결되는 `Promise.all`과 달리, `Promise.allSetteld`는 모든 프로미스가 처리될 때까지 기다린다.
+- 따라서 각 프로미스 상태와 값 또는 에러를 받을 수 있다.
+##### 참조
+https://poiemaweb.com/es6-promise  
+https://youtu.be/3Ao3OroqQLQ  
+https://ko.javascript.info/promise-api
