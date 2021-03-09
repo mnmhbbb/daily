@@ -20,7 +20,7 @@
   - [클래스 상속 extends](https://github.com/mnmhbbb/daily/blob/main/JavaScript/extends.js)
   - [클래스 오버라이딩](https://github.com/mnmhbbb/daily/blob/main/JavaScript/overriding.js)
   - [프로미스](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.md)
-    - [프로미스 예시](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.js)
+  - [프로미스 체이닝](https://github.com/mnmhbbb/daily/blob/main/JavaScript/promise.js)
   - [논리연산자 응용](https://github.com/mnmhbbb/daily/tree/main/JavaScript/and_or.md)
   - [계산된 프로퍼티](https://github.com/mnmhbbb/daily/blob/main/JavaScript/computedProperty.js)
   - [화살표함수](https://github.com/mnmhbbb/daily/blob/main/JavaScript/arrow-function.js)
