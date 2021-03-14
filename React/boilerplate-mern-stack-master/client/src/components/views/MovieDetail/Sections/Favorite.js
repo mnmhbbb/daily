@@ -8,7 +8,7 @@ function Favorite(props) {
   const moviePost = props.movieInfo.backdrop_path;
   const movieRunTime = props.movieInfo.runtime;
 
-  const [FavoriteNumber, setFavoriteNumber] = useState(Number(0));
+  const [FavoriteNumber, setFavoriteNumber] = useState(0);
   const [Favorited, setFavorited] = useState(false);
 
   let variable = {
@@ -22,9 +22,9 @@ function Favorite(props) {
   useEffect(() => {
     // 좋아요 갯수 정보 가져오기
     axios.post("/api/favorite/favoriteNumber", variable).then((res) => {
+      console.log(res.data);
+      setFavoriteNumber(res.data.favoriteNumber);
       if (res.data.success) {
-        console.log(res.data);
-        setFavoriteNumber(res.data.FavoriteNumber);
       } else {
         alert("숫자 정보를 가져오는데 실패했습니다.");
       }
@@ -33,7 +33,7 @@ function Favorite(props) {
     // 내가 좋아요 눌렀는지 체크
     axios.post("/api/favorite/favorited", variable).then((res) => {
       if (res.data.success) {
-        console.log(res.data);
+        // console.log(res.data);
         setFavorited(res.data.Favorited);
       } else {
         alert("정보를 가져오는데 실패했습니다.");

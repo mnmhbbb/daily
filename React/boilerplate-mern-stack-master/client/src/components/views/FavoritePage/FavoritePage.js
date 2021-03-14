@@ -48,7 +48,6 @@ function FavoritePage() {
         ) : (
           "no image"
         )}
-        }
       </div>
     );
 
@@ -60,15 +59,16 @@ function FavoritePage() {
 
         <td>{favorite.movieRunTime} mins</td>
         <td>
-          <button
+          <Button
             onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}
           >
             Remove
-          </button>
+          </Button>
         </td>
       </tr>
     );
   });
+
   return (
     <div style={{ width: "85%", margin: "3rem auto" }}>
       <h2> Favorite Movies </h2>

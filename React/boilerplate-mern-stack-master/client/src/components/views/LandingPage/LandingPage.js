@@ -27,7 +27,7 @@ function LandingPage() {
   }, []);
 
   const loadMoreItems = () => {
-    console.log("click");
+    // console.log("click");
     const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${
       CurrentPage + 1
     }`;
@@ -44,7 +44,7 @@ function LandingPage() {
             text={MainMovieImage.overview}
           />
         )}
-        <div style={{ width: "80%", margin: "1rem auto" }}>
+        <div style={{ width: "90%", margin: "1rem auto" }}>
           <h2>Movie by latest</h2>
           <hr />
         </div>
