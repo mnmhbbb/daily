@@ -1,1 +1,2 @@
 [0315/004235.646:ERROR:directory_reader_win.cc(43)] FindFirstFile: ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. (0x3)
+[0316/030440.160:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\ìœ ì €\AppData\Local\Naver\Naver Whale\User Data\Crashpad\attachments\c0c084bb-7670-447b-bb2f-a26f2668b07a: ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. (0x3)

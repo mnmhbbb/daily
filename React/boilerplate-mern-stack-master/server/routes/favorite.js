@@ -28,16 +28,25 @@ router.post("/favorited", (req, res) => {
   });
 });
 
-// remove movie
 router.post("/removeFromFavorite", (req, res) => {
   Favorite.findOneAndDelete({
     movieId: req.body.movieId,
     userFrom: req.body.userFrom,
-  }).exec((err, result) => {
+  }).exec((err, doc) => {
     if (err) return res.status(400).send(err);
-    return res.status(200).json({ success: true });
+    res.status(200).json({ success: true, doc });
   });
 });
+
+// router.post("/removeFromFavorite", (req, res) => {
+//     Favorite.findOneAndDelete({
+//       movieId: req.body.movieId,
+//       userFrom: req.body.userFrom,
+//     }).exec((err, result) => {
+//       if (err) return res.status(400).send(err);
+//       return res.status(200).json({ success: true });
+//     });
+//   });
 
 router.post("/addToFavorite", (req, res) => {
   const favorite = new Favorite(req.body);
