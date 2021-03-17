@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon"
   },
-  "author": "ZeroCho",
+  "author": "mnmhbbb",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",

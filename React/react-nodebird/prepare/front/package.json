@@ -8,13 +8,13 @@
     "build": "cross-env NODE_ENV=production ANALYZE=true next build",
     "start": "cross-env NODE_ENV=production next start -p 3060"
   },
-  "author": "ZeroCho",
+  "author": "mnmhbbb",
   "license": "MIT",
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@next/bundle-analyzer": "^9.4.4",
     "antd": "^4.3.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cookie-parser": "^1.4.5",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
