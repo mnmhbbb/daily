@@ -19,7 +19,7 @@ db.User = user;
 
 Object.keys(db).forEach(modelName => {
   db[modelName].init(sequelize);
-});
+})
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
