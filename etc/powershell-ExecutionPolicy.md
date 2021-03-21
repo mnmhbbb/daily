@@ -1,6 +1,6 @@
 ## Window Powershell 스크립트 관련 에러
 ![errorimage](https://user-images.githubusercontent.com/66292371/111908495-d8194c80-8a9c-11eb-9deb-28b4ce41dfb0.png)
-- 타입스크립트 컴파일 중에 발생한 에러
+- 타입스크립트 컴파일 시도 중에 발생한 에러
 - Powershell에서 스크립트 실행을 기본적으로 제한하고 있기 때문에 권한 설정을 해야 했다.
 1. PowerShell 프로그램을 관리자 권한으로 실행
 2. `Set-ExecutionPolicy RemoteSigned` 를 입력하여 RemoteSigned로 권한을 수정한다.
