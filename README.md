@@ -71,5 +71,6 @@
   - [git 줄바꿈 관련 경고](https://github.com/mnmhbbb/daily/blob/main/etc/git-crlf.md)
   - [git ignore](https://github.com/mnmhbbb/daily/blob/main/etc/git-ignore.md)
   - [Window Powershell 스크립트 실행 관련 에러](https://github.com/mnmhbbb/daily/blob/main/etc/powershell-ExecutionPolicy.md)
+  - [node-sass 버전 호환 문제](https://github.com/mnmhbbb/daily/blob/main/etc/node-sass-ver.md)
 
     
