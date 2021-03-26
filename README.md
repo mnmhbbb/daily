@@ -72,5 +72,5 @@
   - [git ignore](https://github.com/mnmhbbb/daily/blob/main/etc/git-ignore.md)
   - [Window Powershell 스크립트 실행 관련 에러](https://github.com/mnmhbbb/daily/blob/main/etc/powershell-ExecutionPolicy.md)
   - [node-sass 버전 호환 문제](https://github.com/mnmhbbb/daily/blob/main/etc/node-sass-ver.md)
-
+  - [eslint & prettier  에러](https://github.com/mnmhbbb/daily/blob/main/etc/eslint-cr.md)
     
