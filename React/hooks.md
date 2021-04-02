@@ -24,7 +24,7 @@ const GuGuDan = () => {
         const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
         const [value, setValue] = useState("");
         const [result, setResult] = useState("");
-        const inputRef = useState(null);
+        const inputRef = useRef(null);
  };
 ```
 위 코드는 배열의 구조분해할당을 활용한 **훅스** 방식  
