@@ -29,10 +29,12 @@ const useStyles = makeStyles((theme) => ({
 const Login = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.reducer.isLoggedIn);
+  const me = useSelector((store) => store.user);
+  console.log(me);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const onChangeEmail = useCallback((e) => {
     setEmail(e.target.value);
   }, []);
@@ -40,16 +42,13 @@ const Login = (props) => {
     setPassword(e.target.value);
   }, []);
 
-  const onSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      dispatch(loginAction({ email, password }));
-    },
-    [email, password]
-  );
+  const onSubmit = useCallback(() => {
+    console.log(email, password);
+    dispatch(loginAction({ email, password }));
+  }, [email, password]);
 
   // 로그인 성공 시, 홈으로 이동
-  if (isLoggedIn) {
+  if (me) {
     props.history.push('/');
   }
 
@@ -90,6 +89,7 @@ const Login = (props) => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            loading={me}
           >
             로그인
           </Button>

@@ -23,8 +23,7 @@ const NavBar = styled.div`
 `;
 
 const Nav = () => {
-  const isLoggedIn = useSelector((state) => state.reducer.isLoggedIn);
-  console.log(isLoggedIn);
+  const me = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
   const onClick = useCallback(() => {
@@ -35,9 +34,9 @@ const Nav = () => {
     <NavBar>
       <div>
         <Link to="/">홈</Link>
-        <Link to="/bookmark">북마크</Link>
+        <Link to="/profile">프로필</Link>
       </div>
-      {isLoggedIn ? (
+      {me ? (
         <Link to="/" onClick={onClick}>
           로그아웃
         </Link>
