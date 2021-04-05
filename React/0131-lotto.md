@@ -219,14 +219,14 @@ export default Lotto;
 &nbsp;  
 ### 3. hooks로 전환하기(useEffect, useMemo, useCallback)
 클래스-훅스 라이프사이클 부분이 1대1로 대응하지 않아서 `useEffect`로 전환하기가 조금 까다롭다.  
-- 지난 시간에 배운 내용을 복습하면, `useEffect`의 두번째 인자인 배열에 넣은 요소에 따라서 `useEffect`가 실행된다고 했음.
+- 지난 시간에 배운 내용을 복습하면, `useEffect`의 두번째 인자인 의존성 배열 자리에 넣은 요소에 따라서 `useEffect`가 실행된다고 했음.
 - 또한, return 이전의 코드는 `componentDidMount`+`componentDidUpdate`역할을,   
   return 이후는 `componentWillUnmount`역할을 함.
-- 두 번째 인자인 배열에 넣은 값이 바뀔 때 `useEffect`가 실행된다.
-- 두 번째 인자에 빈값을 주면: `componentDidMount`와 동일. 한 번만 실행됐다가 멈춤
-- 두 번째 인자에 값을 주면: 일단 기본적으로 `componentDidMount`를 실행하고, 두 번째 인자에 넣은 값의 상태에 따라 `componentDidUpdate`까지 실행함.
+- 의존성 배열에 넣은 값이 바뀔 때 `useEffect`가 실행된다.
+- 의존성 배열에 빈값을 주면: `componentDidMount`와 동일. 한 번만 실행됐다가 멈춤
+- 의존성 배열에 값을 주면: 일단 기본적으로 `componentDidMount`를 실행하고, 의존성 배열에 넣은 값의 상태에 따라 `componentDidUpdate`까지 실행함.
 - 여기서 조건이란 `componentDidUpdate`에 넣었던 조건을 의미함
-- 참고로, 두 번째 인자에 꼭 state만 넣을 수 있는 것은 아니다. 
+- 참고로, 의존성 배열 자리에 꼭 state만 넣을 수 있는 것은 아니다. 
 #### 3.1 useEffect
 - 클래스와 동일한 조건인 `winBalls.length === 0` 을 배열에 넣었더니 초반 1,2번째 숫자가 중복되는 문제 발생!
 - 초기값 `winBalls.length`가 0이라서. componentDidMount 실행되자마자, 저 조건에 충족하니까 한 번 더 실행되기 때문.
@@ -250,7 +250,7 @@ export default Lotto;
   }, [timeouts.current]); //이 부분 주의
 ```
 - 일단 처음에 한 번만 실행이 되고, '한 번 더'를 클릭해서 `timeouts.current`가 빈값이 됐을 때, `useEffect`가 실행되도록.
-- 여기서 헷갈릴 수 있는 게, `timeouts.current[i]` 부분은 값이 바뀌는 부분이 아님. (timeouts.current 배열의 요소로 넣어준거라서 바뀌는 거 아님)
+- 여기서 헷갈릴 수 있는 게, `timeouts.current[i]` 부분은 값이 바뀌는 부분이 아님. (timeouts.current 배열의 요소로 넣어준거라서 바뀌는 거 아님!)
 - `onClickRedo`에서 `timeouts.current = [];` 이 부분이 변하는 값임. 직접 빈값을 넣어준거니까. 예전 값이랑 달라짐.
 - 이렇게 `useEffect`에는 초기값이랑 완전히 달라지는 값을 두 번째 인자에 넣어야 한다.
 #### 3.2 useMemo
@@ -272,7 +272,7 @@ const Lotto = () => {
 - 마찬가지로 두 번째 인자가 바뀌기 전까지는 다시 실행되지 않는다.
 - 따라서 컴포넌트가 재실행돼도 그 함수가 새로 생성되지 않는다.
 - 그로 인한 문제:
-  - 두 번째 인자 배열에 아무 값도 넣지 않으면, 계속 기억만 하고 업데이트가 되지 않는다.
+  - 의존성 배열에 아무 값도 넣지 않으면, 계속 기억만 하고 업데이트가 되지 않는다.
   - 따라서 적절히 값(바뀔 여지가 있는 값)을 입력해야 원하는 대로 업데이트 할 수 있음.
   - 예를 들어, `onClickRedo` 함수를 `useCallback`으로 감싼다면 '한 번 더'를 클릭했을 때 다음 새로운 숫자를 불러오지 못한다.
   - 따라서 `useCallback` 안에서 쓰이는 `state`를 두 번째 인자에 넣어야 한다.
@@ -296,7 +296,7 @@ const Lotto = () => {
 ```
 - 만일 `useCallback`이 없으면 매번 새로운 함수가 생성됨.
 - 자식 컴포넌트에 props로 매번 새로운 함수가 전달되면 자식 입장에서는 부모로부터 오는 props가 바뀌었네? 계속 함수가 바뀌니까 새로운 props를 주는 걸로 인식해서 매번 리렌더링을 해버림.
-- 이런 쓸데없는 리레더링을 막기 위해, useCallback을 꼭 사용해야, 아 부모로부터 오는 함수가 매번 같구나.. 라고 인식함.
+- 이런 쓸데없는 리레더링을 막기 위해, useCallback을 꼭 사용해야, '아 부모로부터 오는 함수가 매번 같구나' 라고 인식함.
 #### 3.4 use-
 - 지금까지 공부한 내용을 간단히 정리하면, `use` 시리즈들은 두 번째 인자가 컨트롤한다는 것을 알 수 있다.
 - `useMemo`는 두 번째 인자가 바뀌기 전까진 함수의 리턴값을 기억하고
