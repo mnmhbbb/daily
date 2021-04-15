@@ -61,6 +61,7 @@
   - [드롭다운메뉴](https://github.com/mnmhbbb/daily/blob/main/practice_code/javascript-101-master/form/dropdown-menu.md)
   - [상단바 스크롤게이지](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201229_scroll-gauge.md) 
   - [캐러셀 슬라이드](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210117_carousel.md)
+  - [리액트 REST API 실습](https://github.com/mnmhbbb/react-study#readme)
 
   
 ## 3. etc
