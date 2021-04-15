@@ -50,7 +50,7 @@
   - [React Router](https://github.com/mnmhbbb/daily/blob/main/React/0203-reactrouter.md)
   
 ## 1.2 Next.js 
-  - [Next.js 시작 - ](https://github.com/mnmhbbb/daily/blob/main/React/0205-next.md)
+  - [Next.js 시작 - CSR, SSR](https://github.com/mnmhbbb/daily/blob/main/React/0205-next.md)
   - [기본 정리(Link, Head, _app.js, eslint 등)](https://github.com/mnmhbbb/daily/blob/main/React/0206-next.md)
   - [커스텀 훅](https://github.com/mnmhbbb/daily/blob/main/React/Custom-hook.md)
   - [글로벌 스타일](https://github.com/mnmhbbb/daily/blob/main/React/0211-bug.md)
