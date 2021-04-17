@@ -11,6 +11,7 @@ export type Todo = {
 type TodosState = Todo[];
 
 // state 전용 context
+// 추후 Provider를 사용하지 않았을 때에는 Context의 값이 undefined 가 되어야 하므로
 const TodosStateContext = createContext<TodosState | undefined>(undefined);
 
 // action에 대한 type
@@ -19,6 +20,9 @@ type Action =
   | { type: 'TOGGLE'; id: number }
   | { type: 'REMOVE'; id: number };
 
+// 이렇게 Dispatch 를 리액트 패키지에서 불러와서 Generic으로 액션들의 타입을 넣어주면
+// 추후 컴포넌트에서 액션을 디스패치 할 때 액션들에 대한 타입을 검사 할 수 있습니다.
+// 예를 들어서, 액션에 추가적으로 필요한 값 (예: text, id)이 빠지면 오류가 발생하죠.
 type TodosDispatch = Dispatch<Action>;
 
 // action 전용 context
