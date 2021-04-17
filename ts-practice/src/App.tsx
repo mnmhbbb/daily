@@ -1,11 +1,17 @@
 import React from 'react';
-import MyForm from './MyForm';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
+import { TodosContextProvier } from './contexts/TodosContext';
 
 function App() {
-  const onSubmit = (form: { name: string; description: string }) => {
-    console.log(form); // {name: "" , description: ""}
-  };
-  return <MyForm onSubmit={onSubmit} />;
+  return (
+    <div>
+      <TodosContextProvier>
+        <TodoForm />
+        <TodoList />
+      </TodosContextProvier>
+    </div>
+  );
 }
 
 export default App;
