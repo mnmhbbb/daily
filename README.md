@@ -50,7 +50,7 @@
   - [React Router](https://github.com/mnmhbbb/daily/blob/main/React/0203-reactrouter.md)
   
 ## 1.2 Next.js 
-  - [Next.js 시작](https://github.com/mnmhbbb/daily/blob/main/React/0205-next.md)
+  - [Next.js 시작 - CSR, SSR](https://github.com/mnmhbbb/daily/blob/main/React/0205-next.md)
   - [기본 정리(Link, Head, _app.js, eslint 등)](https://github.com/mnmhbbb/daily/blob/main/React/0206-next.md)
   - [커스텀 훅](https://github.com/mnmhbbb/daily/blob/main/React/Custom-hook.md)
   - [글로벌 스타일](https://github.com/mnmhbbb/daily/blob/main/React/0211-bug.md)
@@ -61,6 +61,7 @@
   - [드롭다운메뉴](https://github.com/mnmhbbb/daily/blob/main/practice_code/javascript-101-master/form/dropdown-menu.md)
   - [상단바 스크롤게이지](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201229_scroll-gauge.md) 
   - [캐러셀 슬라이드](https://github.com/mnmhbbb/daily/blob/main/practice_code/202101/210117_carousel.md)
+  - [리액트 REST API 실습](https://github.com/mnmhbbb/react-study#readme)
 
   
 ## 3. etc
