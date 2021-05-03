@@ -76,5 +76,4 @@
   - [node-sass 버전 호환 문제](https://github.com/mnmhbbb/daily/blob/main/etc/node-sass-ver.md)
   - [eslint & prettier 에러](https://github.com/mnmhbbb/daily/blob/main/etc/eslint-cr.md)
   - [Next.js & styled-components 에러](https://github.com/mnmhbbb/daily/blob/main/etc/next-styled-components.md)\
-  - [git fetch vs pull]
     
