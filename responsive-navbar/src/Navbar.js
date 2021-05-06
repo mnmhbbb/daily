@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Nav = styled.div`
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   background-color: white;
   display: flex;
   flex-wrap: wrap;
@@ -11,7 +11,7 @@ const Nav = styled.div`
 `;
 
 const Logo = styled.a`
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   color: #7b7fda;
   font-size: 1.7rem;
@@ -24,6 +24,7 @@ const Logo = styled.a`
 `;
 
 const Hamburger = styled.div`
+  padding-right: 1rem;
   display: none;
   flex-direction: column;
   cursor: pointer;
@@ -48,9 +49,13 @@ const Menu = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 3.5rem;
+    background-color: white;
     overflow: hidden;
     flex-direction: column;
-    width: 100%;
     max-height: ${({ isOpen }) => (isOpen ? '300px' : 0)};
     transition: max-height 0.3s ease-in;
   }
