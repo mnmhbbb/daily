@@ -32,6 +32,17 @@ header label.menu {
   cursor: pointer;
 }
 
+section {
+  font-weight: 800;
+  font-size: 20px;
+  color: #fff;
+  background: cornflowerblue;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .sidebar_content {
   position: fixed;
   top: 0;
