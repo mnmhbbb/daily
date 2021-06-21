@@ -33,6 +33,7 @@
   - [setInterval 즉시 실행하기](https://github.com/mnmhbbb/daily/blob/main/JavaScript/setInterval.md)
   - [removeChild](https://github.com/mnmhbbb/daily/blob/main/practice_code/202012/201208_removeChild.md)
   - [for...in, for...of, forEach](https://github.com/mnmhbbb/daily/blob/main/JavaScript/q37+for.js)
+  - [배열의 누적 합](https://github.com/mnmhbbb/daily/blob/main/JavaScript/accumulate_sum.js)
     
 ## 1.1 React (w. zerocho 웹게임 강의)
   - [리액트 시작](https://github.com/mnmhbbb/daily/blob/main/React/react_start.md)
