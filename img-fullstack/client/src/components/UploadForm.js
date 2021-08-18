@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import "./UploadForm.css";
+import Progressbar from "./Progressbar";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
-  const [fileText, setFileText] = useState("이미지를 추가하세요.");
+  const [fileText, setFileText] = useState("이미지 첨부하기");
+  const [percent, setPercent] = useState(0);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -16,12 +18,17 @@ const UploadForm = () => {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        onUploadProgress: (e) => {
+          setPercent(Math.round((e.loaded / e.total) * 100));
+        },
       });
-      toast.success("성공");
-      console.log(res);
+      toast.success("이미지 업로드 성공!");
+      setInterval(() => {
+        setPercent(0);
+        setFileText("이미지 첨부하기");
+      }, 2000);
     } catch (err) {
-      toast.error("실패");
-      console.log(err);
+      toast.error("이미지 업로드 실패!");
     }
   };
 
@@ -33,6 +40,7 @@ const UploadForm = () => {
 
   return (
     <div>
+      <Progressbar percent={percent} />
       <form onSubmit={onSubmit}>
         <div className="file-dropper">
           {fileText}
