@@ -40,6 +40,7 @@ npm i -D webpack-dev-server
 데브서버와 핫리로딩 기능을 위해 설치한다.  
   - **웹팩 데브서버**는 webpack.config.js에 적어준 대로 빌드 결과물을 돌린 다음 `publicPath`에 그 결과물을 메모리로 저장함. 그 후 index.html을 실행하면 저장한 결과물을 제공해줌.
   - **핫리로딩**은 코드에 수정사항이 있을 때마다 수정 사항을 감지하고 변경된 결과물을 `publicPath`에 저장해줌. 수동으로 빌드할 필요가 없음.
+  - +) `path`: 실제 경로 / `publicPath`: 가상의 경로(Node.js의 `express.static()과 비슷한 느낌)
 ### 2.2 setting
 - `webpack.config.js` 파일을 생성하여 다음과 같이 세팅한다.
 ```javascript
