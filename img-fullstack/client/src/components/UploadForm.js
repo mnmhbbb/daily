@@ -5,8 +5,10 @@ import "./UploadForm.css";
 import Progressbar from "./Progressbar";
 
 const UploadForm = () => {
+  const defaultName = "이미지 첨부하기";
   const [file, setFile] = useState(null);
-  const [fileText, setFileText] = useState("이미지 첨부하기");
+  const [imgSrc, setImgSrc] = useState(null);
+  const [fileName, setFileName] = useState(defaultName);
   const [percent, setPercent] = useState(0);
 
   const onSubmit = async (e) => {
@@ -23,27 +25,38 @@ const UploadForm = () => {
         },
       });
       toast.success("이미지 업로드 성공!");
-      setInterval(() => {
+      setTimeout(() => {
         setPercent(0);
-        setFileText("이미지 첨부하기");
+        setFileName(defaultName);
+        setImgSrc(null);
       }, 2000);
     } catch (err) {
       toast.error("이미지 업로드 실패!");
+      setImgSrc(null);
     }
   };
 
   const imgSelectHandler = (e) => {
     const imgFile = e.target.files[0];
-    setFileText(imgFile.name);
+    setFileName(imgFile.name);
     setFile(imgFile);
-  };
 
+    // 이미지 파일 읽어오기
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(imgFile);
+    fileReader.onload = (e) => setImgSrc(e.target.result);
+  };
   return (
     <div>
       <Progressbar percent={percent} />
+      <img
+        className={`img_preview ${imgSrc && "img_preview_show"}`}
+        src={imgSrc}
+        alt="이미지 미리보기"
+      />
       <form onSubmit={onSubmit}>
         <div className="file-dropper">
-          {fileText}
+          {fileName}
           <input id="img" type="file" onChange={imgSelectHandler} />
         </div>
         <button style={{ marginTop: "20px", width: "100%" }}>제출</button>
