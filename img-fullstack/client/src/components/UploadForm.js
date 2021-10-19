@@ -16,7 +16,7 @@ const UploadForm = () => {
     const formData = new FormData();
     formData.append("imgTest", file);
     try {
-      const res = await axios.post("/upload", formData, {
+      const res = await axios.post("/images", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
