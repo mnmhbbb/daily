@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import "./UploadForm.css";
 import Progressbar from "./Progressbar";
+import { ImgContext } from "../context/ImgContext";
 
 const UploadForm = () => {
+  const [imgs, setImgs] = useContext(ImgContext);
   const defaultName = "이미지 첨부하기";
   const [file, setFile] = useState(null);
   const [imgSrc, setImgSrc] = useState(null);
@@ -24,6 +26,8 @@ const UploadForm = () => {
           setPercent(Math.round((e.loaded / e.total) * 100));
         },
       });
+
+      setImgs([...imgs, res.data]);
       toast.success("이미지 업로드 성공!");
       setTimeout(() => {
         setPercent(0);

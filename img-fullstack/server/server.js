@@ -35,11 +35,11 @@ mongoose
     app.use("/uploads", express.static("uploads"));
 
     app.post("/images", upload.single("imgTest"), async (req, res) => {
-      const images = await new Img({
+      const image = await new Img({
         key: req.file.filename,
         originalFileName: req.file.originalname,
       }).save();
-      res.json(images);
+      res.json(image);
     });
 
     app.get("/images", async (req, res) => {
