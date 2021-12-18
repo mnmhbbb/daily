@@ -36,3 +36,7 @@ node_modules/
 .next/
 .env 
 dev.js
+
+SCSS_study
+sass-study
+test.ts
