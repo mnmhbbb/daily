@@ -1,55 +1,42 @@
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700|Open+Sans:400,800);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-.btn-succes {
-  background-color: #f6f6f6;
-  padding: 5px;
-  color: #000;
-  font-size: 14px;
-  border: 1px solid #aaa;
-}
-.btn-error {
-  background-color: #f6f6f6;
-  padding: 5px;
-  color: #000;
-  text-decoration: line-through;
-  font-size: 14px;
-  border: 1px solid #aaa;
-}
-.tags {
+
+.editor-menu {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-.btn-succes,
-.btn-succes {
-  margin: 5px;
-}
-i {
-  color: white;
-}
-.btn-error i {
-  color: black;
+
+#img-selector {
+  display: none;
 }
 
-.btn {
-  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-  -moz-user-select: none; /* mozilla browsers */
-  -khtml-user-select: none; /* webkit (konqueror) browsers */
-  -ms-user-select: none; /* IE10+ */
-}
-
-:focus {
-  outline: none;
-}
 .text-input {
   border: 1px solid #e5e5e5;
   width: 100%;
   min-height: 300px;
+  padding: 10px;
+}
+
+text-input img {
+  width: 100%;
+}
+
+button.active {
+  background-color: #979797;
+  color: #fff;
+  outline: none;
+}
+
+:focus {
+  outline: none;
 }
