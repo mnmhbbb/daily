@@ -1,0 +1,8 @@
+.demo {
+  min-height: 400px;
+  border: 1px solid #e5e5e5;
+}
+
+.demo img {
+  width: 100%;
+}
