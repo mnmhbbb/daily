@@ -1,6 +1,6 @@
 #editor {
   border: 1px solid #e5e5e5;
-  height: 100vh;
+  height: auto;
   padding: 10px;
   margin: 10px 0;
 }
