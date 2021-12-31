@@ -1,3 +1,7 @@
+html,
+body {
+  margin: 0;
+}
 #editor {
   border: 1px solid #e5e5e5;
   height: auto;
@@ -11,4 +15,11 @@
 
 #editor img {
   width: 50%;
+}
+
+.img-move-btn {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  padding: 10px;
 }
