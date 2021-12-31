@@ -1,19 +1,8 @@
 const editor = document.getElementById('editor');
 const imgInput = document.querySelector('.img-input');
+const tool = document.getElementById('tool');
 
 editor.focus();
-
-function doInsert(text) {
-  var sel = window.getSelection && window.getSelection();
-  if (sel && sel.rangeCount > 0) {
-    var range = sel.getRangeAt(0);
-    var node = document.createTextNode(text);
-    range.deleteContents();
-    range.insertNode(node);
-    console.log(range);
-  }
-}
-doInsert('test ');
 
 imgInput.addEventListener('change', function (e) {
   const files = e.target.files;
@@ -34,3 +23,35 @@ function insertImageDate(file) {
   });
   reader.readAsDataURL(file); // base64 encoding
 }
+
+// 이미지 이동 버튼
+editor.addEventListener('click', function (e) {
+  const imgMove = document.createElement('div');
+  imgMove.setAttribute('class', 'img-move-btn');
+  imgMove.innerHTML = `
+  <button data-move="up">위로</button>
+  <button data-move="down">아래로</button>
+  `;
+
+  if (e.target.tagName == 'IMG') {
+    e.target.classList.add('clicked');
+    if (!tool.hasChildNodes()) {
+      console.log('o');
+      tool.appendChild(imgMove);
+    }
+  } else {
+    tool.innerHTML = '';
+  }
+});
+
+tool.addEventListener('click', function (e) {
+  const clickedImg = document.querySelector('.clicked');
+  console.log(clickedImg);
+  if (e.target.tagName == 'BUTTON') {
+    const direction = e.target.dataset.move;
+    console.log(direction);
+    if (direction == 'up') {
+      // editor.insertBefore(clickedImg)
+    }
+  }
+});
