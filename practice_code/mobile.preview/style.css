@@ -1,0 +1,42 @@
+.view {
+  border: 1px solid #000;
+  min-width: 320px;
+  height: 80vh;
+}
+
+.list-group {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+  height: 20vh;
+  margin-bottom: 20px;
+}
+
+.list {
+  width: 100px;
+  background-color: #e5e5e5;
+  height: 100px;
+}
+
+.align {
+  max-width: 1400px;
+}
+
+.box {
+  width: 100%;
+  height: 100px;
+  background-color: #232323;
+}
+
+@media screen and (max-width: 767px) {
+  .list {
+    width: calc(20% - 2.5px);
+    height: 100px;
+    background-color: #979797;
+  }
+
+  .align {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
