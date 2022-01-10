@@ -7,9 +7,5 @@ openBtn.addEventListener('click', function (e) {
 });
 
 function letsOpen() {
-  open = window.open(
-    'open.html',
-    'childWindow',
-    'width=800, height=750, resizable = yes,scrollbars = no',
-  );
+  open = window.open('open.html', 'childWindow', 'width=800, height=750, resizable,scrollbars=yes');
 }
