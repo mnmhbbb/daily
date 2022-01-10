@@ -1,12 +1,15 @@
 let open;
 const openBtn = document.querySelector('.open-btn');
 const goToChild = document.querySelector('.to-child');
-const content = document.getElementById('content');
 
 openBtn.addEventListener('click', function (e) {
   letsOpen();
 });
 
 function letsOpen() {
-  open = window.open('open.html', 'childWindow', 'width=800, height=750, resizable,scrollbars=yes');
+  open = window.open(
+    'open.html',
+    'childWindow',
+    'width=800, height=750, resizable = yes,scrollbars = no',
+  );
 }
