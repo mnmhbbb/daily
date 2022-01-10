@@ -22,23 +22,23 @@ submitBtn.addEventListener('click', function (e) {
 });
 
 ////// 부모창 -> 현재창 값 받기
-getData.addEventListener('click', function (e) {
+document.addEventListener('DOMContentLoaded', function (e) {
   editor.innerHTML = opener.document.getElementById('content').innerHTML;
 });
 
-// 자식창 열자마자 부모 값 전달받기
-let triggerEvt = function (elem) {
-  // Create our event (with options)
-  let evt = new MouseEvent('click', {
-    bubbles: true,
-    cancelable: true,
-    view: window,
-  });
+// // 자식창 열자마자 부모 값 전달받기
+// let triggerEvt = function (elem) {
+//   // Create our event (with options)
+//   let evt = new MouseEvent('click', {
+//     bubbles: true,
+//     cancelable: true,
+//     view: window,
+//   });
 
-  let canceled = !elem.dispatchEvent(evt);
-};
+//   let canceled = !elem.dispatchEvent(evt);
+// };
 
-triggerEvt(getData);
+// triggerEvt(getData);
 
 function insertImageData(file) {
   reader.addEventListener('load', readImg);
