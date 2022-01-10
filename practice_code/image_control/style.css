@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
 }
+#content,
 #editor {
   border: 1px solid #e5e5e5;
   height: auto;
@@ -9,10 +10,12 @@ body {
   margin: 10px 0;
 }
 
+#content:focus,
 #editor:focus {
   outline: none;
 }
 
+#content img,
 #editor img {
   width: 50%;
 }

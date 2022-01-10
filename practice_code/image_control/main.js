@@ -3,7 +3,7 @@ const editor = document.getElementById('editor');
 const imgInput = document.querySelector('.img-input');
 const reader = new FileReader();
 
-editor.focus();
+// editor.focus();
 
 imgInput.addEventListener('change', (e) => onChange(e));
 
