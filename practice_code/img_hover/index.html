@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .image-group {
+        position: relative;
+        width: 400px;
+        margin: 0 auto;
+        border: 1px solid #e5e5e5;
+        padding: 20px;
+      }
+      .preview {
+        display: none;
+        background-color: #e5e5e5;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      .preview.hover {
+        display: block;
+      }
+      .preview img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image-group">
+      <input class="img-input" type="file" accept="image/*" />
+      <div class="preview">
+        <img class="prev-img" alt="첨부 이미지 미리보기" />
+      </div>
+    </div>
+    <script>
+      const reader = new FileReader();
+      const imgInput = document.querySelector('.img-input');
+      const img = document.querySelector('.prev-img');
+
+      function insertImageData(file) {
+        reader.addEventListener('load', function () {
+          img.src = reader.result;
+        });
+        reader.readAsDataURL(file); // base64 encoding
+      }
+      imgInput.addEventListener('change', function (e) {
+        const files = e.target.files;
+        if (!!files) {
+          insertImageData(files[0]);
+        }
+      });
+
+      const imgGroup = document.querySelector('.image-group');
+      const preview = document.querySelector('.preview');
+      imgGroup.addEventListener('mouseover', function (e) {
+        // preview.style.display = 'block';
+        if (img.src) {
+          preview.classList.add('hover');
+        }
+      });
+      imgGroup.addEventListener('mouseout', function (e) {
+        // preview.style.display = 'none';
+        preview.classList.remove('hover');
+      });
+    </script>
+  </body>
+</html>
