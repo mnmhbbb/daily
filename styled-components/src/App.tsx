@@ -27,9 +27,11 @@ function App() {
         <input type='text' value={name} onChange={handleChangeName} />
         <button type='submit'>Add User</button>
       </form>
-      {users.map((user) => (
-        <div key={user.id}>{user.name}</div>
-      ))}
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
     </>
   );
 }
