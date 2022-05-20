@@ -1,23 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface User {
-  id: number;
+  id: string;
   name: string;
 }
 
-let tempId = 3;
-
-const initialState = [
-  { id: 1, name: 'user1' },
-  { id: 2, name: 'user2' },
-];
+const initialState = [{ id: '', name: '' }];
 
 export const users = createSlice({
   name: 'users',
   initialState,
   reducers: {
     addUser(state, action: PayloadAction<User>) {
-      action.payload.id = tempId++;
+      action.payload.id = uuidv4();
       return [...state, action.payload];
     },
   },
