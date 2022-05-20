@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Test from './components/Test';
 import { ReducerType } from './rootReducer';
 import { addUser, User } from './slices/users';
+import GlobalStyle from './styles/global';
+import Switch from './components/Switch';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
 
 function App() {
   const users = useSelector<ReducerType, User[]>((state) => state.users);
@@ -21,8 +25,10 @@ function App() {
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Test>Hello!</Test>
+      <Switch />
       <form onSubmit={handleAddUser}>
         <input type='text' value={name} onChange={handleChangeName} />
         <button type='submit'>Add User</button>
@@ -32,7 +38,7 @@ function App() {
           <li key={user.id}>{user.name}</li>
         ))}
       </ul>
-    </>
+    </ThemeProvider>
   );
 }
 
