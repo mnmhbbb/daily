@@ -1,8 +1,13 @@
-'use strict';
+import Test from './test';
 
-const App = () => {
-  return <h1>test</h1>;
-};
+function App() {
+  return (
+    <div>
+      <h1>app</h1>
+      <Test />
+    </div>
+  );
+}
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
