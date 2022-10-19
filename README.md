@@ -1,9 +1,9 @@
 #### Today I Learned
 - 인강 들으면서 정리
 - 공부한 내용을 다시 읽게 쉽게 정리
-- [업무 중 알게 된 내용 간단하게 정리](https://github.com/mnmhbbb/daily/blob/main/md)
+- [업무 중 알게 된 내용은 이 곳에](https://github.com/mnmhbbb/daily/blob/main/md)
+  - 노션에 차곡차곡 정리하던 내용이지만 검색이 잘 되지 않아서 노션과 별개로 여기에 추가 정리하기로 함
 
-## 0. HTML & CSS
 
 ## 1. JavaScript  
   - [기본 데이터 타입](https://github.com/mnmhbbb/daily/blob/main/JavaScript/datatype.md)
@@ -77,5 +77,5 @@
   - [Window Powershell 스크립트 실행 관련 에러](https://github.com/mnmhbbb/daily/blob/main/etc/powershell-ExecutionPolicy.md)
   - [node-sass 버전 호환 문제](https://github.com/mnmhbbb/daily/blob/main/etc/node-sass-ver.md)
   - [eslint & prettier 에러](https://github.com/mnmhbbb/daily/blob/main/etc/eslint-cr.md)
-  - [Next.js & styled-components 에러](https://github.com/mnmhbbb/daily/blob/main/etc/next-styled-components.md)\
+  - [Next.js & styled-components 에러](https://github.com/mnmhbbb/daily/blob/main/etc/next-styled-components.md)
     
