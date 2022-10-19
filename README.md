@@ -1,7 +1,7 @@
-### 그냥 꾸준히
-#### daily commit. Today I Learned
-- 인강 들으면서 정리한 것
-- 공부한 내용을 다시 읽게 쉽게 정리한 것
+#### Today I Learned
+- 인강 들으면서 정리
+- 공부한 내용을 다시 읽게 쉽게 정리
+- [업무 중 알게 된 내용 간단하게 정리](https://github.com/mnmhbbb/daily/blob/main/md)
 
 ## 0. HTML & CSS
 
