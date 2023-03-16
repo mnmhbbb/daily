@@ -9,7 +9,8 @@
 - 디렉토리는 크게 2가지로 나뉨: studio & frontend
   - studio: 컨텐츠를 작성하고 관리하는 서버 localhost:3333
   - frontend: 이 컨텐츠 데이터를 기반으로 블로그를 구성할 서버 localhost:3000
-- 기본적인 세팅 방식은 위 튜토리얼을 따르면 됨
+- 기본적인 세팅 방식은 위 튜토리얼을 따르면 됨  
+  0. Sanity cli tool 설치하기 `npm install -g @sanity/cli`
   1. Sanity 회원가입(구글을 통한 방법 등)
   2. `cd studio` `npm install`
   3. `sanity login` `sanity init` -> 프로젝트 생성
