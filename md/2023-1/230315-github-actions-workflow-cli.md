@@ -41,13 +41,14 @@
         - uses: actions/setup-node@v3
           with:
             node-version: 16
-        - name: install sanity cli tool
+        - name: install sanity cli tool & package
           run: |
             npm install -g @sanity/cli
-            sanity -v
+            npm install
           working-directory: ./studio
-        - name: sanity deploy
-          run: sanity deploy
+        - name: check sanity
+          run: |
+            sanity -v
           working-directory: ./studio
   ```
 
