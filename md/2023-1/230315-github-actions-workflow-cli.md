@@ -23,34 +23,40 @@
 - 실행하는 디렉토리 설정은 `working-directory` 프로퍼티를 사용함
 - > working-directory 프로퍼티는 명령을 실행할 때마다 수행해 주어야 합니다. 터미널처럼 한번 경로를 이동한다고 상태가 남는 것이 아니라 매번 새로 실행하기 때문입니다.
   > 출처: [원하는 디렉토리에서 Github Actions 실행하기](https://velog.io/@bluestragglr/%EC%9B%90%ED%95%98%EB%8A%94-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%EC%97%90%EC%84%9C-Github-Actions-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0)
+- 이 방식을 사용하였는데 그냥 간단하게 `cd studio` 방식으로 변경함
 
-- 반영한 workflow
+- 문제!
+  - sanity 로그인 상태에서 배포가 가능하다는 점을 잊었다.
+  - [공식 문서의 설명](https://www.sanity.io/docs/deployment#59a23cd85193)을 따라 sanity project 페이지에서 token을 생성하고, github setting에도 secret key를 입력하여 아래 yml과 같이 가져와서 배포시켰음
 
-  ```yml
-  name: sanity deploy
-  on:
-    push:
-      branches: [main]
+(수정하여) 최종 반영한 workflow
 
-  jobs:
-    deploy:
-      timeout-minutes: 5
-      runs-on: ubuntu-latest # self-hosted || ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 16
-        - name: install sanity cli tool & package
-          run: |
-            npm install -g @sanity/cli
-            npm install
-          working-directory: ./studio
-        - name: check sanity
-          run: |
-            sanity -v
-          working-directory: ./studio
-  ```
+```yml
+name: sanity deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest # self-hosted || ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: |
+          cd studio
+          npm install
+          npm install @sanity/cli
+      - name: Deploy Sanity Studio
+        run: |
+          set -e
+          cd studio
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" npx sanity deploy
+```
 
 - `runs-on: ubuntu-latest`: Job이 돌아갈 환경(ubuntu 최신 버전)
 - `uses: actions/checkout@v3`:
@@ -68,6 +74,8 @@
       npm install -g @sanity/cli
       sanity -v
     ```
+
+- `set -e`는 [이 설명을 참조](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 
 - 도움 받은 글:
   - https://docs.github.com/ko/actions/using-workflows/workflow-syntax-for-github-actions
