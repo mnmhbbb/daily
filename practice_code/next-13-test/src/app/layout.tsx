@@ -6,7 +6,7 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Next.js 13 버전 공부하기',
+  title: 'Hello Next.js 13',
   description: 'Next.js 13버전으로 프로젝트를 만들면서 새로운 기능을 적용해 봅니다.',
   icons: {
     icon: '/favicon.ico',

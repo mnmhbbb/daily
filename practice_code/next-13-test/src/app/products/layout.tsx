@@ -1,6 +1,15 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 
 const productCategory = ['Woman', 'Man'];
+
+export const metadata: Metadata = {
+  title: 'Hello Next.js 13 | 전체 상품',
+  description: '전체 상품 목록을 확인해 보세요!',
+  icons: {
+    icon: '/favicon.ico',
+  },
+};
 
 const ProductsLayout = ({ children }: { children: React.ReactNode }) => {
   return (

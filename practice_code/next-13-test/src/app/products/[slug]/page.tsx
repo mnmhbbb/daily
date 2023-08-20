@@ -4,6 +4,13 @@ type Props = {
   params: { slug: string };
 };
 
+export function generateMetadata({ params }: Props) {
+  const { slug } = params;
+  return {
+    title: `Hello Next.js 13 | ${slug}`,
+  };
+}
+
 const ProductsSlugPage = ({ params }: Props) => {
   if (params.slug === 'nothing') {
     notFound();
