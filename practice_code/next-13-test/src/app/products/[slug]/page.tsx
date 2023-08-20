@@ -4,14 +4,14 @@ type Props = {
   params: { slug: string };
 };
 
-const ProductsLayoutPage = ({ params }: Props) => {
+const ProductsSlugPage = ({ params }: Props) => {
   if (params.slug === 'nothing') {
     notFound();
   }
-  return <h2>지금 경로는 /products/{params.slug}입니다!</h2>;
+  return <h2>{params.slug} 목록</h2>;
 };
 
-export default ProductsLayoutPage;
+export default ProductsSlugPage;
 
 export function generateStaticParams() {
   const products = ['pants', 'skirt'];
