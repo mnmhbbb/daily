@@ -6,6 +6,9 @@ import Link from 'next/link';
 // export const revalidate = 3;
 
 const ProductsPage = async () => {
+  // 에러 페이지 테스트
+  throw new Error();
+
   // 서버(데이터베이스)에 있는 제품 목록을 읽어와서 렌더링
   const products: ProductsType[] = await getProducts();
 
