@@ -1,40 +1,48 @@
 <script>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+
+import TodoForm from './components/TodoForm.vue'
+import TodoList from './components/TodoList.vue'
 
 export default {
   setup() {
-    const todo = ref('')
     const todoList = ref([])
-    const hasError = ref(false)
+    const searchText = ref('')
+    const addTodo = (todo) => {
+      // 자식 컴포넌트에서 받아온 todo
+      todoList.value.push(todo)
+    }
     const doneStyle = {
       textDecoration: 'line-through',
       color: 'gray'
     }
-    const onSubmit = () => {
-      if (todo.value === '') {
-        hasError.value = true
-      } else {
-        hasError.value = false
-        todoList.value.push({
-          id: Date.now(),
-          subject: todo.value,
-          completed: false
-        })
-        todo.value = ''
-      }
+    const toggleTodo = (index) => {
+      // 자식 컴포넌트에서 받아온 index
+      todoList.value[index].completed = !todoList.value[index].completed
     }
     const deleteTodo = (index) => {
+      // 자식 컴포넌트에서 받아온 index
       todoList.value.splice(index, 1)
     }
+    const filteredTodoList = computed(() => {
+      if (searchText.value) {
+        return todoList.value.filter((item) => {
+          return item.subject.includes(searchText.value)
+        })
+      }
+      return todoList.value
+    })
     return {
-      todo,
       todoList,
-      onSubmit,
-      hasError,
       doneStyle,
-      deleteTodo
+      addTodo,
+      toggleTodo,
+      deleteTodo,
+      searchText,
+      filteredTodoList
     }
-  }
+  },
+  components: { TodoForm, TodoList }
 }
 </script>
 
@@ -42,38 +50,13 @@ export default {
   <div class="container">
     <h1>To Do List</h1>
 
-    <form type="submit" @submit.prevent="onSubmit">
-      <div class="d-flex">
-        <div class="flex-grow-1 mr-2">
-          <input
-            type="text"
-            v-model="todo"
-            placeholder="할 일을 입력하세요."
-            class="form-control"
-          />
-        </div>
-        <div>
-          <button class="btn btn-primary" type="submit">추가</button>
-        </div>
-      </div>
-      <div v-show="hasError" class="mt-2" style="color: red">입력된 글자가 없습니다!</div>
-    </form>
+    <input type="text" v-model="searchText" placeholder="검색" class="form-control mb-2" />
 
-    <div v-if="!todoList.length">추가된 할 일이 없습니다.</div>
+    <TodoForm @add-todo="addTodo" />
 
-    <div v-for="(item, index) in todoList" :key="item.id" class="card mt-2">
-      <div class="card-body p-2 d-flex align-items-center">
-        <div class="form-check flex-grow-1">
-          <input type="checkbox" class="form-check-input" v-model="item.completed" />
-          <label class="form-check-label" :class="{ done: item.completed }">{{
-            item.subject
-          }}</label>
-        </div>
-        <div>
-          <button class="btn btn-danger btn-sm" @click="deleteTodo(index)">삭제</button>
-        </div>
-      </div>
-    </div>
+    <div v-if="!filteredTodoList.length">해당하는 할 일이 없습니다.</div>
+
+    <TodoList :todoList="filteredTodoList" @toggle-todo="toggleTodo" @delete-todo="deleteTodo" />
   </div>
 </template>
 
