@@ -3,14 +3,29 @@ import { computed, ref } from 'vue'
 
 import TodoForm from './components/TodoForm.vue'
 import TodoList from './components/TodoList.vue'
+import axios from 'axios'
 
 export default {
   setup() {
     const todoList = ref([])
     const searchText = ref('')
+    const errorText = ref('')
     const addTodo = (todo) => {
+      errorText.value = ''
       // 자식 컴포넌트에서 받아온 todo
-      todoList.value.push(todo)
+      // 데이터베이스에 저장
+      axios
+        .post('http://localhost:3000/todos', {
+          subject: todo.subject,
+          completed: todo.completed
+        })
+        .then((res) => {
+          todoList.value.push(res.data)
+        })
+        .catch((err) => {
+          console.error(err)
+          errorText.value = '에러 발생!'
+        })
     }
     const doneStyle = {
       textDecoration: 'line-through',
@@ -34,6 +49,7 @@ export default {
     })
     return {
       todoList,
+      errorText,
       doneStyle,
       addTodo,
       toggleTodo,
@@ -53,6 +69,7 @@ export default {
     <input type="text" v-model="searchText" placeholder="검색" class="form-control mb-2" />
 
     <TodoForm @add-todo="addTodo" />
+    <span style="color: red">{{ errorText }}</span>
 
     <div v-if="!filteredTodoList.length">해당하는 할 일이 없습니다.</div>
 
