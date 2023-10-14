@@ -10,22 +10,21 @@ export default {
     const todoList = ref([])
     const searchText = ref('')
     const errorText = ref('')
-    const addTodo = (todo) => {
+    const addTodo = async (todo) => {
       errorText.value = ''
+
       // 자식 컴포넌트에서 받아온 todo
       // 데이터베이스에 저장
-      axios
-        .post('http://localhost:3000/todos', {
+      try {
+        const res = await axios.post('http://localhost:3000/todos', {
           subject: todo.subject,
           completed: todo.completed
         })
-        .then((res) => {
-          todoList.value.push(res.data)
-        })
-        .catch((err) => {
-          console.error(err)
-          errorText.value = '에러 발생!'
-        })
+        todoList.value.push(res.data)
+      } catch (err) {
+        console.error(err)
+        errorText.value = '에러 발생!'
+      }
     }
     const doneStyle = {
       textDecoration: 'line-through',
