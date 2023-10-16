@@ -10,11 +10,17 @@ export default {
     const todoList = ref([])
     const searchText = ref('')
     const errorText = ref('')
+    const numberOfTodos = ref(0)
+    const limit = 5
+    const currentPage = ref(1)
+    const numberOfPages = computed(() => Math.ceil(numberOfTodos.value / limit))
 
-    const getTodos = async () => {
+    const getTodos = async (page = currentPage.value) => {
+      currentPage.value = page
       try {
-        const res = await axios.get('http://localhost:3000/todos')
+        const res = await axios.get(`http://localhost:3000/todos?_page=${page}&_limit=${limit}`)
         todoList.value = res.data
+        numberOfTodos.value = res.headers['x-total-count']
       } catch (err) {
         console.error(err)
         errorText.value = '에러 발생!'
@@ -39,11 +45,6 @@ export default {
         console.error(err)
         errorText.value = '에러 발생!'
       }
-    }
-
-    const doneStyle = {
-      textDecoration: 'line-through',
-      color: 'gray'
     }
 
     const toggleTodo = async (index) => {
@@ -90,13 +91,14 @@ export default {
     return {
       todoList,
       errorText,
-      doneStyle,
-      getTodos,
       addTodo,
       toggleTodo,
       deleteTodo,
       searchText,
-      filteredTodoList
+      filteredTodoList,
+      numberOfPages,
+      currentPage,
+      getTodos
     }
   },
   components: { TodoForm, TodoList }
@@ -115,6 +117,28 @@ export default {
     <div v-if="!filteredTodoList.length">해당하는 할 일이 없습니다.</div>
 
     <TodoList :todoList="filteredTodoList" @toggle-todo="toggleTodo" @delete-todo="deleteTodo" />
+
+    <hr />
+    <!-- TODO: 컴포넌트로 빼기 -->
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item" v-if="currentPage !== 1">
+          <a class="page-link" href="#" @click="getTodos(Number(currentPage) - 1)">이전</a>
+        </li>
+        <li
+          class="page-item"
+          :class="currentPage === page ? 'active' : ''"
+          v-for="page in numberOfPages"
+          :key="page"
+          @click="getTodos(page)"
+        >
+          <a class="page-link" href="#">{{ page }}</a>
+        </li>
+        <li class="page-item" v-if="currentPage !== numberOfPages">
+          <a class="page-link" href="#" @click="getTodos(Number(currentPage) + 1)">다음</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
