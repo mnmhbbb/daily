@@ -1,5 +1,5 @@
 <script>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import TodoForm from './components/TodoForm.vue'
 import TodoList from './components/TodoList.vue'
@@ -18,7 +18,9 @@ export default {
     const getTodos = async (page = currentPage.value) => {
       currentPage.value = page
       try {
-        const res = await axios.get(`http://localhost:3000/todos?_page=${page}&_limit=${limit}`)
+        const res = await axios.get(
+          `http://localhost:3000/todos?_sort=id&_order=desc&_page=${page}&subject_like=${searchText.value}&_limit=${limit}`
+        )
         todoList.value = res.data
         numberOfTodos.value = res.headers['x-total-count']
       } catch (err) {
@@ -36,11 +38,11 @@ export default {
       // 자식 컴포넌트에서 받아온 todo
       // 데이터베이스에 저장
       try {
-        const res = await axios.post('http://localhost:3000/todos', {
+        await axios.post('http://localhost:3000/todos', {
           subject: todo.subject,
           completed: todo.completed
         })
-        todoList.value.push(res.data)
+        getTodos(1)
       } catch (err) {
         console.error(err)
         errorText.value = '에러 발생!'
@@ -72,20 +74,16 @@ export default {
 
       try {
         await axios.delete(`http://localhost:3000/todos/${id}`)
-        todoList.value.splice(index, 1)
+        getTodos(1)
       } catch (err) {
         console.error(err)
         errorText.value = '에러 발생!'
       }
     }
 
-    const filteredTodoList = computed(() => {
-      if (searchText.value) {
-        return todoList.value.filter((item) => {
-          return item.subject.includes(searchText.value)
-        })
-      }
-      return todoList.value
+    watch(searchText, () => {
+      // 검색 결과를 1페이지부터 다시 나타내기 위함
+      getTodos(1)
     })
 
     return {
@@ -95,7 +93,6 @@ export default {
       toggleTodo,
       deleteTodo,
       searchText,
-      filteredTodoList,
       numberOfPages,
       currentPage,
       getTodos
@@ -114,9 +111,9 @@ export default {
     <TodoForm @add-todo="addTodo" />
     <span style="color: red">{{ errorText }}</span>
 
-    <div v-if="!filteredTodoList.length">해당하는 할 일이 없습니다.</div>
+    <div v-if="!todoList.length">해당하는 할 일이 없습니다.</div>
 
-    <TodoList :todoList="filteredTodoList" @toggle-todo="toggleTodo" @delete-todo="deleteTodo" />
+    <TodoList :todoList="todoList" @toggle-todo="toggleTodo" @delete-todo="deleteTodo" />
 
     <hr />
     <!-- TODO: 컴포넌트로 빼기 -->
