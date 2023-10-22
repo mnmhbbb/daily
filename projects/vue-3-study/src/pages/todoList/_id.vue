@@ -29,6 +29,7 @@
     <button type="submit" class="btn btn-primary" :disabled="!todoUpdated">저장</button>
     <button class="btn btn-outline-dark ml-2" @click="moveToTodoListPage">취소</button>
   </form>
+  <Toast v-if="showToast" :message="toastMessage" :type="toastAlertType" />
 </template>
 
 <script>
@@ -36,28 +37,39 @@ import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 import { ref, computed } from 'vue';
 import _ from 'lodash';
+import Toast from '@/components/Toast.vue';
 
 export default {
+  components: {
+    Toast,
+  },
   setup() {
     const route = useRoute();
     const router = useRouter();
     const todo = ref(null);
     const originalTodo = ref(null);
     const loading = ref(true);
+    const showToast = ref(false);
+    const toastMessage = ref('');
+    const toastAlertType = ref('');
     const todoId = route.params.id;
 
     const getTodo = async () => {
-      const res = await axios.get(`
-            http://localhost:3000/todos/${todoId}
-          `);
+      try {
+        const res = await axios.get(`
+              http://localhost:3000/todos/${todoId}
+            `);
 
-      todo.value = { ...res.data };
-      originalTodo.value = { ...res.data };
+        todo.value = { ...res.data };
+        originalTodo.value = { ...res.data };
 
-      loading.value = false;
+        loading.value = false;
+      } catch (error) {
+        console.log(error);
+        tiggerToast('다시 시도해 주세요.', 'danger');
+      }
     };
 
-    // 이전 값과 현재 입력 받은 값을 비교하여 업데이트 여부를 판단
     const todoUpdated = computed(() => {
       return !_.isEqual(todo.value, originalTodo.value);
     });
@@ -68,28 +80,40 @@ export default {
 
     const moveToTodoListPage = () => {
       router.push({
-        name: 'To do list',
+        name: 'Todos',
       });
     };
 
     getTodo();
 
-    const onSave = async () => {
-      const res = await axios.put(
-        `
-            http://localhost:3000/todos/${todoId}
-          `,
-        {
-          subject: todo.value.subject,
-          completed: todo.value.completed,
-        },
-      );
+    const tiggerToast = (message, type = 'success') => {
+      toastMessage.value = message;
+      toastAlertType.value = type;
+      showToast.value = true;
+      setTimeout(() => {
+        toastMessage.value = '';
+        toastAlertType.value = '';
+        showToast.value = false;
+      }, 3000);
+    };
 
+    const onSave = async () => {
       try {
+        const res = await axios.put(
+          `
+              http://localhost:3000/todos/${todoId}
+            `,
+          {
+            subject: todo.value.subject,
+            completed: todo.value.completed,
+          },
+        );
+
         originalTodo.value = { ...res.data };
-        alert('저장되었습니다.');
-      } catch (err) {
-        console.log(err);
+        tiggerToast('저장되었습니다.');
+      } catch (error) {
+        console.log(error);
+        tiggerToast('저장 실패', 'danger');
       }
     };
 
@@ -100,6 +124,9 @@ export default {
       moveToTodoListPage,
       onSave,
       todoUpdated,
+      showToast,
+      toastMessage,
+      toastAlertType,
     };
   },
 };
