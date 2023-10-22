@@ -81,9 +81,20 @@ export default {
       }
     };
 
-    watch(searchText, () => {
-      // 검색 결과를 1페이지부터 다시 나타내기 위함
+    let timeOut = null;
+
+    const searchTodo = () => {
+      clearTimeout(timeOut); // 우선 초기화
       getTodos(1);
+    };
+
+    watch(searchText, () => {
+      clearTimeout(timeOut); // 우선 초기화
+
+      timeOut = setTimeout(() => {
+        // 검색 결과를 1페이지부터 다시 나타내기 위함
+        getTodos(1);
+      }, 2000);
     });
 
     return {
@@ -96,6 +107,7 @@ export default {
       numberOfPages,
       currentPage,
       getTodos,
+      searchTodo,
     };
   },
   components: { TodoForm, TodoList },
@@ -106,7 +118,13 @@ export default {
   <div class="container">
     <h1>To Do List</h1>
 
-    <input type="text" v-model="searchText" placeholder="검색" class="form-control mb-2" />
+    <input
+      type="text"
+      @keyup.enter="searchTodo"
+      v-model="searchText"
+      placeholder="검색"
+      class="form-control mb-2"
+    />
 
     <TodoForm @add-todo="addTodo" />
     <span style="color: red">{{ errorText }}</span>
