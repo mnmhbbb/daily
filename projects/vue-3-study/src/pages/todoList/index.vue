@@ -49,7 +49,7 @@ export default {
       }
     };
 
-    const toggleTodo = async (index) => {
+    const toggleTodo = async (index, checked) => {
       errorText.value = '';
 
       // 자식 컴포넌트에서 받아온 index로 삭제할 아이템의 id 선언
@@ -57,9 +57,9 @@ export default {
 
       try {
         await axios.patch(`http://localhost:3000/todos/${id}`, {
-          completed: !todoList.value[index].completed,
+          completed: checked,
         });
-        todoList.value[index].completed = !todoList.value[index].completed;
+        todoList.value[index].completed = checked;
       } catch (err) {
         console.error(err);
         errorText.value = '에러 발생!';
