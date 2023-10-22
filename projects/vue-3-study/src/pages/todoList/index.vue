@@ -115,9 +115,7 @@ export default {
 </script>
 
 <template>
-  <router-view />
-
-  <div class="container">
+  <div>
     <h1>To Do List</h1>
 
     <input
