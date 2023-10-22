@@ -13,37 +13,37 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export default {
   emits: ['add-todo'],
   setup(props, { emit }) {
-    const todo = ref('')
-    const hasError = ref(false)
+    const todo = ref('');
+    const hasError = ref(false);
     const onSubmit = () => {
       if (todo.value === '') {
-        hasError.value = true
+        hasError.value = true;
       } else {
-        hasError.value = false
+        hasError.value = false;
 
         // 부모 컴포넌트에 전달
         emit('add-todo', {
           id: Date.now(),
           subject: todo.value,
-          completed: false
-        })
+          completed: false,
+        });
 
-        todo.value = ''
+        todo.value = '';
       }
-    }
+    };
 
     return {
       todo,
       hasError,
-      onSubmit
-    }
-  }
-}
+      onSubmit,
+    };
+  },
+};
 </script>
 
 <style></style>

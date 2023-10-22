@@ -1,90 +1,90 @@
 <script>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue';
 
-import TodoForm from './components/TodoForm.vue'
-import TodoList from './components/TodoList.vue'
-import axios from 'axios'
+import TodoForm from './components/TodoForm.vue';
+import TodoList from './components/TodoList.vue';
+import axios from 'axios';
 
 export default {
   setup() {
-    const todoList = ref([])
-    const searchText = ref('')
-    const errorText = ref('')
-    const numberOfTodos = ref(0)
-    const limit = 5
-    const currentPage = ref(1)
-    const numberOfPages = computed(() => Math.ceil(numberOfTodos.value / limit))
+    const todoList = ref([]);
+    const searchText = ref('');
+    const errorText = ref('');
+    const numberOfTodos = ref(0);
+    const limit = 5;
+    const currentPage = ref(1);
+    const numberOfPages = computed(() => Math.ceil(numberOfTodos.value / limit));
 
     const getTodos = async (page = currentPage.value) => {
-      currentPage.value = page
+      currentPage.value = page;
       try {
         const res = await axios.get(
-          `http://localhost:3000/todos?_sort=id&_order=desc&_page=${page}&subject_like=${searchText.value}&_limit=${limit}`
-        )
-        todoList.value = res.data
-        numberOfTodos.value = res.headers['x-total-count']
+          `http://localhost:3000/todos?_sort=id&_order=desc&_page=${page}&subject_like=${searchText.value}&_limit=${limit}`,
+        );
+        todoList.value = res.data;
+        numberOfTodos.value = res.headers['x-total-count'];
       } catch (err) {
-        console.error(err)
-        errorText.value = '에러 발생!'
+        console.error(err);
+        errorText.value = '에러 발생!';
       }
-    }
+    };
 
     // 데이터베이스에서 목록 불러오기
-    getTodos()
+    getTodos();
 
     const addTodo = async (todo) => {
-      errorText.value = ''
+      errorText.value = '';
 
       // 자식 컴포넌트에서 받아온 todo
       // 데이터베이스에 저장
       try {
         await axios.post('http://localhost:3000/todos', {
           subject: todo.subject,
-          completed: todo.completed
-        })
-        getTodos(1)
+          completed: todo.completed,
+        });
+        getTodos(1);
       } catch (err) {
-        console.error(err)
-        errorText.value = '에러 발생!'
+        console.error(err);
+        errorText.value = '에러 발생!';
       }
-    }
+    };
 
     const toggleTodo = async (index) => {
-      errorText.value = ''
+      errorText.value = '';
 
       // 자식 컴포넌트에서 받아온 index로 삭제할 아이템의 id 선언
-      const id = todoList.value[index].id
+      const id = todoList.value[index].id;
 
       try {
         await axios.patch(`http://localhost:3000/todos/${id}`, {
-          completed: !todoList.value[index].completed
-        })
-        todoList.value[index].completed = !todoList.value[index].completed
+          completed: !todoList.value[index].completed,
+        });
+        todoList.value[index].completed = !todoList.value[index].completed;
       } catch (err) {
-        console.error(err)
-        errorText.value = '에러 발생!'
+        console.error(err);
+        errorText.value = '에러 발생!';
       }
-    }
+    };
 
     const deleteTodo = async (index) => {
-      errorText.value = ''
+      errorText.value = '';
 
       // 자식 컴포넌트에서 받아온 index로 삭제할 아이템의 id 선언
-      const id = todoList.value[index].id
+      const id = todoList.value[index].id;
 
       try {
-        await axios.delete(`http://localhost:3000/todos/${id}`)
-        getTodos(1)
+        await axios.delete(`http://localhost:3000/todos/${id}`);
+        getTodos(1);
       } catch (err) {
-        console.error(err)
-        errorText.value = '에러 발생!'
+        console.error(err);
+        errorText.value = '에러 발생!';
       }
-    }
+    };
 
     watch(searchText, () => {
       // 검색 결과를 1페이지부터 다시 나타내기 위함
-      getTodos(1)
-    })
+      getTodos(1);
+    });
 
     return {
       todoList,
@@ -95,11 +95,11 @@ export default {
       searchText,
       numberOfPages,
       currentPage,
-      getTodos
-    }
+      getTodos,
+    };
   },
-  components: { TodoForm, TodoList }
-}
+  components: { TodoForm, TodoList },
+};
 </script>
 
 <template>

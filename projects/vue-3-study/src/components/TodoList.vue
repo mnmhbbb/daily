@@ -22,23 +22,23 @@ export default {
   props: {
     todoList: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ['toggle-todo', 'delete-todo'],
   setup(props, { emit }) {
     const toggleTodo = (index) => {
-      emit('toggle-todo', index)
-    }
+      emit('toggle-todo', index);
+    };
     const deleteTodo = (index) => {
-      emit('delete-todo', index)
-    }
+      emit('delete-todo', index);
+    };
     return {
       toggleTodo,
-      deleteTodo
-    }
-  }
-}
+      deleteTodo,
+    };
+  },
+};
 </script>
 
 <style></style>
