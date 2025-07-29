@@ -128,6 +128,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: Infinity,
+      suspense: true,
     },
   },
 });
@@ -140,6 +141,13 @@ function App() {
 ```
 
 - Query Client를 사용하여 캐시와 상호작용이 가능하며, `defaultOptions` 설정 시 모든 query와 mutation에 기본 옵션을 적용할 수 있다.(staleTime 등)
+  - 추가로, `suspense: true` 속성을 추가하면, 모든 useQuery가 로딩 상태일 때 <Suspense>의 fallback UI가 자동으로 표시된다.
+  - (위 속성을 추가하면, TanStack Query가 로딩 상태일 때, 즉 아직 데이터가 없을 때 Promise를 throw하기 때문에 리액트 Suspense가 이를 감지하여 fallback을 보여주는 것)
+  ```js
+  <Suspense fallback={<Loader />}>
+    <App />
+  </Suspense>
+  ```
 - 그 밖에도 다양한 메서드가 존재한다.(대표적으로 invalidateQueries)
 - Query Client Provider는 Query Client를 Application에 연결 및 제공해주는 역할
 - 위 코드와 같이 최상단에 감싸주고 Query Client 인스턴스를 client prop에 넣어주는 것이 기본 설정
@@ -156,6 +164,7 @@ function App() {
     Mutations는 Caching을 진행하지 않고 서버에 사이드 이펙트를 일으킴
   - 이러한 차이로 Queries는 GET, Mutations는 POST, PATCH, DELETE에 더 적합함
 - options
+
   ```jsx
   const result = useQuery({
     querykey: ["todos"],
@@ -165,6 +174,7 @@ function App() {
     // ... options
   });
   ```
+
   - queryKey(필수)
     - 쿼리를 고유하게 식별하기 위한 키로, 배열 형태로 지정
     - 단순한 문자열 배열일 수도 있고, 여러 개의 문자열이나 객체를 조합한 복합 구조로 구성할 수도 있음
@@ -210,6 +220,7 @@ function App() {
       - 1분이 지나면 stale 상태로 전환.
       - 이후 컴포넌트가 언마운트되면 inactive 상태.
       - 5분 뒤 GC에 의해 메모리에서 제거됨.
+
 - return
   - data: 쿼리 요청이 성공한 경우, 쿼리 함수가 리턴한 Promise에서 resolved된 데이터
   - error: 쿼리 함수에서 오류가 발생한 경우, 쿼리에 대한 오류 객체
