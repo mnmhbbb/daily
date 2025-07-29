@@ -117,8 +117,23 @@ React 18 버전부터는 Concurrent Mode( 동시성 )를 하나의 기능으로 
 CSR, SSR에 대한 이해
 
 <img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/944ee52a-8410-4b27-966a-b34d4ad54625/image.png?table=block&id=23e74c1b-f160-807f-94ba-f6dd1082bdeb&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=5_vaqV3YyaWJPMf5W2c2LW7Orue-PwkKVLEmW-R4PJw&downloadName=image.png" alt="CSR, SSR 이해" width="400" />
+<br />
+
+1. JS 파일 로드 후 실행이 시작됨
+2. 브라우저에서 API 요청 → 데이터 가져옴\*(Data Fetching)
+3. 받아온 데이터를 기반으로 컴포넌트를 렌더링
+4. 사용자에게 화면 표시
+   <br />
+   <br />
 
 <img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/e33bbf7c-6205-4d8c-beff-3209929ac061/image.png?table=block&id=23e74c1b-f160-8012-ae2f-ee3cf5d22e6f&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=GNbK52SDtdJrH_ZcWjP-7qVVz0ipVF-UldsejkVIt28&downloadName=image.png" alt="SSR 문제점" width="400" />
+<br />
+
+1. 서버에서 먼저 API 요청 → 데이터 가져옴 (Data Fetching)
+2. 서버에서 데이터와 함께 HTML을 생성
+3. 브라우저에 완성된 HTML을 전달
+4. 이후 JS를 로드하고 Hydrate(이벤트 연결)
+   <br />
 
 기존 SSR의 문제점:
 
@@ -130,9 +145,15 @@ CSR, SSR에 대한 이해
 
 18버전부터는 페이지의 각 부분을 Suspense를 묶어서 따로 처리할 수가 있게 된다.
 
+<img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/1470fe66-1d60-4576-a42d-d3ec9ce342e9/image.png?table=block&id=23e74c1b-f160-8031-a5fc-d94a84e7f115&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753833600000&signature=yx9nvx4Q2b-qpJwQtLBY35cIdVRfCIcGGVyNtAbBybE&downloadName=image.png" alt="Suspense" width="400" /><br />
+
+위와 같이 Suspense를 사용하면 Streaming SSR이 가능해진다.
+(HTML을 완성된 후 한꺼번에 보내지 않고, 부분적으로(스트리밍) 전송하는 SSR 방식)
+
 Comments 컴포넌트를 기다리지 않고 다른 부분부터 보여주고, 데이터 페칭이 끝나고 렌더링이 완료되면 그때 Comments 컴포넌트가 화면에 보이게 된다.
 
-Comments 컴포넌트에 대한 자바스크립트 코드를 로드하기 전에는 Hydration 할 수 없는데, 이는 lazy import를 하여 해소할 수 있게 된다.
+그러나, Comments 컴포넌트에 대한 자바스크립트 코드를 로드하기 전에는 Hydration 할 수 없는데, 이는 lazy import를 하여 해소할 수 있게 된다.
+(즉, React.lazy는 코드 스플리팅)
 
 ```jsx
 import { lazy } from "react";
@@ -145,6 +166,8 @@ const Comments = lazy(() => import("./Comments.js"));
   <Comments />
 </Suspense>;
 ```
+
+lazy 가 아닌 부분은 즉시 하이드레이션 하고, Comments 부분의 하이드레이션은 지연시킴
 
 ### 3. Automatic Batching
 
