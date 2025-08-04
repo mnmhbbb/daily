@@ -80,15 +80,15 @@ export default App;
 
 startTransition 내부 원리:
 
-<img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/0c389fe0-bdf1-402f-a58a-ad3583023c71/image.png?table=block&id=23d74c1b-f160-80fb-b3d0-c5547d47f7eb&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=DxQUmS4TD_bwNQ7ynzBlO_A6DOIwLWZH1uI_x5Xagsg&downloadName=image.png" alt="startTransition 내부 원리" width="500" />
+<img src="../images/react-18-19-1.png" alt="startTransition 내부 원리" width="500" />
 
-<img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/5c1efe21-f8f2-4cd9-8d36-98a58b7fae32/image.png?table=block&id=23d74c1b-f160-8004-a5b5-d892eb9a3870&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=P1yQlNKgZiFCJdkS_WGfCDJfAnLcLOUonpVNsLGb8x4&downloadName=image.png" alt="동시성 개념" width="400" />
+<img src="../images/react-18-19-2.png" alt="동시성 개념" width="400" />
 
 급한 작업에 우선순위를 줄 수 있게 되어 사용자 경험을 향상할 수 있게 됨.
 
 더 자세히는 동시성의 개념
 
-<img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/214011da-b228-4b92-a2ea-c65fdbe034bf/image.png?table=block&id=23d74c1b-f160-80bf-a903-f552c9f3c717&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=ole5mDBeWGdn_l_j-8L4dmNx7kWgZ_7IZj4roEPq97Y&downloadName=image.png" alt="동시성의 개념" width="400" />
+<img src="../images/react-18-19-3.png" alt="동시성의 개념" width="400" />
 
 React 18 버전부터는 Concurrent Mode( 동시성 )를 하나의 기능으로 지원한다고 함.
 
@@ -116,7 +116,7 @@ React 18 버전부터는 Concurrent Mode( 동시성 )를 하나의 기능으로 
 
 CSR, SSR에 대한 이해
 
-<img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/944ee52a-8410-4b27-966a-b34d4ad54625/image.png?table=block&id=23e74c1b-f160-807f-94ba-f6dd1082bdeb&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=5_vaqV3YyaWJPMf5W2c2LW7Orue-PwkKVLEmW-R4PJw&downloadName=image.png" alt="CSR, SSR 이해" width="400" />
+<img src="../images/react-18-19-4.png" alt="CSR, SSR 이해" width="400" />
 <br />
 
 1. JS 파일 로드 후 실행이 시작됨
@@ -126,7 +126,7 @@ CSR, SSR에 대한 이해
    <br />
    <br />
 
-<img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/e33bbf7c-6205-4d8c-beff-3209929ac061/image.png?table=block&id=23e74c1b-f160-8012-ae2f-ee3cf5d22e6f&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=GNbK52SDtdJrH_ZcWjP-7qVVz0ipVF-UldsejkVIt28&downloadName=image.png" alt="SSR 문제점" width="400" />
+<img src="../images/react-18-19-5.png" alt="SSR 문제점" width="400" />
 <br />
 
 1. 서버에서 먼저 API 요청 → 데이터 가져옴 (Data Fetching)
@@ -140,17 +140,19 @@ CSR, SSR에 대한 이해
 - 모든 data fetch가 끝나야 어떤 것이라도 보여줄 수 있다.
 - 모든 자바스크립트 코드를 로딩하기 전에는 Hydration 단계로 넘어갈 수 없다.
 - 앱이 상호 작용할 수 있는 상태가 되려면 앱 전체가 Hydration이 완료되어야 한다.<br/>
-  <img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/6e4330f2-f575-4499-b64d-6154227a0dab/image.png?table=block&id=23e74c1b-f160-80d4-a098-c2a8e9cb4c55&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753740000000&signature=jZggvlzsnipJG530k8wWn4E9uR4yBieDU2AzfuBV7xw&downloadName=image.png" alt="Hydration 과정" width="400" /> <br />
+  <img src="../images/react-18-19-6.png" alt="Hydration 과정" width="400" /> <br />
   위와 같이 각 단계를 거쳐야 Hydration이 완료된다.
 
 18버전부터는 페이지의 각 부분을 Suspense를 묶어서 따로 처리할 수가 있게 된다.
 
-<img src="https://file.notion.so/f/f/4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce/1470fe66-1d60-4576-a42d-d3ec9ce342e9/image.png?table=block&id=23e74c1b-f160-8031-a5fc-d94a84e7f115&spaceId=4575ce5a-73a4-4fb8-a5c4-9c20e6b81fce&expirationTimestamp=1753833600000&signature=yx9nvx4Q2b-qpJwQtLBY35cIdVRfCIcGGVyNtAbBybE&downloadName=image.png" alt="Suspense" width="400" /><br />
+<img src="../images/react-18-19-7.png" alt="Suspense" width="400" /><br />
 
 위와 같이 Suspense를 사용하면 Streaming SSR이 가능해진다.
 (HTML을 완성된 후 한꺼번에 보내지 않고, 부분적으로(스트리밍) 전송하는 SSR 방식)
 
 Comments 컴포넌트를 기다리지 않고 다른 부분부터 보여주고, 데이터 페칭이 끝나고 렌더링이 완료되면 그때 Comments 컴포넌트가 화면에 보이게 된다.
+
+<img src="../images/react-18-19-8.png" alt="Suspense" width="400" /><br />
 
 그러나, Comments 컴포넌트에 대한 자바스크립트 코드를 로드하기 전에는 Hydration 할 수 없는데, 이는 lazy import를 하여 해소할 수 있게 된다.
 (즉, React.lazy는 코드 스플리팅)
