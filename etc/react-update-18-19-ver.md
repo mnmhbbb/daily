@@ -5,7 +5,7 @@
 - https://velog.io/@woodong/React-18-%EC%A3%BC%EC%9A%94-%EB%B3%80%EA%B2%BD%EC%A0%90#2-concurrent-feature
 - https://youtu.be/focpJqfSu4k?si=9q2LKdsIbPrnc_Em
 
-### 1. [useTransition](https://ko.react.dev/reference/react/useTransition)
+### 1. [useTransition](https://ko.react.dev/reference/react/useTransition) & useDeferredValue
 
 - UI의 일부를 백그라운드에서 렌더링 할 수 있도록 해주는 React Hook
 
@@ -111,6 +111,14 @@ React 18 버전부터는 Concurrent Mode( 동시성 )를 하나의 기능으로 
 >     - React는 **suspense**기능을 지원하여 해당 페이지를 불러오기 전 로딩 기능을 지원하고 있습니다.
 >     - 하지만 기기 성능이 좋다보니 빠른 렌더링을 지원함에도 불구하고 의미없는 로딩을 보여주게 됩니다.
 >     - **Concurrent Mode**는 일정 시간동안 현재 페이지를 유지하면서 다음 페이지의 렌더링에 대한 작업을 동시에 진행하게 됩니다.
+
+#### (+) [useDeferredValue](https://ko.react.dev/reference/react/useDeferredValue)
+
+useDeferredValue는 useTransition과 동일하지만, 함수가 아닌 상태값의 우선순위를 낮추는 hook이다.
+
+```js
+const deferredValue = useDeferredValue(value);
+```
 
 ### 2. Suspense & SSR
 
