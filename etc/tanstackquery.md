@@ -178,6 +178,7 @@ function App() {
   - queryKey(필수)
     - 쿼리를 고유하게 식별하기 위한 키로, 배열 형태로 지정
     - 단순한 문자열 배열일 수도 있고, 여러 개의 문자열이나 객체를 조합한 복합 구조로 구성할 수도 있음
+    - 키 배열/객체의 구조나 순서가 다르면 별도의 캐시로 취급함
   - queryFn(필수)
     - Promise를 반환하는 함수
   - staleTime
@@ -220,6 +221,7 @@ function App() {
       - 1분이 지나면 stale 상태로 전환.
       - 이후 컴포넌트가 언마운트되면 inactive 상태.
       - 5분 뒤 GC에 의해 메모리에서 제거됨.
+  - 참고로, active(활성 상태)는 현재 화면에 쿼리 데이터가 필요해서 구독 중인 상태를 의미함
 
 - return
   - data: 쿼리 요청이 성공한 경우, 쿼리 함수가 리턴한 Promise에서 resolved된 데이터
@@ -281,6 +283,12 @@ const deleteCartItem = useMutation({
 ```
 
 - queryClient 메서드로 쿼리를 무효화(stale 상태로 만듦)하고 최신화(새로운 데이터를 fetch)
+- 정확히는, 해당 쿼리를 stale(오래됨) 상태로 표시하고, 다음에 해당 쿼리가 사용될 때(활성 상태일 때) 다시 fetch 하게 함.
 - invalidQueries에 옵션이 없는 경우, 캐시 안에 있는 모든 쿼리를 무효화함
 - 옵션에 querykey를 넣어주면 해당 쿼리키를 가진 모든 쿼리를 무효화
 - (mutation 성공 후, 갱신된 데이터를 가져올 때 유용함)
+- 유사한, `fetchQuery`가 있는데, 이는 즉시 queryKey 쿼리를 호출해서 가져오는 역할을 한다는 차이점이 있음
+
+```ts
+queryClient.fetchQuery({ queryKey: ["auth", "getMe"] });
+```
