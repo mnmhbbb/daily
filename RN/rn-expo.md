@@ -121,3 +121,26 @@
   keyExtractor={(item) => String(item.id)}
 />
 ```
+
+11. [Expo - SecureStore](https://docs.expo.dev/versions/latest/sdk/securestore/)
+
+- `npx expo install expo-secure-store`
+- 디바이스에 key-value 쌍을 암호화하여 저장하는 라이브러리라고 설명되어있음.
+- 굳이 비유를 하자면, 브라우저의 localStorage인데, 보안을 강화한 버전이라고 이해했다.
+- get, set, delete 메서드를 사용할 수 있다.
+- `SecureStore.setItemAsync(key, value);`
+- `SecureStore.getItemAsync(key);`
+- `SecureStore.deleteItemAsync(key);`
+
+12. localhost
+
+- API baseUrl을 연결하는 중에 알게 된 점
+- Android에서는 localhost가 아닌 10.0.2.2를 사용한다.
+- react-native에서 제공하는 `Platform`을 사용해서 현재 플랫폼에 따라 localhost와 10.0.2.2로 분기처리를 한다.
+- 시뮬레이터가 아닌 실제 기기에서 테스트하는 경우, expo 실행했을 때 터미널에 나오는 ip주소를 사용한다.
+- 다만 이는, 접속 중인 본인의 사설 ip가 바뀔 때마다 코드에 적용해야 한다.
+
+13. react-native-toast-message
+
+- RN 내 ‘ToastAndroid’를 이용하여 ToastMessage를 구현할 수 있지만, 이는 안드로이드 앱에서만 동작한다.
+- 따라서 위 라이브러리를 사용하여 토스트 메시지를 구현할 수 있다.
