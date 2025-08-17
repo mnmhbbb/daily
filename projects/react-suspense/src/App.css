@@ -1,0 +1,382 @@
+body {
+  justify-content: center;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.App-header {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.App-header p {
+  margin: 1rem 0 0 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.App-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 컨트롤 섹션 */
+.controls {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.controls h2 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.control-group {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.control-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.control-group input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 80px;
+}
+
+.control-group button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-group button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.control-group button.active {
+  background: #f44336;
+}
+
+/* 데모 섹션 */
+.demo-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.demo-section h2 {
+  margin-top: 0;
+  color: #fff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.demo-section.error-case {
+  border-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+/* 사용자 프로필 */
+.user-profile,
+.user-profile-error,
+.slow-data,
+.instant-data {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.user-profile h3,
+.user-profile-error h3,
+.slow-data h3,
+.instant-data h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.profile-info p,
+.data-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.data-info ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.data-info li {
+  margin: 0.25rem 0;
+}
+
+/* 로딩 스피너 */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* 에러 디스플레이 */
+.error-display {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.error-display h3 {
+  color: #ff6b6b;
+  margin-top: 0;
+}
+
+.error-message {
+  background: rgba(255, 107, 107, 0.2);
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-family: monospace;
+  word-break: break-word;
+}
+
+.retry-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #ff6b6b;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+/* 설명 섹션 */
+.explanation {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.explanation h2 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.case-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.case-item h3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.case-item p {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* 코드 스플리팅 정보 */
+.code-splitting-info {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.code-splitting-info h3 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.code-splitting-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.code-splitting-info li {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border-left: 3px solid #4caf50;
+}
+
+.code-splitting-info li strong {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+/* React.lazy 공통 특징 */
+.lazy-common-info {
+  background: rgba(33, 150, 243, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.lazy-common-info h3 {
+  color: #2196f3;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.lazy-common-info p {
+  margin: 0.5rem 0;
+  color: #fff;
+}
+
+.lazy-common-info ul {
+  text-align: left;
+  margin: 1rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.lazy-common-info li {
+  margin: 0.5rem 0;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* 테스트 방법 */
+.testing-tips {
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.testing-tips h3 {
+  color: #ffc107;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.testing-tips ul {
+  text-align: left;
+  margin: 1rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.testing-tips li {
+  margin: 0.5rem 0;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.testing-tips li strong {
+  color: #ffc107;
+  font-weight: 600;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  .App-main {
+    padding: 0 1rem;
+  }
+
+  .controls,
+  .demo-section,
+  .explanation {
+    padding: 1.5rem;
+  }
+
+  .case-list {
+    grid-template-columns: 1fr;
+  }
+
+  .control-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
