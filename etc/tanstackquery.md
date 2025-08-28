@@ -49,7 +49,7 @@ https://youtu.be/RfK15tw8H-I?si=KyE7BNpz-Wj2f0bJ
 - 서버 상태의 메모리 및 가비지 수집 관리
 - 구조 공유를 사용하여 쿼리 결과를 메모화
 
-→ 따라서 Tanstack Query를 강력한 비동기 혹은 서버 상태 관리 도구 부른다.
+→ 따라서 Tanstack Query를 강력한 비동기 혹은 서버 상태 관리 도구라고 부른다.
 
 **뿐만 아니라, 타 라이브러리 혹은 useState 훅으로 서버 상태 관리 시 복잡해질 수 있는 코드를 단 몇 줄로 줄일 수 있다.**
 
@@ -128,12 +128,9 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: Infinity,
-      suspense: true,
     },
   },
 });
-
-queryClient.invalidateQueries();
 
 function App() {
   return <QueryClientProvider client={queryClient}>...</QueryClientProvider>;
@@ -141,8 +138,7 @@ function App() {
 ```
 
 - Query Client를 사용하여 캐시와 상호작용이 가능하며, `defaultOptions` 설정 시 모든 query와 mutation에 기본 옵션을 적용할 수 있다.(staleTime 등)
-  - 추가로, `suspense: true` 속성을 추가하면, 모든 useQuery가 로딩 상태일 때 <Suspense>의 fallback UI가 자동으로 표시된다.
-  - (위 속성을 추가하면, TanStack Query가 로딩 상태일 때, 즉 아직 데이터가 없을 때 Promise를 throw하기 때문에 리액트 Suspense가 이를 감지하여 fallback을 보여주는 것)
+  - 추가로, v5부터는 서스펜스 전용 훅(`useSuspenseQuery`)을 제공하므로, `<Suspense>` 기능을 간편하게 사용할 수 있다.
   ```js
   <Suspense fallback={<Loader />}>
     <App />
@@ -167,7 +163,7 @@ function App() {
 
   ```jsx
   const result = useQuery({
-    querykey: ["todos"],
+    queryKey: ["todos"],
     queryFn: fetchTodoList,
     staleTime: 1 * 60 * 1000, // 1분
     gcTime: 5 * 60 * 1000, // 5분
@@ -238,7 +234,7 @@ function App() {
 - POST, PATCH, DELETE 요청 등 서버에 사이드 이펙트를 일으키는 경우에 사용함
 - options:
   ```jsx
-  const mutation = useMutations({
+  const mutation = useMutation({
     mutationFn: createToto,
     onMutate() {
       // ...
@@ -284,9 +280,10 @@ const deleteCartItem = useMutation({
 
 - queryClient 메서드로 쿼리를 무효화(stale 상태로 만듦)하고 최신화(새로운 데이터를 fetch)
 - 정확히는, 해당 쿼리를 stale(오래됨) 상태로 표시하고, 다음에 해당 쿼리가 사용될 때(활성 상태일 때) 다시 fetch 하게 함.
-- invalidQueries에 옵션이 없는 경우, 캐시 안에 있는 모든 쿼리를 무효화함
-- 옵션에 querykey를 넣어주면 해당 쿼리키를 가진 모든 쿼리를 무효화
+- invalidateQueries에 옵션이 없는 경우, 캐시 안에 있는 모든 쿼리를 무효화함
+- 옵션에 queryKey를 넣어주면 해당 쿼리키를 가진 모든 쿼리를 무효화
 - (mutation 성공 후, 갱신된 데이터를 가져올 때 유용함)
+- queryKey를 생략하면 전체 쿼리를 대상으로 무효화를 함
 - 유사한, `fetchQuery`가 있는데, 이는 즉시 queryKey 쿼리를 호출해서 가져오는 역할을 한다는 차이점이 있음
 
 ```ts
