@@ -1,4 +1,4 @@
-# React Native Expo Study
+# React Native(Expo) Study
 
 0. 기본 내용
 
@@ -21,7 +21,7 @@
    - Xcode 설치 후 실행
    - `command + ,` 설정 들어가서 ios 설치
    - Locations 탭 - Command Line Tools 최신 버전 적용
-   - watchman 설치
+   - watchman 설치(RN 프로젝트에서는 파일이 변경될 때마다 Watchman이 변경사항을 감지하고 해당 파일만 다시 빌드함)
    - `npx expo start`로 프로젝트 실행, i 눌러서 시뮬레이터 실행
    - (만약 switch to expo mode가 보이는 상태라면 s를 먼저 눌러서 expo 모드로 만들고 i 누르기)
    - 시뮬레이터 실행된 상태에서 터미널에서 y 입력해서 Expo Go 앱이 설치되고, 시뮬레이터에 자동으로 실행됨
@@ -144,3 +144,7 @@
 
 - RN 내 ‘ToastAndroid’를 이용하여 ToastMessage를 구현할 수 있지만, 이는 안드로이드 앱에서만 동작한다.
 - 따라서 위 라이브러리를 사용하여 토스트 메시지를 구현할 수 있다.
+
+14. react-native-keyboard-aware-scroll-view
+
+- 키보드가 인풋창을 가릴 경우 사용함
