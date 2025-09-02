@@ -76,6 +76,22 @@
           ),
        ```
      - `headerBackButtonDisplayMode: "minimal"`를 넘기면 헤더 텍스트를 지우고 이전 페이지로 이동하는 아이콘만 남길 수 있다.
+     - Stack 내 options 안에 넣는 것이 아니라, 각 페이지 내에서 `useNavigation()`을 가져와서 상단 헤더를 설정할 수도 있다.
+       ```
+         const navigation = useNavigation();
+         useEffect(() => {
+           navigation.setOptions({
+             headerRight: () => (
+               <CustomButton
+                 label="저장"
+                 size="medium"
+                 variant="standard"
+                 onPress={postForm.handleSubmit(onSubmit)}
+               />
+             ),
+           });
+         }, []);
+       ```
    - `useFocusEffect`: 화면이 포커스됐을 때 동작을 적용할 수 있는 훅
 7. 아이콘 적용하기(expo-vector-icons)
    - https://icons.expo.fyi/Index
@@ -112,6 +128,10 @@
 - 이것과 유사한 [SectionList](https://reactnative.dev/docs/sectionlist)가 있는데, 이는 리스트를 그룹화할 때 사용한다.
 - 리스트 데이터와, 렌더링할 각 아이템, 그리고 react key처럼 문자열 key를 넘겨준다.
 - 컨테이너 스타일은 [contentContainerStyle](https://reactnative.dev/docs/scrollview#contentcontainerstyle) prop으로 넘긴다.
+- onEndReached: 리스트 끝에 도달했을 때 핸들러
+- onEndReachedThreshold: 리스트의 특정 시점부터 핸들러를 트리거할 수 있음
+- onRefresh: 리스트 새로고침 핸들러
+- refreshing: 리프레시 상태
 
 ```
 <FlatList
