@@ -170,9 +170,9 @@
 
 14. 키보드가 인풋창을 가릴 경우
 
-- 'react-native-keyboard-aware-scroll-view'
+- 'react-native-keyboard-aware-scroll-view'의 `KeyboardAwareScrollView`
   - 그러나 이는 ios에서만 해결되고 안드로이드에서는 해소되지 않아서, react-native에서 제공하는 `KeyboardAvoidingView`를 사용한다.
-  - `keyboardVerticalOffset` 높이를 적용하면 키보드를 열었을 때 인풋창을 가리지 않게 된다.
+  - 그리고 `keyboardVerticalOffset` 높이를 적용하면 키보드를 열었을 때 인풋창을 가리지 않게 된다.
 - 또는 'react-native-keyboard-controller'를 사용하면 ios, aos 모두 대응할 수 있다고 한다.
   - 다만, Expo Go에서는 동작하지 않고, deployment Build 환경에서만 동작한다고 한다.
 
