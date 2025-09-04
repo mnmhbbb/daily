@@ -35,6 +35,7 @@
 5. RN 기초 - 컴포넌트
    - RN 공식문서 참조 https://reactnative.dev/docs/components-and-apis
    - View는 웹에서 div와 유사한 역할을 하지만, 하위에 바로 텍스트를 적용할 순 없다. Text 컴포넌트를 사용해야 한다.
+   - ScrollView는 View와 유사하지만, 내용이 화면보다 클 때 세로 스크롤이 가능하다.
    - **TextInput**
      - focus 됐을 때 iOS의 경우 키보드를 띄우려면 `command + k`
      - `autoCapitalize="none"`: 첫 글자 자동 대문자 되는 것 해제
@@ -55,6 +56,8 @@
    - Pressable: 버튼이 아니라, 클릭해야 하는 영역을 사용할 때, 더 디테일한 동작을 제어할 수 있다. 마찬가지로 하위에 바로 텍스트를 적용할 수 없다.
    - 웹과 달리 RN에서는 display: flex를 사용하지 않아도 된다.
    - RN에서는 기본적으로 flex direction이 가로가 아니라 세로로 표시됨. 세로로 표시하려면 flexDirection: row를 추가
+   - SafeAreaView는 ios 노치 영역에 컨텐츠가 침범하지 않도록 하는데, 최근 안드로이드 ui에 존재하는 상하단 노치에는 대응하지 못한다고 함.
+     - 그래서 'react-native'가 아닌 'react-native-safe-area-context'에서 제공하는 SafeAreaView를 사용함
 6. Navigation 구조 설정(Expo Router)
    - Next.js 라우터 방식처럼 각 폴더가 경로가 되고, 파일명도 경로가 된다.
    - 폴더명이 괄호라면 경로를 무시함(Next.js 앱 라우터 방식과 동일)
@@ -165,6 +168,16 @@
 - RN 내 ‘ToastAndroid’를 이용하여 ToastMessage를 구현할 수 있지만, 이는 안드로이드 앱에서만 동작한다.
 - 따라서 위 라이브러리를 사용하여 토스트 메시지를 구현할 수 있다.
 
-14. react-native-keyboard-aware-scroll-view
+14. 키보드가 인풋창을 가릴 경우
 
-- 키보드가 인풋창을 가릴 경우 사용함
+- 'react-native-keyboard-aware-scroll-view'
+  - 그러나 이는 ios에서만 해결되고 안드로이드에서는 해소되지 않아서, react-native에서 제공하는 `KeyboardAvoidingView`를 사용한다.
+  - `keyboardVerticalOffset` 높이를 적용하면 키보드를 열었을 때 인풋창을 가리지 않게 된다.
+- 또는 'react-native-keyboard-controller'를 사용하면 ios, aos 모두 대응할 수 있다고 한다.
+  - 다만, Expo Go에서는 동작하지 않고, deployment Build 환경에서만 동작한다고 한다.
+
+15. @expo/react-native-action-sheet
+    - 화면 하단에 슬라이드처럼 올라오는 메뉴 형태의 컴포넌트로, expo에서 사용되는 패키지이다.
+    - 루트 \_layout.tsx에 `<ActionSheetProvider>`로 전체를 감싸주고, 필요한 위치에서 `useActionSheet()`로 사용할 수 있다.
+    - `options`에 띄울 버튼 리스트를 넘기면 되고,
+    - `destructiveButtonIndex`과 `cancelButtonIndex`에 각각 삭제와 수정하는 option 인덱스를 넘기면 액션 시트 내의 스타일에도 적용된다.
