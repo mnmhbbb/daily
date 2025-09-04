@@ -177,7 +177,17 @@
   - 다만, Expo Go에서는 동작하지 않고, deployment Build 환경에서만 동작한다고 한다.
 
 15. @expo/react-native-action-sheet
+
     - 화면 하단에 슬라이드처럼 올라오는 메뉴 형태의 컴포넌트로, expo에서 사용되는 패키지이다.
     - 루트 \_layout.tsx에 `<ActionSheetProvider>`로 전체를 감싸주고, 필요한 위치에서 `useActionSheet()`로 사용할 수 있다.
     - `options`에 띄울 버튼 리스트를 넘기면 되고,
     - `destructiveButtonIndex`과 `cancelButtonIndex`에 각각 삭제와 수정하는 option 인덱스를 넘기면 액션 시트 내의 스타일에도 적용된다.
+
+16. React Query Dev Tool 적용하기
+
+- RN expo에 대한 내용은 아니지만, RN Expo에서 react-query-devtools 적용하는 방법을 추가로 남김
+- `npx expo install @dev-plugins/react-query`
+- 루트 \_layout.tsx에 useReactQueryDevTools(queryClient);를 추가하고,
+- 터미널에서 서버 재실행 후 Shift + m 입력하면 나오는 tool 목록 중
+- Open @dev-plugins/react-query 선택하면 웹 브라우저에 react-query 상태를 확인할 수 있다.
+- 시뮬레이터는 기존과 동일하게 켜기
