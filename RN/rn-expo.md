@@ -120,6 +120,7 @@
    - `borderTopWidth: StyleSheet.hairlineWidth,` 스타일을 주면 상단에만 보더를 넣을 수 있다. bottom도 마찬가지
    - ios 하단 노치 영역에 스타일이 겹치는 문제:
      - "react-native-safe-area-context"에서 제공하는 `useSafeAreaInsets()` 사용하기
+     - 이는 안전 영역의 여백값을 제공한다.
      - `const inset = useSafeAreaInsets();`라고 한다면,
      - `<View style={[styles.fixed, { paddingBottom: inset.bottom || 12 }]}>`
      - 안드로이드의 경우 inset.bottom이 0일 것이기 때문에 기본값 12를 적용한 예시이다.
