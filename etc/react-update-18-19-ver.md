@@ -181,7 +181,26 @@ lazy 가 아닌 부분은 즉시 하이드레이션 하고, Comments 부분의 �
 
 ### 3. Automatic Batching
 
-여러 state 업데이트를 하나의 rerender가 발생하도록 그룹화
+여러 state 업데이트에 대해 하나의 rerender가 발생하도록 그룹화하는 기능이 모든 곳으로 확장됨.
+
+- 기존에는 React 이벤트 핸들러 내부만 기본 배치가 적용돼서, setTimeout이나 Promise 내부에서는 개별 렌더링됐음.
+- 18버전부터는 비동기 흐름(Timeout, Promise 등)까지 자동 배치 적용됨
+
+```js
+// Promise 내부
+fetch("/api").then(() => {
+  setCount((c) => c + 1);
+  setFlag((f) => !f);
+  // 리렌더링 1회로 배치됨
+});
+
+// setTimeout 내부
+setTimeout(() => {
+  setCount((c) => c + 1);
+  setFlag((f) => !f);
+  // 리렌더링 1회로 배치됨
+}, 1000);
+```
 
 +) 배칭 처리를 원하지 않을 경우 `import { flushSync } from "react-dom";` 을 가져와서 사용하면 각각 렌더링 시킬 수 있다.
 
@@ -355,7 +374,7 @@ function LikeButton() {
 `const { pending, data, method, action } = useFormStatus();`
 
 - form 전송 pending 상태를 받아서 버튼을 비활성화 시킬 수 있음.
-- 주의할 점은, 반드시 하위 컴포넌트에서 사용해야 하고, useFormStatus를 사용하는 상위 컴포넌트해서 form 전송을 해야 한다.
+- 주의할 점은, 반드시 하위 컴포넌트에서 사용해야 하고, useFormStatus를 사용하는 상위 컴포넌트에서 form 전송을 해야 한다.
 
 ```jsx
 import { useFormStatus } from "react-dom";
