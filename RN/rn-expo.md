@@ -24,13 +24,30 @@
    - watchman 설치(RN 프로젝트에서는 파일이 변경될 때마다 Watchman이 변경사항을 감지하고 해당 파일만 다시 빌드함)
    - `npx expo start`로 프로젝트 실행, i 눌러서 시뮬레이터 실행
    - (만약 switch to expo mode가 보이는 상태라면 s를 먼저 눌러서 expo 모드로 만들고 i 누르기)
+     - Using Expo Go가 보여야 함
+     - Expo 개발 환경에는 2가지 모드가 있는데, Expo Go와 Development Build이다.
+     - Expo Go는 개발 환경에서 변경된 사항만 빠르게 반영할 수 있어서 편리하다.
+     - 만약 네이티브 단을 건드려야 하는 기능(카메라, 푸시 알림 등)부터는 Expo Go만으로 할 수 없기 때문에 Development Build 모드로 전환해야 한다고 한다.
+     - \*이 부분은 추후 필요할 때 다시 정리 예정
+     - [참조 링크](https://var-log.tistory.com/343)
    - 시뮬레이터 실행된 상태에서 터미널에서 y 입력해서 Expo Go 앱이 설치되고, 시뮬레이터에 자동으로 실행됨
      <img src="./rn-expo-1.png" alt='시뮬레이터에서 프로젝트 최초 실행 시' width="300" />
 3. Mac에서 Android 에뮬레이터 환경설정
    - 참조: https://docs.expo.dev/get-started/set-up-your-environment/?platform=android&device=simulated
-   - 우선 스킵
+   - Android Studio 설치 - SDK setup - SDK Manager - Android 14.0 (API Level 34) 설치
+   - `code ~/.zshrc`명령어로 설정에
+     ```
+     export ANDROID_HOME=$HOME/Library/Android/sdk
+     export PATH=$PATH:$ANDROID_HOME/emulator
+     export PATH=$PATH:$ANDROID_HOME/platform-tools
+     ```
+     추가하고 터미널 재실행: `source ~/.zshrc`
+   - Android Studio - Virtual Device Manager에 가서 사용할 가상 기기를 다운로드 받아야 함
+   - (Pixel 3a, API Level 34버전 선택 후 다운로드)
+   - Device Manager에서 방금 생성한 가상 기기 옆의 재생 아이콘 클릭해서 에뮬레이터 실행
+   - 이제 프로젝트 코드에서 `npx expo start`로 프로젝트 실행, a 눌러서 에뮬레이터 실행
 4. 실제 Android, iOS 기기에서 실행하기
-   - 앱스토어에서 Expo Go 설치
+   - 앱스토어/플레이스토어에서 Expo Go 설치
    - `npx expo start` 했을 때 나오는 QR코드 기기에서 읽으면, 이제 실제 기기에서 프로젝트를 실행해볼 수 있다.
 5. RN 기초 - 컴포넌트
    - RN 공식문서 참조 https://reactnative.dev/docs/components-and-apis
