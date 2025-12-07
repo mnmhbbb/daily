@@ -51,8 +51,8 @@
    - `npx expo start` 했을 때 나오는 QR코드 기기에서 읽으면, 이제 실제 기기에서 프로젝트를 실행해볼 수 있다.
 5. RN 기초 - 컴포넌트
    - RN 공식문서 참조 https://reactnative.dev/docs/components-and-apis
-   - View는 웹에서 div와 유사한 역할을 하지만, 하위에 바로 텍스트를 적용할 순 없다. Text 컴포넌트를 사용해야 한다.
-   - ScrollView는 View와 유사하지만, 내용이 화면보다 클 때 세로 스크롤이 가능하다.
+   - **View**는 웹에서 div와 유사한 역할을 하지만, 하위에 바로 텍스트를 적용할 순 없다. Text 컴포넌트를 사용해야 한다.
+   - **ScrollView**는 View와 유사하지만, 내용이 화면보다 클 때 세로 스크롤이 가능하다.
    - **TextInput**
      - focus 됐을 때 iOS의 경우 키보드를 띄우려면 `command + k`
      - `autoCapitalize="none"`: 첫 글자 자동 대문자 되는 것 해제
@@ -69,24 +69,24 @@
        - 이 경우도 ref를 연결해야 함
      - `autoFocus`: 자동으로 포커스
    - Button 사용 시, title로 버튼명을 적용할 수 있다.
-   - RN에서는 onClick이 아니라 onPress로 클릭 핸들러를 연결할 수 있다.
-   - Pressable: 버튼이 아니라, 클릭해야 하는 영역을 사용할 때, 더 디테일한 동작을 제어할 수 있다. 마찬가지로 하위에 바로 텍스트를 적용할 수 없다.
+   - RN에서는 onClick이 아니라 **onPress**로 클릭 핸들러를 연결할 수 있다.
+   - **Pressable**: 버튼이 아니라, 클릭해야 하는 영역을 사용할 때, 더 디테일한 동작을 제어할 수 있다. 마찬가지로 하위에 바로 텍스트를 적용할 수 없다.
    - 웹과 달리 RN에서는 display: flex를 사용하지 않아도 된다.
    - RN에서는 기본적으로 flex direction이 가로가 아니라 세로로 표시됨. 세로로 표시하려면 flexDirection: row를 추가
-   - SafeAreaView는 ios 노치 영역에 컨텐츠가 침범하지 않도록 하는데, 최근 안드로이드 ui에 존재하는 상하단 노치에는 대응하지 못한다고 함.
-     - 그래서 'react-native'가 아닌 'react-native-safe-area-context'에서 제공하는 SafeAreaView를 사용함
+   - **SafeAreaView**는 ios 노치 영역에 컨텐츠가 침범하지 않도록 하는데, 최근 안드로이드 ui에 존재하는 상하단 노치에는 대응하지 못한다고 함.
+     - 그래서 'react-native'가 아닌 **'react-native-safe-area-context'**에서 제공하는 SafeAreaView를 사용함
 6. Navigation 구조 설정(Expo Router)
    - Next.js 라우터 방식처럼 각 폴더가 경로가 되고, 파일명도 경로가 된다.
    - 폴더명이 괄호라면 경로를 무시함(Next.js 앱 라우터 방식과 동일)
-   - 각 폴더 하위엔 `_layout.tsx` 레이아웃 파일이 있을 수 있다.
-   - 이름 그대로 각 경로의 레이아웃 역할을 한다.
+   - 각 폴더 하위엔 `_layout.tsx` 레이아웃 파일을 만들어서 네비게이션 구조를 설정할 수 있다.
+   - 실제 화면에 보이는 것은 아니고, 어떤 네비게이션 구조로 페이지가 전환될지 설정하는 역할
    - 레이아웃 파일에서는 expo-router에서 제공하는 [Tabs](https://docs.expo.dev/router/advanced/tabs/), [Stack](https://docs.expo.dev/router/advanced/stack/) 등을 사용할 수 있다.
-   - Tabs: 화면 하단에 탭 바가 있고, 탭 버튼을 눌러서 페이지 전환
-   - Stack: 화면이 쌓이고(pop/push) 이동하는 구조(다음 화면으로 전환할 때 자연스러운 애니메이션 제공함)
+   - **Tabs**: 화면 하단에 탭 바가 있고, 탭 버튼을 눌러서 페이지 전환
+   - **Stack**: 화면이 쌓이고(pop/push) 이동하는 구조(다음 화면으로 전환할 때 자연스러운 애니메이션 제공함)
    - Tab이 아닌 화면에서는 기본적으로 Stack을 사용함
    - `screenOptions={{ headerShown: false }}`는 네비게이터(Stack, Tabs, Drawer 등)에서 기본으로 제공되는 상단 헤더(타이틀 바)를 숨기는 옵션
-   - `<Link>` 태그에 replace를 넘기면 히스토리 스택을 쌓지 않고 대체되는 방식
-   - options:
+   - `<Link>` 태그에 replace를 넘기면 히스토리 스택을 쌓지 않고 대체되는 방식(웹과 동일)
+   - **options 종류**:
      - `headerLeft`에 렌더링할 UI 엘리먼트를 리턴하는 콜백함수를 넘길 수 있다.
        ```
          headerLeft: () => (
@@ -96,7 +96,7 @@
           ),
        ```
      - `headerBackButtonDisplayMode: "minimal"`를 넘기면 헤더 텍스트를 지우고 이전 페이지로 이동하는 아이콘만 남길 수 있다.
-     - Stack 내 options 안에 넣는 것이 아니라, 각 페이지 내에서 `useNavigation()`을 가져와서 상단 헤더를 설정할 수도 있다.
+     - Stack 내 options 안에 넣는 방식이 아니라, 각 페이지 내에서 `useNavigation()`을 가져와서 상단 헤더를 설정할 수도 있다.
        ```
          const navigation = useNavigation();
          useEffect(() => {
